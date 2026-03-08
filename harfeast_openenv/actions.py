@@ -381,7 +381,7 @@ def handle_data_group_by(
             else:  # max
                 v = max(vals) if vals else 0
             result_rows.append({column: key, f"{agg}({target_column})": round(v, 2) if isinstance(v, float) else v})
-        table = _format_table([column, f"{agg}({target_column})"], result_rows, max_rows=1000)
+        table = _format_table([column, f"{agg}({target_column})"], result_rows)
         return ActionResult(observation=table)
     except Exception as e:
         return ActionResult(

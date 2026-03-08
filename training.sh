@@ -1,8 +1,9 @@
 #!/bin/bash
 #SBATCH --nodes=1
+#SBATCH --ntasks=1
 #SBATCH --time=4:00:00
 #SBATCH --job-name=harfeast_grpo
-#SBATCH --mem=64G
+#SBATCH --mem=32G
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:h200:1
 #SBATCH --output=logs/harfeast_%j.out
@@ -21,6 +22,8 @@ PROJECT_DIR=/scratch/patel.pranav2/OpenEnv/harfeast_apex_openenv_hackathon
 cd "$PROJECT_DIR"
 mkdir -p logs checkpoints
 export PYTHONPATH="$PROJECT_DIR:$PYTHONPATH"
+export USE_TF=0
+export TF_CPP_MIN_LOG_LEVEL=3
 
 echo "=== GPU Info ==="
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader

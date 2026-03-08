@@ -81,22 +81,42 @@ def reward_format(completions, **kwargs):
 
 def reward_completeness(completions, **kwargs):
     """
-    Signal 3: Numeric completeness (0.0 - 1.0).
-    Measures how many distinct numeric values appear in the answer relative
-    to the number of rubric criteria. Rewards specificity: an answer with
-    concrete numbers for every criterion scores higher.
+    Signal 3: Ground-truth value coverage (0.0 - 1.0).
+    Checks how many expected answer values (extracted from rubric criteria)
+    actually appear in the completion. Rewards having the *right* numbers,
+    not just any numbers.
     """
     texts = _extract_text(completions)
+    gt_strs = kwargs.get("ground_truth", [])
     rubric_strs = kwargs.get("rubric", [])
     rewards = []
     for i, text in enumerate(texts):
-        answer = _extract_answer(text)
+        answer = _extract_answer(text).lower()
+        gt_values = []
         try:
-            rubric = json.loads(rubric_strs[i]) if i < len(rubric_strs) else []
+            gt_values = json.loads(gt_strs[i]) if i < len(gt_strs) else []
         except (json.JSONDecodeError, TypeError):
-            rubric = []
-        n_criteria = max(len(rubric), 1)
-        numbers = set(re.findall(r"\b\d[\d,.]*\d\b|\b\d+\b", answer))
-        ratio = min(len(numbers) / n_criteria, 1.0)
-        rewards.append(round(ratio, 3))
+            pass
+        if not gt_values:
+            try:
+                rubric = json.loads(rubric_strs[i]) if i < len(rubric_strs) else []
+            except (json.JSONDecodeError, TypeError):
+                rubric = []
+            for criterion in rubric:
+                m = re.search(r"\s+is\s+(.+)$", criterion)
+                if m:
+                    gt_values.append(m.group(1).strip().strip('"'))
+
+        if not gt_values:
+            rewards.append(0.0)
+            continue
+        hits = 0
+        for val in gt_values:
+            val_clean = val.lower().replace(",", "")
+            val_no_symbol = val_clean.lstrip("$").rstrip("%").strip()
+            if (val.lower() in answer or
+                    val_clean in answer.replace(",", "") or
+                    val_no_symbol in answer.replace(",", "")):
+                hits += 1
+        rewards.append(round(hits / len(gt_values), 3))
     return rewards

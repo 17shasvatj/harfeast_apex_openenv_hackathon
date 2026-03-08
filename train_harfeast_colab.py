@@ -5,7 +5,7 @@ GDPO-style multi-signal rewards (correctness, format, completeness).
 Copy cells into Colab or run as: python train_harfeast_colab.py
 
 Setup (Colab cell 1):
-  !pip install -q trl datasets accelerate transformers vllm
+  !pip install -q trl datasets accelerate transformers
   !git clone https://github.com/17shasvatj/harfeast_apex_openenv_hackathon.git
   %cd harfeast_apex_openenv_hackathon
 """
@@ -18,10 +18,12 @@ Setup (Colab cell 1):
 # Each signal is normalized independently by TRL's GRPOTrainer.
 
 # %%  Cell 1: Setup & Imports
+import csv
 import json
 import os
 import re
 import sys
+import time
 
 if os.path.isdir("harfeast_apex_openenv_hackathon"):
     os.chdir("harfeast_apex_openenv_hackathon")
@@ -29,37 +31,106 @@ sys.path.insert(0, os.getcwd())
 
 from datasets import Dataset
 
-# %% Cell 2: Load tasks and build dataset
+# %% Cell 2: Data loading helpers
+
+MAX_CSV_ROWS = 30
+MAX_DOC_CHARS = 1500
+
+def load_world_data_summary(world_path):
+    """Read CSVs and documents into a compact text summary for prompts."""
+    sections = []
+    data_dir = os.path.join(world_path, "data")
+    if os.path.isdir(data_dir):
+        for fname in sorted(os.listdir(data_dir)):
+            if not fname.endswith(".csv"):
+                continue
+            fpath = os.path.join(data_dir, fname)
+            try:
+                with open(fpath, "r", encoding="utf-8") as f:
+                    rows = list(csv.reader(f))
+                if not rows:
+                    continue
+                header, data_rows = rows[0], rows[1:]
+                lines = [f"## {fname} ({len(data_rows)} rows)", " | ".join(header)]
+                for r in data_rows[:MAX_CSV_ROWS]:
+                    lines.append(" | ".join(r))
+                if len(data_rows) > MAX_CSV_ROWS:
+                    lines.append(f"[...{len(data_rows) - MAX_CSV_ROWS} more rows]")
+                sections.append("\n".join(lines))
+            except Exception:
+                continue
+    doc_dir = os.path.join(world_path, "documents")
+    if os.path.isdir(doc_dir):
+        for fname in sorted(os.listdir(doc_dir)):
+            if not fname.endswith(".txt"):
+                continue
+            try:
+                with open(os.path.join(doc_dir, fname), "r", encoding="utf-8") as f:
+                    content = f.read()
+                if len(content) > MAX_DOC_CHARS:
+                    content = content[:MAX_DOC_CHARS] + "..."
+                sections.append(f"## {fname}\n{content}")
+            except Exception:
+                continue
+    return "\n\n".join(sections)
+
+
+# %% Cell 3: Load tasks and build dataset
 
 def load_tasks():
     for p in ["harfeast_world/tasks.json",
               "harfeast_apex_openenv_hackathon/harfeast_world/tasks.json"]:
         if os.path.isfile(p):
+            world_path = os.path.dirname(os.path.abspath(p))
             with open(p) as f:
-                return json.load(f)
+                tasks = json.load(f)
+            for t in tasks:
+                t["world_path"] = world_path
+            return tasks
     raise FileNotFoundError("tasks.json not found. Run the world generator first.")
 
 tasks = load_tasks()
 print(f"Loaded {len(tasks)} tasks")
 
+_data_cache = {}
+def get_data_summary(world_path):
+    if world_path not in _data_cache:
+        _data_cache[world_path] = load_world_data_summary(world_path)
+    return _data_cache[world_path]
+
 SYSTEM = (
-    "You are a management consultant analyzing HarFeast data. "
-    "Given a task, provide your final answer with specific numbers. "
-    "Format: Answer: <your analysis with numbers>"
+    "You are a management consultant analyzing HarFeast food manufacturing data.\n"
+    "Below is the company data, followed by a task. Analyze the data and provide "
+    "your final answer with specific numbers.\n"
+    "Format: Answer: <your analysis with specific numbers>"
 )
 
 import random
 rng = random.Random(42)
-N_SAMPLES = 32
+N_SAMPLES = 64
 indices = [rng.randint(0, len(tasks) - 1) for _ in range(N_SAMPLES)]
 
-dataset = Dataset.from_dict({
-    "prompt": [f"{SYSTEM}\n\nTask:\n{tasks[i]['prompt']}\n\nAnswer:" for i in indices],
-    "rubric": [json.dumps(tasks[i].get("rubric", [])) for i in indices],
-})
-print(f"Dataset: {len(dataset)} samples")
+prompts, rubrics, ground_truths = [], [], []
+for i in indices:
+    t = tasks[i]
+    data_summary = get_data_summary(t["world_path"])
+    prompts.append(f"{SYSTEM}\n\n# Company Data\n{data_summary}\n\n# Task\n{t['prompt']}\n\nAnswer:")
+    rubrics.append(json.dumps(t.get("rubric", [])))
+    gt = []
+    for c in t.get("rubric", []):
+        m = re.search(r"\s+is\s+(.+)$", c)
+        if m:
+            gt.append(m.group(1).strip().strip('"'))
+    ground_truths.append(json.dumps(gt))
 
-# %% Cell 3: Rubric scoring helpers (inlined for Colab portability)
+dataset = Dataset.from_dict({
+    "prompt": prompts,
+    "rubric": rubrics,
+    "ground_truth": ground_truths,
+})
+print(f"Dataset: {len(dataset)} samples, prompt length sample: {len(dataset[0]['prompt'])} chars")
+
+# %% Cell 4: Rubric scoring helpers (inlined for Colab portability)
 
 def _extract_expected_value(criterion):
     m = re.search(r"\s+is\s+(.+)$", criterion)
@@ -111,7 +182,7 @@ def score_answer(answer, rubric):
     passed_count = sum(1 for _, p in results if p)
     return round((passed_count / len(rubric)) * 100.0, 1), results
 
-# %% Cell 4: Define 3 GDPO reward functions
+# %% Cell 5: Define 3 GDPO reward functions
 
 def _get_text(completions):
     texts = []
@@ -162,24 +233,39 @@ def reward_format(completions, **kwargs):
     return rewards
 
 def reward_completeness(completions, **kwargs):
-    """Signal 3: Numeric density relative to rubric criteria count (0.0-1.0)."""
+    """Signal 3: Ground-truth value coverage (0.0-1.0)."""
     texts = _get_text(completions)
+    gt_strs = kwargs.get("ground_truth", [])
     rubric_strs = kwargs.get("rubric", [])
     rewards = []
     for i, text in enumerate(texts):
-        answer = _get_answer(text)
+        answer = _get_answer(text).lower()
+        gt_values = []
         try:
-            rubric = json.loads(rubric_strs[i]) if i < len(rubric_strs) else []
+            gt_values = json.loads(gt_strs[i]) if i < len(gt_strs) else []
         except (json.JSONDecodeError, TypeError):
-            rubric = []
-        n_criteria = max(len(rubric), 1)
-        numbers = set(re.findall(r"\b\d[\d,.]*\d\b|\b\d+\b", answer))
-        rewards.append(min(len(numbers) / n_criteria, 1.0))
+            pass
+        if not gt_values:
+            try:
+                rubric = json.loads(rubric_strs[i]) if i < len(rubric_strs) else []
+            except (json.JSONDecodeError, TypeError):
+                rubric = []
+            for c in rubric:
+                m = re.search(r"\s+is\s+(.+)$", c)
+                if m:
+                    gt_values.append(m.group(1).strip().strip('"'))
+        if not gt_values:
+            rewards.append(0.0)
+            continue
+        hits = sum(1 for v in gt_values
+                   if v.lower() in answer or
+                   v.lower().replace(",", "") in answer.replace(",", ""))
+        rewards.append(round(hits / len(gt_values), 3))
     return rewards
 
 print("Reward functions defined: correctness, format, completeness")
 
-# %% Cell 5: Before-training eval
+# %% Cell 6: Before-training eval
 
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -201,9 +287,10 @@ def run_eval(model_path, label="Eval"):
 
     total_passed, total_criteria = 0, 0
     print(f"\n--- {label}: {model_path} ---")
-    for t in unique[:7]:
-        prompt = f"{SYSTEM}\n\nTask:\n{t['prompt']}\n\nAnswer:"
-        inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=2048).to(model.device)
+    for t in unique:
+        data_summary = get_data_summary(t["world_path"])
+        prompt = f"{SYSTEM}\n\n# Company Data\n{data_summary}\n\n# Task\n{t['prompt']}\n\nAnswer:"
+        inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=4096).to(model.device)
         with torch.no_grad():
             out = model.generate(
                 **inputs, max_new_tokens=512, temperature=0.7,
@@ -226,9 +313,21 @@ def run_eval(model_path, label="Eval"):
 
 before_score = run_eval(MODEL_NAME, "BEFORE training")
 
-# %% Cell 6: Train with GRPO + 3 reward signals
+# %% Cell 7: Train with GRPO + 3 reward signals
 
 from trl import GRPOConfig, GRPOTrainer
+from transformers import TrainerCallback
+
+class LoggingCallback(TrainerCallback):
+    def __init__(self):
+        self._start = time.time()
+    def on_log(self, args, state, control, logs=None, **kwargs):
+        if not logs:
+            return
+        elapsed = time.time() - self._start
+        step, total = state.global_step, state.max_steps
+        rw = "".join(f"  {k}={logs[k]:.4f}" for k in sorted(logs) if "reward" in k.lower() or "loss" in k.lower())
+        print(f"[Step {step}/{total} ({step/total*100:.0f}%) | {elapsed:.0f}s]{rw}", flush=True)
 
 trainer = GRPOTrainer(
     model=MODEL_NAME,
@@ -236,24 +335,24 @@ trainer = GRPOTrainer(
     train_dataset=dataset,
     args=GRPOConfig(
         output_dir="./harfeast_checkpoints",
-        use_vllm=True,
-        vllm_mode="colocate",
         num_train_epochs=1,
         num_generations=4,
         max_completion_length=512,
+        max_prompt_length=4096,
         per_device_train_batch_size=2,
         gradient_accumulation_steps=4,
         logging_steps=1,
         save_steps=50,
         bf16=True,
     ),
+    callbacks=[LoggingCallback()],
 )
 
 print("\nTraining with 3 GDPO reward signals...")
 trainer.train()
 trainer.save_model("./harfeast_checkpoints")
 
-# %% Cell 7: After-training eval + comparison
+# %% Cell 8: After-training eval + comparison
 
 after_score = run_eval("./harfeast_checkpoints", "AFTER training")
 
