@@ -10,7 +10,11 @@ from statistics import median as stat_median
 
 from .schemas import ActionResult
 
+from .schemas import ActionResult
 
+# ── Observation size limits ──────────────────────────────────────
+MAX_TABLE_ROWS = 20
+MAX_DOCUMENT_CHARS = 2000
 def handle_files_list(world_path: str, path: str = ".") -> ActionResult:
     """
     List files and directories at the given path.
@@ -91,6 +95,11 @@ def handle_files_read(world_path: str, path: str) -> ActionResult:
     try:
         with open(full_path, "r", encoding="utf-8") as f:
             content = f.read()
+        if len(content) > MAX_DOCUMENT_CHARS:
+            total = len(content)
+            content = content[:MAX_DOCUMENT_CHARS] + (
+                f"\n\n[Truncated — showing first {MAX_DOCUMENT_CHARS} of {total} characters.]"
+            )
         return ActionResult(observation=content)
     except Exception as e:
         return ActionResult(
@@ -135,15 +144,17 @@ def _get_table(world_path: str, dataset: str, filtered_datasets: dict) -> tuple[
     return _load_csv_rows(path)
 
 
-def _format_table(columns: list[str], rows: list[dict], max_rows: int = 500) -> str:
-    """Format as text table."""
+def _format_table(columns: list[str], rows: list[dict], max_rows: int | None = None) -> str:
+    """Format as text table. Defaults to MAX_TABLE_ROWS."""
+    if max_rows is None:
+        max_rows = MAX_TABLE_ROWS
     if not rows:
         return " | ".join(columns) + "\n(0 rows)"
     lines = [" | ".join(columns)]
     for r in rows[:max_rows]:
         lines.append(" | ".join(str(r.get(c, "")) for c in columns))
     if len(rows) > max_rows:
-        lines.append(f"\n(Showing first {max_rows} of {len(rows)} rows)")
+        lines.append(f"\n[Showing {max_rows} of {len(rows)} rows. Use data.filter to narrow results.]")
     return "\n".join(lines)
 
 
