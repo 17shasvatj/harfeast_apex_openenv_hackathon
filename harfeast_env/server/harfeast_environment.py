@@ -7,12 +7,8 @@ import json
 import os
 from uuid import uuid4
 
-try:
-    from openenv.core.env_server.interfaces import Environment
-    from openenv.core.env_server.types import State
-except ImportError:
-    from openenv.core.env_server.interfaces import Environment
-    from openenv.core.env_server.types import State
+from openenv.core.env_server.interfaces import Environment
+from openenv.core.env_server.types import State
 
 # Import our core logic - use path relative to project root
 import sys

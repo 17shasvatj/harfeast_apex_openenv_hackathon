@@ -127,6 +127,15 @@ class HarFeastOpenEnv:
         Execute one action and return the result.
         Action format: {"action": "files.list", "path": "."} or JSON string.
         """
+        if self._task is None:
+            return StepResult(
+                observation="No task loaded. Call reset() before step().",
+                prompt="",
+                step_count=0,
+                done=True,
+                reward=0.0,
+                info={"action_taken": "none", "last_error": "reset() not called"},
+            )
         if self._done:
             return StepResult(
                 observation="Episode already ended. Call reset() to start a new episode.",
@@ -286,7 +295,7 @@ class HarFeastOpenEnv:
 
     def _build_context_summary(self) -> str:
         """Compact summary of the episode so far, prepended to every observation."""
-        if not self._history:
+        if not self._history or not self._task:
             return ""
 
         lines = [f"=== Task: {self._task['task_name']} ==="]

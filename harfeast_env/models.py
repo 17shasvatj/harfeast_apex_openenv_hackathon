@@ -5,10 +5,7 @@ Actions are JSON-serialized calls: {"action": "files.list", "path": "."}
 
 from pydantic import Field
 
-try:
-    from openenv.core.env_server.types import Action, Observation
-except ImportError:
-    from openenv.core.env_server.types import Action, Observation
+from openenv.core.env_server.types import Action, Observation
 
 
 class HarFeastAction(Action):
@@ -45,4 +42,16 @@ class HarFeastObservation(Observation):
     datasets_available: str = Field(
         default="[]",
         description="JSON list of filtered dataset names available for chaining",
+    )
+    done: bool = Field(
+        default=False,
+        description="Whether the episode has ended",
+    )
+    reward: float = Field(
+        default=0.0,
+        description="Rubric score (0-100) when done, else 0",
+    )
+    metadata: dict = Field(
+        default_factory=dict,
+        description="Extra info (action_taken, last_error, task_id)",
     )

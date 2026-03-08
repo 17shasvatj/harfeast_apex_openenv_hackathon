@@ -5,16 +5,10 @@ Connects to HarFeast OpenEnv server via WebSocket/HTTP.
 
 from typing import Any, Dict
 
-try:
-    from openenv.core.client_types import StepResult
-    from openenv.core.env_server.types import State
-    from openenv.core.env_client import EnvClient
-    from harfeast_env.models import HarFeastAction, HarFeastObservation
-except ImportError:
-    from openenv.core.client_types import StepResult
-    from openenv.core.env_server.types import State
-    from openenv.core.env_client import EnvClient
-    from models import HarFeastAction, HarFeastObservation
+from openenv.core.client_types import StepResult
+from openenv.core.env_server.types import State
+from openenv.core.env_client import EnvClient
+from harfeast_env.models import HarFeastAction, HarFeastObservation
 
 
 class HarFeastEnv(EnvClient[HarFeastAction, HarFeastObservation, State]):

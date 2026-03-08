@@ -1,6 +1,15 @@
-# No external dependencies for harfeast_openenv - uses stdlib only
+# ── Core environment (server + client) ──
+openenv-core>=0.2.1
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic>=2.0
 
-# For OpenEnv deployment and training:
-# openenv-core>=0.2.1
-# trl  # For GRPO training
-# datasets  # For Dataset
+# ── Training (GRPO with TRL) ──
+trl>=0.16.0
+datasets>=3.0
+accelerate>=1.0
+transformers>=4.46
+torch>=2.4
+vllm>=0.7.0
+
+# ── harfeast_openenv: stdlib only (no extra deps) ──

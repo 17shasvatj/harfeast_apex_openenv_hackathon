@@ -3,6 +3,7 @@
 import ast
 import csv
 import json
+import operator
 import os
 import re
 from collections import defaultdict
@@ -13,6 +14,30 @@ from .schemas import ActionResult
 
 # ── Observation size limits ──────────────────────────────────────
 MAX_TABLE_ROWS = 20
+
+# ── Safe arithmetic evaluator (replaces eval) ────────────────────
+_SAFE_BINOPS = {
+    ast.Add: operator.add, ast.Sub: operator.sub,
+    ast.Mult: operator.mul, ast.Div: operator.truediv,
+}
+
+def _safe_eval_expr(node, namespace=None):
+    """Evaluate an AST node containing only arithmetic on numbers (and optionally named vars)."""
+    if isinstance(node, ast.Expression):
+        return _safe_eval_expr(node.body, namespace)
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    if isinstance(node, ast.BinOp) and type(node.op) in _SAFE_BINOPS:
+        left = _safe_eval_expr(node.left, namespace)
+        right = _safe_eval_expr(node.right, namespace)
+        return _SAFE_BINOPS[type(node.op)](left, right)
+    if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.USub):
+        return -_safe_eval_expr(node.operand, namespace)
+    if isinstance(node, ast.Name) and namespace is not None:
+        if node.id in namespace:
+            return namespace[node.id]
+        raise ValueError(f"Unknown variable: {node.id}")
+    raise ValueError(f"Unsupported expression element: {ast.dump(node)}")
 MAX_DOCUMENT_CHARS = 2000
 def handle_files_list(world_path: str, path: str = ".") -> ActionResult:
     """
@@ -412,7 +437,7 @@ def handle_data_add_columns(
                 v = _try_float(row.get(c, ""))
                 ns[c] = v if isinstance(v, (int, float)) else 0
             try:
-                row[new_column] = round(eval(expression, {"__builtins__": {}}, ns), 2)
+                row[new_column] = round(_safe_eval_expr(tree, namespace=ns), 2)
             except Exception:
                 row[new_column] = 0
             new_rows.append(row)
@@ -442,7 +467,8 @@ def handle_data_compute(expression: str) -> ActionResult:
             error="Invalid expression",
         )
     try:
-        result = eval(expr)
+        tree = ast.parse(expr, mode="eval")
+        result = _safe_eval_expr(tree)
         if isinstance(result, float) and not result.is_integer():
             return ActionResult(observation=str(round(result, 2)))
         return ActionResult(observation=str(result))

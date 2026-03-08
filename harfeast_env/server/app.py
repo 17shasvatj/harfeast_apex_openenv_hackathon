@@ -11,14 +11,9 @@ _project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 if _project_root not in sys.path:
     sys.path.insert(0, _project_root)
 
-try:
-    from openenv.core.env_server.http_server import create_app
-    from harfeast_env.models import HarFeastAction, HarFeastObservation
-    from harfeast_env.server.harfeast_environment import HarFeastEnvironment
-except ImportError:
-    from openenv.core.env_server.http_server import create_app
-    from models import HarFeastAction, HarFeastObservation
-    from server.harfeast_environment import HarFeastEnvironment
+from openenv.core.env_server.http_server import create_app
+from harfeast_env.models import HarFeastAction, HarFeastObservation
+from harfeast_env.server.harfeast_environment import HarFeastEnvironment
 
 # World path - use env var or default to project harfeast_world
 WORLD_PATH = os.environ.get("HARFEAST_WORLD_PATH") or os.path.join(_project_root, "harfeast_world")

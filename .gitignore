@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+checkpoints/
+logs/
+harfeast_worlds/
+hf_space_staging/
+.idea/
+*.egg-info/
+dist/
+build/
+.DS_Store

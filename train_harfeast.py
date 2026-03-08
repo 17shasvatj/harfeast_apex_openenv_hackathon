@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
-Minimal HarFeast + TRL training script for OpenEnv hackathon.
-Trains a model to produce answers that score well on HarFeast rubric.
+HarFeast GRPO training with GDPO-style multi-signal rewards.
 
-Usage (after deploying HarFeast to HF Space):
-  python train_harfeast.py --env-url https://YOUR-USERNAME-harfeast-env.hf.space
+Uses 3 independent reward functions (correctness, format, completeness)
+scored in-process against deterministic rubrics. No env server needed.
 
-Or with local server:
-  python -m uvicorn harfeast_env.server.app:app --host 0.0.0.0 --port 8001 &
-  python train_harfeast.py --env-url http://localhost:8001
+Usage:
+  python train_harfeast.py --model unsloth/Qwen3-4B
+  python train_harfeast.py --model unsloth/Qwen3-4B --worlds-base ./harfeast_worlds --samples 128
 """
 
 import argparse
@@ -16,161 +15,198 @@ import json
 import os
 import sys
 
-# Add project root
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
-def get_harfeast_prompts(tasks_path: str, n: int = 32) -> list[dict]:
-    """Load task prompts for training (single world)."""
+def load_tasks(worlds_base=None, single_world=None):
+    """Load task list from augmented dataset or single world."""
+    if worlds_base:
+        path = os.path.join(worlds_base, "all_tasks.json")
+        if not os.path.isfile(path):
+            print(f"all_tasks.json not found in {worlds_base}.")
+            print(f"Run: python harfeast_synthetic_world_generator.py --batch 40 --output-dir {worlds_base}")
+            sys.exit(1)
+        with open(path) as f:
+            all_tasks = json.load(f)
+        tasks = []
+        for entry in all_tasks:
+            wp = entry["world_path"]
+            if not os.path.isabs(wp):
+                wp = os.path.join(worlds_base, os.path.basename(wp.rstrip("/")))
+            tasks_path = os.path.join(os.path.abspath(wp), "tasks.json")
+            with open(tasks_path) as f:
+                world_tasks = json.load(f)
+            task = next(t for t in world_tasks if t["task_id"] == entry["task_id"])
+            tasks.append(task)
+        return tasks
+
+    world = single_world or os.path.join(os.path.dirname(__file__), "harfeast_world")
+    tasks_path = os.path.join(world, "tasks.json")
+    if not os.path.isfile(tasks_path):
+        print("Run harfeast_synthetic_world_generator.py first.")
+        sys.exit(1)
     with open(tasks_path) as f:
-        tasks = json.load(f)
-    samples = []
-    for i in range(n):
-        t = tasks[i % len(tasks)]
-        samples.append({
-            "prompt": t["prompt"],
-            "task_id": t["task_id"],
-            "task_index": None,  # single world - env uses task_id
-        })
-    return samples
+        return json.load(f)
 
 
-def get_harfeast_prompts_from_all_tasks(all_tasks_path: str, n: int = 32, seed: int = 42) -> list[dict]:
-    """Load task prompts from augmented dataset (all_tasks.json)."""
-    with open(all_tasks_path) as f:
-        all_tasks = json.load(f)
-    rng = __import__("random").Random(seed)
-    indices = [rng.randint(0, len(all_tasks) - 1) for _ in range(n)] if len(all_tasks) > 1 else [0] * n
-    samples = []
-    for i in indices:
-        t = all_tasks[i]
-        samples.append({
-            "prompt": t["prompt"],
-            "task_id": t["task_id"],
-            "task_index": i,
-        })
-    return samples
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--env-url", default="http://localhost:8000",
-                        help="HarFeast env URL (HF Space or local)")
-    parser.add_argument("--worlds-base", default=None,
-                        help="Path to augmented dataset (harfeast_worlds). Uses all_tasks.json for 200+ task variations.")
-    parser.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
-    parser.add_argument("--epochs", type=int, default=1)
-    parser.add_argument("--samples", type=int, default=16)
-    args = parser.parse_args()
-
-    # Lazy imports for faster --help
+def build_dataset(tasks, n_samples, seed=42):
+    """Build HF Dataset with prompt + rubric columns for GRPO training."""
     from datasets import Dataset
-    from harfeast_env import HarFeastEnv, HarFeastAction
+    import random
 
-    # Load prompts (augmented dataset or single world)
-    if args.worlds_base:
-        all_tasks_path = os.path.join(args.worlds_base, "all_tasks.json")
-        if not os.path.isfile(all_tasks_path):
-            print(f"all_tasks.json not found in {args.worlds_base}. Run: python harfeast_synthetic_world_generator.py --batch 40 --output-dir {args.worlds_base}")
-            sys.exit(1)
-        samples = get_harfeast_prompts_from_all_tasks(all_tasks_path, args.samples)
-    else:
-        tasks_path = os.path.join(os.path.dirname(__file__), "harfeast_world", "tasks.json")
-        if not os.path.isfile(tasks_path):
-            print("Run harfeast_synthetic_world_generator.py first.")
-            sys.exit(1)
-        samples = get_harfeast_prompts(tasks_path, args.samples)
-
-    # Build dataset - prompt instructs model to analyze and submit answer
+    rng = random.Random(seed)
     system = (
         "You are a management consultant analyzing HarFeast data. "
         "Given a task, provide your final answer with specific numbers. "
         "Format: Answer: <your analysis with numbers>"
     )
-    prompts = [
-        f"{system}\n\nTask:\n{s['prompt']}\n\nAnswer:"
-        for s in samples
-    ]
-    # Map prompt -> task_index for rollout (augmented dataset only)
-    prompt_to_task_index = {
-        prompts[i]: samples[i].get("task_index")
-        for i in range(len(samples))
-    }
-    dataset = Dataset.from_dict({"prompt": prompts})
 
-    # Connect to env
-    client = HarFeastEnv(base_url=args.env_url)
+    indices = [rng.randint(0, len(tasks) - 1) for _ in range(n_samples)]
+    prompts, rubrics = [], []
+    for i in indices:
+        t = tasks[i]
+        prompts.append(f"{system}\n\nTask:\n{t['prompt']}\n\nAnswer:")
+        rubrics.append(json.dumps(t.get("rubric", [])))
 
-    def rollout_func(prompts_list, trainer):
-        try:
-            from trl.experimental.openenv import generate_rollout_completions
-        except ImportError:
-            raise ImportError("Install trl: pip install trl")
+    return Dataset.from_dict({"prompt": prompts, "rubric": rubrics})
 
-        outputs = generate_rollout_completions(trainer, prompts_list)
-        tokenizer = trainer.processing_class
-        completions = [
-            tokenizer.decode(o["completion_ids"], skip_special_tokens=True).strip()
-            for o in outputs
-        ]
 
-        env_rewards = []
-        for i, comp in enumerate(completions):
-            answer = comp
-            if "Answer:" in comp:
-                answer = comp.split("Answer:")[-1].strip()
-            if not answer:
-                answer = comp[:500]
+def quick_eval(model_name_or_path, tasks, tokenizer=None, label="eval"):
+    """Run a quick eval: generate for each unique task, score with rubric."""
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    import torch
 
-            try:
-                # Use task_index for augmented dataset (prompt lookup)
-                reset_kw = {"seed": i}
-                if i < len(prompts_list):
-                    ti = prompt_to_task_index.get(prompts_list[i])
-                    if ti is not None:
-                        reset_kw["task_index"] = ti
-                client.reset(**reset_kw)
-                action = HarFeastAction(action_json=json.dumps({"action": "submit", "answer": answer}))
-                result = client.step(action)
-                env_rewards.append(float(result.reward or 0))
-            except Exception as e:
-                print(f"Env error: {e}")
-                env_rewards.append(0.0)
+    print(f"\n{'='*60}")
+    print(f"  {label}: {model_name_or_path}")
+    print(f"{'='*60}")
 
-        return {
-            "prompt_ids": [o["prompt_ids"] for o in outputs],
-            "completion_ids": [o["completion_ids"] for o in outputs],
-            "logprobs": [o["logprobs"] for o in outputs],
-            "env_reward": env_rewards,
-        }
+    if tokenizer is None:
+        tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name_or_path, torch_dtype=torch.bfloat16, device_map="auto", trust_remote_code=True,
+    )
+    model.eval()
 
-    def reward_func(completions, **kwargs):
-        r = kwargs.get("env_reward", [])
-        return [float(x) for x in r] if r else [0.0] * len(completions)
+    from harfeast_openenv.rubric import score_answer
 
-    try:
-        from trl import GRPOConfig, GRPOTrainer
-    except ImportError:
-        print("Install trl: pip install trl")
-        sys.exit(1)
+    seen_ids = set()
+    unique_tasks = []
+    for t in tasks:
+        if t["task_id"] not in seen_ids:
+            seen_ids.add(t["task_id"])
+            unique_tasks.append(t)
+
+    system = (
+        "You are a management consultant analyzing HarFeast data. "
+        "Given a task, provide your final answer with specific numbers. "
+        "Format: Answer: <your analysis with numbers>"
+    )
+
+    total_passed, total_criteria = 0, 0
+    results = []
+
+    for t in unique_tasks:
+        prompt = f"{system}\n\nTask:\n{t['prompt']}\n\nAnswer:"
+        inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=2048).to(model.device)
+        with torch.no_grad():
+            output = model.generate(
+                **inputs, max_new_tokens=512, temperature=0.7,
+                do_sample=True, top_p=0.9, pad_token_id=tokenizer.eos_token_id,
+            )
+        completion = tokenizer.decode(output[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+        answer = completion.split("Answer:")[-1].strip() if "Answer:" in completion else completion.strip()
+
+        rubric = t.get("rubric", [])
+        score, criteria_results = score_answer(answer, rubric)
+        passed = sum(1 for _, p in criteria_results if p)
+        total = len(criteria_results)
+        total_passed += passed
+        total_criteria += total
+        results.append((t["task_id"], t["task_name"], passed, total, score))
+
+    print(f"\n{'Task':<10} {'Name':<40} {'Passed':>8} {'Score':>8}")
+    print("-" * 70)
+    for tid, name, passed, total, score in results:
+        print(f"{tid:<10} {name[:38]:<40} {passed}/{total:>3}    {score:>5.1f}%")
+
+    overall = (total_passed / total_criteria * 100) if total_criteria > 0 else 0
+    print("-" * 70)
+    print(f"{'OVERALL':<10} {'':<40} {total_passed}/{total_criteria:>3}    {overall:>5.1f}%")
+
+    del model
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    return overall
+
+
+def main():
+    parser = argparse.ArgumentParser(description="HarFeast GRPO Training")
+    parser.add_argument("--model", default="unsloth/Qwen3-4B")
+    parser.add_argument("--worlds-base", default=None,
+                        help="Augmented dataset dir (harfeast_worlds)")
+    parser.add_argument("--epochs", type=int, default=1)
+    parser.add_argument("--samples", type=int, default=64)
+    parser.add_argument("--eval-before", action="store_true", default=True,
+                        help="Run eval on base model before training")
+    parser.add_argument("--output-dir", default="./checkpoints")
+    args = parser.parse_args()
+
+    tasks = load_tasks(worlds_base=args.worlds_base)
+    print(f"Loaded {len(tasks)} tasks")
+
+    dataset = build_dataset(tasks, args.samples)
+    print(f"Training dataset: {len(dataset)} samples")
+
+    # Before-training eval
+    before_score = None
+    if args.eval_before:
+        before_score = quick_eval(args.model, tasks, label="BEFORE training")
+
+    # Import reward functions and trainer
+    from harfeast_openenv.rewards import reward_correctness, reward_format, reward_completeness
+    from trl import GRPOConfig, GRPOTrainer
+
+    config = GRPOConfig(
+        output_dir=args.output_dir,
+        use_vllm=True,
+        vllm_mode="colocate",
+        num_train_epochs=args.epochs,
+        num_generations=4,
+        max_completion_length=512,
+        per_device_train_batch_size=2,
+        gradient_accumulation_steps=4,
+        logging_steps=1,
+        save_steps=50,
+        bf16=True,
+    )
 
     trainer = GRPOTrainer(
         model=args.model,
-        reward_funcs=reward_func,
+        reward_funcs=[reward_correctness, reward_format, reward_completeness],
         train_dataset=dataset,
-        rollout_func=rollout_func,
-        args=GRPOConfig(
-            use_vllm=True,
-            vllm_mode="colocate",
-            num_train_epochs=args.epochs,
-            num_generations=4,
-            max_completion_length=512,
-            per_device_train_batch_size=4,
-        ),
+        args=config,
     )
+
+    print("\nStarting GRPO training with 3 reward signals (correctness, format, completeness)...")
     trainer.train()
-    client.close()
-    print("Training complete.")
+    trainer.save_model(args.output_dir)
+    print(f"\nModel saved to {args.output_dir}")
+
+    # After-training eval
+    after_score = quick_eval(args.output_dir, tasks, label="AFTER training")
+
+    # Summary
+    print(f"\n{'='*60}")
+    print(f"  TRAINING SUMMARY")
+    print(f"{'='*60}")
+    if before_score is not None:
+        print(f"  Before: {before_score:.1f}%")
+    print(f"  After:  {after_score:.1f}%")
+    if before_score is not None:
+        delta = after_score - before_score
+        print(f"  Delta:  {'+' if delta >= 0 else ''}{delta:.1f}%")
+    print(f"{'='*60}")
 
 
 if __name__ == "__main__":
