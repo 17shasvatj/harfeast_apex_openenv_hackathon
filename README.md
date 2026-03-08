@@ -145,6 +145,40 @@ The model learns: *"reading the schema, filtering on the right columns, and aggr
 
 ---
 
+## Results
+
+Training on NVIDIA H200 (143 GB VRAM) with Qwen3-4B, 10 epochs, K=16 parallel trajectories per task.
+
+### Reward Curve
+
+The model improves from a 3.3% baseline to ~44% rubric score over 140 training steps (10 epochs × 14 tasks), with consistent upward trajectory and decreasing variance.
+
+![Reward Curve](plots/reward_curve.png)
+
+### Before vs After: Per-Task Breakdown
+
+Every task shows improvement. Overall rubric score: **3.3% → 52.2%** (+48.9 percentage points). Tasks requiring multi-step data exploration (Downtime Reduction, Digital Adoption) show the largest gains — the agent learned to chain the right tool sequences.
+
+![Before vs After](plots/before_after.png)
+
+### GDPO Decomposed Reward Signals
+
+The decomposition reveals a clear learning hierarchy: the agent first masters **format compliance** (valid JSON tool calls), then **evidence gathering** (reading relevant data), and finally **rubric correctness** (producing accurate answers). This validates the GDPO approach — each signal provides useful gradient even when others plateau.
+
+![Reward Decomposition](plots/reward_decomposition.png)
+
+### Emergent Tool Usage Patterns
+
+The heatmap shows how tool usage evolves across training. Early epochs are dominated by `files.list` (blind exploration). By epoch 5-6, the agent shifts to `data.filter` and `data.group_by` — it has learned that analytical tools produce the information needed for correct submissions. `data.compute` and `data.add_columns` emerge last, indicating the agent progressively discovers more sophisticated analytical strategies.
+
+![Tool Usage Heatmap](plots/tool_usage_heatmap.png)
+
+### Training Dashboard
+
+![Training Dashboard](plots/dashboard.png)
+
+---
+
 ## Quick Start
 
 ### Deploy Environment (HF Spaces)
