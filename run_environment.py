@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 CLI to run and test the HarFeast OpenEnv environment.
-Phase 1: files.list, files.read.
+Phase 1-3: files, spreadsheet, data actions, submit.
 
 Usage:
     python run_environment.py --task task_14
@@ -70,18 +70,29 @@ def main():
                 print(f"Invalid JSON: {e}")
         return
 
-    # Demo: Phase 1 + Phase 2 actions (Task 14: training quality)
-    demo_actions = [
-        {"action": "files.list", "path": "."},
-        {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "columns"},
-        {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "1:3"},
-        {"action": "data.filter", "dataset": "employee_survey.csv", "column": "training_received", "operator": "eq", "value": "Yes"},
-        {"action": "data.group_by", "dataset": "filtered_0", "column": "training_quality", "aggregation": "count", "target_column": "employee_id"},
-        {"action": "data.add_columns", "dataset": "employee_survey.csv", "new_column": "inefficient_hours", "expression": "hours_manual_entry + hours_searching_data + hours_fixing_errors"},
-        {"action": "data.compute", "expression": "(37.5 - 8.5) / 8.5 * 100"},
-    ]
+    # Demo: Phase 1 + Phase 2 + Phase 3 (submit) - full flow for task_14
+    task_id = env.state["task_id"]
+    gt = env._task.get("ground_truth", {})
+    if task_id == "task_14":
+        submit_answer = f"The number of respondents who received training is {gt.get('trained_count', 'N/A')}. "
+        qp = gt.get("quality_pcts", {})
+        for quality, pct in qp.items():
+            submit_answer += f'"{quality}": {pct}%. '
+        demo_actions = [
+            {"action": "files.list", "path": "."},
+            {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "columns"},
+            {"action": "data.filter", "dataset": "employee_survey.csv", "column": "training_received", "operator": "eq", "value": "Yes"},
+            {"action": "data.group_by", "dataset": "filtered_0", "column": "training_quality", "aggregation": "count", "target_column": "employee_id"},
+            {"action": "submit", "answer": submit_answer},
+        ]
+    else:
+        demo_actions = [
+            {"action": "files.list", "path": "."},
+            {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "columns"},
+            {"action": "submit", "answer": f"Demo for {task_id} - use --task task_14 for full submit demo."},
+        ]
 
-    print("=== DEMO: Phase 1 + Phase 2 actions ===\n")
+    print("=== DEMO: Phase 1 + 2 + 3 ===\n")
     for action in demo_actions:
         print(f"> {json.dumps(action)}")
         result = env.step(action)

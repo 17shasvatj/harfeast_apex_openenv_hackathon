@@ -3,6 +3,7 @@
 import json
 import os
 import random
+from .rubric import score_answer
 from .schemas import ActionResult, StepResult, parse_action
 from . import actions
 
@@ -10,7 +11,7 @@ from . import actions
 class HarFeastOpenEnv:
     """
     OpenEnv environment for HarFeast management consulting tasks.
-    Phase 1: files.list, files.read. Other actions return stub messages.
+    Phase 1-3: files, spreadsheet, data actions, submit with rubric scoring.
     """
 
     def __init__(self, world_path: str | None = None):
@@ -117,12 +118,15 @@ class HarFeastOpenEnv:
         result = self._dispatch(name, params)
         self._step_count += 1
         
-        return self._make_step_result(
+        step_result = self._make_step_result(
             observation=result.observation,
             action_taken=name,
             success=result.success,
             last_error=result.error,
         )
+        if name == "submit":
+            step_result.info["rubric_score"] = self._rubric_score
+        return step_result
 
     def _dispatch(self, name: str, params: dict) -> ActionResult:
         """Dispatch action to handler."""
@@ -206,11 +210,26 @@ class HarFeastOpenEnv:
                 )
             return actions.handle_data_compute(str(expression))
         if name == "submit":
-            return ActionResult(
-                observation="submit is not yet implemented (Phase 3).",
-                success=False,
-                error="Not implemented",
+            answer = params.get("answer")
+            if answer is None or (isinstance(answer, str) and not answer.strip()):
+                return ActionResult(
+                    observation="submit requires non-empty 'answer' parameter.",
+                    success=False,
+                    error="Missing answer",
+                )
+            answer_text = str(answer).strip()
+            rubric_list = self._task.get("rubric", [])
+            score, results = score_answer(answer_text, rubric_list)
+            self._submitted_answer = answer_text
+            self._rubric_score = score
+            self._done = True
+            passed = sum(1 for _, p in results if p)
+            total = len(results)
+            obs = (
+                f"Episode ended. Rubric score: {score:.1f}% ({passed}/{total} criteria met).\n"
+                f"Details:\n" + "\n".join(f"  {'✓' if p else '✗'} {c[:70]}{'...' if len(c) > 70 else ''}" for c, p in results)
             )
+            return ActionResult(observation=obs)
         
         return ActionResult(
             observation=f"Unknown action: {name}. Valid actions: files.list, files.read, spreadsheet.read_range, data.filter, data.group_by, data.add_columns, data.compute, submit.",

@@ -144,11 +144,11 @@ harfeast_apex_openenv_hackathon/
 - [x] Implement `data.compute` (restricted eval for math only).
 - [x] Validate with tasks that require filtering/aggregation (e.g., Task 1, 6, 7).
 
-### Phase 3: Submit & Rubric
-- [ ] Implement `submit(answer)`.
-- [ ] Rubric scorer: parse answer vs criteria (regex/LLM).
-- [ ] Return reward and `done=True` on submit.
-- [ ] Validate end-to-end: agent-style trajectory → submit → score.
+### Phase 3: Submit & Rubric ✅
+- [x] Implement `submit(answer)`.
+- [x] Rubric scorer: parse answer vs criteria (regex).
+- [x] Return reward and `done=True` on submit.
+- [x] Validate end-to-end: agent-style trajectory → submit → score.
 
 ### Phase 4: OpenEnv Compatibility
 - [ ] Align with OpenEnv `Environment` base class if provided by hackathon.
