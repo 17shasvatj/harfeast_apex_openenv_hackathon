@@ -298,7 +298,7 @@ class HarFeastOpenEnv:
         if total > self.CONTEXT_WINDOW_STEPS:
             older = total - self.CONTEXT_WINDOW_STEPS
             lines.append(f"=== Context ({older} earlier steps omitted) ===")
-            recent = self._history[-CONTEXT_WINDOW_STEPS:]
+            recent = self._history[-self.CONTEXT_WINDOW_STEPS:]
         else:
             lines.append(f"=== Context (steps 1-{total}) ===")
             recent = self._history
