@@ -43,6 +43,7 @@ class HarFeastOpenEnv:
         self._rubric_score: float | None = None
         self._filtered_datasets: dict = {}
         self._rng: random.Random | None = None
+        self._history: list[dict] = []
 
     @property
     def state(self) -> dict:
@@ -56,6 +57,7 @@ class HarFeastOpenEnv:
             "submitted_answer": self._submitted_answer,
             "rubric_score": self._rubric_score,
             "filtered_datasets": list(self._filtered_datasets.keys()),
+            "history": self._history,
         }
 
     def reset(
@@ -74,7 +76,7 @@ class HarFeastOpenEnv:
         self._rubric_score = None
         self._filtered_datasets = {}
         self._rng = random.Random(seed) if seed is not None else random.Random()
-
+        self._history = []
         # Augmented dataset: sample from all_tasks or use specific task_index
         task_index = kwargs.get("task_index")
         if self._all_tasks:
@@ -145,7 +147,13 @@ class HarFeastOpenEnv:
         # Dispatch to handler
         result = self._dispatch(name, params)
         self._step_count += 1
-        
+        # Record in history for training context reconstruction
+        self._history.append({
+            "step": self._step_count,
+            "action": {"action": name, **params},
+            "observation": result.observation,
+            "success": result.success,
+        })
         step_result = self._make_step_result(
             observation=result.observation,
             action_taken=name,
