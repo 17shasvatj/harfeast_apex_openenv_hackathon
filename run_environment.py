@@ -70,17 +70,18 @@ def main():
                 print(f"Invalid JSON: {e}")
         return
 
-    # Demo: run a fixed sequence of Phase 1 actions
+    # Demo: Phase 1 + Phase 2 actions (Task 14: training quality)
     demo_actions = [
         {"action": "files.list", "path": "."},
-        {"action": "files.list", "path": "data"},
-        {"action": "files.list", "path": "documents"},
-        {"action": "files.read", "path": "documents/scrap_rate_report.txt"},
-        {"action": "files.read", "path": "data/employee_survey.csv"},  # Should reject
-        {"action": "files.read", "path": "interview_sarah_jenkins.txt"},
+        {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "columns"},
+        {"action": "spreadsheet.read_range", "file": "employee_survey.csv", "range": "1:3"},
+        {"action": "data.filter", "dataset": "employee_survey.csv", "column": "training_received", "operator": "eq", "value": "Yes"},
+        {"action": "data.group_by", "dataset": "filtered_0", "column": "training_quality", "aggregation": "count", "target_column": "employee_id"},
+        {"action": "data.add_columns", "dataset": "employee_survey.csv", "new_column": "inefficient_hours", "expression": "hours_manual_entry + hours_searching_data + hours_fixing_errors"},
+        {"action": "data.compute", "expression": "(37.5 - 8.5) / 8.5 * 100"},
     ]
 
-    print("=== DEMO: Phase 1 actions ===\n")
+    print("=== DEMO: Phase 1 + Phase 2 actions ===\n")
     for action in demo_actions:
         print(f"> {json.dumps(action)}")
         result = env.step(action)

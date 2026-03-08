@@ -136,13 +136,13 @@ harfeast_apex_openenv_hackathon/
 - [x] Validate against a single task (e.g., Task 14 – training quality).
 - [x] CLI: `python run_environment.py --task task_14`.
 
-### Phase 2: Spreadsheet & Data Actions
-- [ ] Implement `spreadsheet.read_range` with CSV loading.
-- [ ] Implement `data.filter` with operator support and session storage.
-- [ ] Implement `data.group_by` with aggregation functions.
-- [ ] Implement `data.add_columns` with expression parsing (safe eval or simple parser).
-- [ ] Implement `data.compute` (restricted eval for math only).
-- [ ] Validate with tasks that require filtering/aggregation (e.g., Task 1, 6, 7).
+### Phase 2: Spreadsheet & Data Actions ✅
+- [x] Implement `spreadsheet.read_range` with CSV loading.
+- [x] Implement `data.filter` with operator support and session storage.
+- [x] Implement `data.group_by` with aggregation functions.
+- [x] Implement `data.add_columns` with expression parsing (safe eval or simple parser).
+- [x] Implement `data.compute` (restricted eval for math only).
+- [x] Validate with tasks that require filtering/aggregation (e.g., Task 1, 6, 7).
 
 ### Phase 3: Submit & Rubric
 - [ ] Implement `submit(answer)`.

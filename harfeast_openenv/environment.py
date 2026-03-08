@@ -140,37 +140,71 @@ class HarFeastOpenEnv:
                 )
             return actions.handle_files_read(self.world_path, path)
         
-        # Phase 2+ actions - stub
+        # Phase 2: spreadsheet and data actions
         if name == "spreadsheet.read_range":
-            return ActionResult(
-                observation="spreadsheet.read_range is not yet implemented (Phase 2).",
-                success=False,
-                error="Not implemented",
-            )
+            file = params.get("file")
+            range_spec = params.get("range", "columns")
+            if file is None:
+                return ActionResult(
+                    observation="spreadsheet.read_range requires 'file' parameter.",
+                    success=False,
+                    error="Missing file",
+                )
+            return actions.handle_spreadsheet_read_range(self.world_path, file, range_spec)
+        
         if name == "data.filter":
-            return ActionResult(
-                observation="data.filter is not yet implemented (Phase 2).",
-                success=False,
-                error="Not implemented",
+            dataset = params.get("dataset")
+            column = params.get("column")
+            operator = params.get("operator")
+            value = params.get("value")
+            if None in (dataset, column, operator, value):
+                return ActionResult(
+                    observation="data.filter requires dataset, column, operator, value.",
+                    success=False,
+                    error="Missing parameters",
+                )
+            return actions.handle_data_filter(
+                self.world_path, dataset, column, operator, str(value), self._filtered_datasets
             )
+        
         if name == "data.group_by":
-            return ActionResult(
-                observation="data.group_by is not yet implemented (Phase 2).",
-                success=False,
-                error="Not implemented",
+            dataset = params.get("dataset")
+            column = params.get("column")
+            aggregation = params.get("aggregation")
+            target_column = params.get("target_column")
+            if None in (dataset, column, aggregation, target_column):
+                return ActionResult(
+                    observation="data.group_by requires dataset, column, aggregation, target_column.",
+                    success=False,
+                    error="Missing parameters",
+                )
+            return actions.handle_data_group_by(
+                self.world_path, dataset, column, aggregation, target_column, self._filtered_datasets
             )
+        
         if name == "data.add_columns":
-            return ActionResult(
-                observation="data.add_columns is not yet implemented (Phase 2).",
-                success=False,
-                error="Not implemented",
+            dataset = params.get("dataset")
+            new_column = params.get("new_column")
+            expression = params.get("expression")
+            if None in (dataset, new_column, expression):
+                return ActionResult(
+                    observation="data.add_columns requires dataset, new_column, expression.",
+                    success=False,
+                    error="Missing parameters",
+                )
+            return actions.handle_data_add_columns(
+                self.world_path, dataset, new_column, expression, self._filtered_datasets
             )
+        
         if name == "data.compute":
-            return ActionResult(
-                observation="data.compute is not yet implemented (Phase 2).",
-                success=False,
-                error="Not implemented",
-            )
+            expression = params.get("expression")
+            if expression is None:
+                return ActionResult(
+                    observation="data.compute requires 'expression' parameter.",
+                    success=False,
+                    error="Missing expression",
+                )
+            return actions.handle_data_compute(str(expression))
         if name == "submit":
             return ActionResult(
                 observation="submit is not yet implemented (Phase 3).",
