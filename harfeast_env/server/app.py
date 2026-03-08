@@ -34,6 +34,32 @@ app = create_app(
 )
 
 
+@app.get("/")
+def root():
+    return {
+        "name": "HarFeast OpenEnv",
+        "description": "Management consulting RL environment with 14 APEX-style analytical tasks",
+        "version": "0.1.0",
+        "tasks": 14,
+        "tools": [
+            "files.list", "files.read", "spreadsheet.read_range",
+            "data.filter", "data.group_by", "data.add_columns",
+            "data.compute", "submit",
+        ],
+        "endpoints": {
+            "info": "/info",
+            "reset": "/reset",
+            "step": "/step",
+            "health": "/health",
+        },
+    }
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 def main():
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

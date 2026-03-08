@@ -5,17 +5,31 @@ HarFeast GRPO training with GDPO-style multi-signal rewards.
 Uses 3 independent reward functions (correctness, format, completeness)
 scored in-process against deterministic rubrics. No env server needed.
 
-Usage:
-  python train_harfeast.py --model unsloth/Qwen3-4B
-  python train_harfeast.py --model unsloth/Qwen3-4B --worlds-base ./harfeast_worlds --samples 128
+Usage (H200, proper training):
+  python train_harfeast.py --model unsloth/Qwen3-4B --worlds-base ./harfeast_worlds \
+      --samples 256 --epochs 3 --output-dir ./checkpoints
+
+Usage (quick test):
+  python train_harfeast.py --model unsloth/Qwen3-4B --samples 32 --epochs 1
 """
 
 import argparse
 import csv
 import json
 import os
+import re
 import sys
 import time
+import warnings
+
+os.environ.setdefault("USE_TF", "0")
+os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "3")
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", message=".*torch_dtype.*")
+warnings.filterwarnings("ignore", message=".*deprecated.*")
+warnings.filterwarnings("ignore", message=".*vLLM.*")
+warnings.filterwarnings("ignore", message=".*TRL currently supports.*")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -116,7 +130,7 @@ def _get_data_summary(world_path):
 
 
 def build_dataset(tasks, n_samples, seed=42):
-    """Build HF Dataset with prompt (including data) + rubric columns for GRPO training."""
+    """Build HF Dataset with prompt (including data) + rubric + ground_truth columns."""
     from datasets import Dataset
     import random
 
@@ -138,7 +152,6 @@ def build_dataset(tasks, n_samples, seed=42):
         rubrics.append(json.dumps(t.get("rubric", [])))
         gt_values = []
         for criterion in t.get("rubric", []):
-            import re
             m = re.search(r"\s+is\s+(.+)$", criterion)
             if m:
                 gt_values.append(m.group(1).strip().strip('"'))
@@ -151,17 +164,16 @@ def build_dataset(tasks, n_samples, seed=42):
     })
 
 
-def quick_eval(model_name_or_path, tasks, tokenizer=None, label="eval"):
-    """Run a quick eval: generate for each unique task, score with rubric."""
+def run_eval(model_name_or_path, tasks, label="eval"):
+    """Full eval: generate for each unique task, score with rubric. Returns (score, results_list)."""
     from transformers import AutoTokenizer, AutoModelForCausalLM
     import torch
 
-    print(f"\n{'='*60}")
+    print(f"\n{'='*70}")
     print(f"  {label}: {model_name_or_path}")
-    print(f"{'='*60}")
+    print(f"{'='*70}")
 
-    if tokenizer is None:
-        tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_name_or_path, torch_dtype=torch.bfloat16, device_map="auto", trust_remote_code=True,
     )
@@ -186,7 +198,7 @@ def quick_eval(model_name_or_path, tasks, tokenizer=None, label="eval"):
     total_passed, total_criteria = 0, 0
     results = []
 
-    for t in unique_tasks:
+    for i, t in enumerate(unique_tasks):
         data_summary = _get_data_summary(t["world_path"])
         prompt = f"{system}\n\n# Company Data\n{data_summary}\n\n# Task\n{t['prompt']}\n\nAnswer:"
         inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=4096).to(model.device)
@@ -204,22 +216,30 @@ def quick_eval(model_name_or_path, tasks, tokenizer=None, label="eval"):
         total = len(criteria_results)
         total_passed += passed
         total_criteria += total
-        results.append((t["task_id"], t["task_name"], passed, total, score))
+        results.append({
+            "task_id": t["task_id"],
+            "task_name": t["task_name"],
+            "passed": passed,
+            "total": total,
+            "score": score,
+        })
+        print(f"  [{i+1}/{len(unique_tasks)}] {t['task_id']}  {passed}/{total}  {score:.1f}%", flush=True)
+
+    overall = (total_passed / total_criteria * 100) if total_criteria > 0 else 0
 
     print(f"\n{'Task':<10} {'Name':<40} {'Passed':>8} {'Score':>8}")
     print("-" * 70)
-    for tid, name, passed, total, score in results:
-        print(f"{tid:<10} {name[:38]:<40} {passed}/{total:>3}    {score:>5.1f}%")
-
-    overall = (total_passed / total_criteria * 100) if total_criteria > 0 else 0
+    for r in results:
+        print(f"{r['task_id']:<10} {r['task_name'][:38]:<40} {r['passed']}/{r['total']:>3}    {r['score']:>5.1f}%")
     print("-" * 70)
     print(f"{'OVERALL':<10} {'':<40} {total_passed}/{total_criteria:>3}    {overall:>5.1f}%")
+    print(f"{'='*70}")
 
     del model
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
-    return overall
+    return round(overall, 1), results
 
 
 def main():
@@ -227,36 +247,74 @@ def main():
     parser.add_argument("--model", default="unsloth/Qwen3-4B")
     parser.add_argument("--worlds-base", default=None,
                         help="Augmented dataset dir (harfeast_worlds)")
-    parser.add_argument("--epochs", type=int, default=1)
-    parser.add_argument("--samples", type=int, default=64)
-    parser.add_argument("--eval-before", action=argparse.BooleanOptionalAction, default=True,
-                        help="Run eval on base model before training (--no-eval-before to skip)")
+    parser.add_argument("--single-world", default=None,
+                        help="Single world dir for eval (harfeast_world)")
+    parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--samples", type=int, default=128)
+    parser.add_argument("--num-generations", type=int, default=4,
+                        help="Completions per prompt per GRPO step")
+    parser.add_argument("--batch-size", type=int, default=4,
+                        help="Per-device train batch size")
+    parser.add_argument("--grad-accum", type=int, default=2,
+                        help="Gradient accumulation steps")
+    parser.add_argument("--lr", type=float, default=1e-5,
+                        help="Learning rate")
+    parser.add_argument("--max-completion-length", type=int, default=512,
+                        help="Max tokens to generate per completion")
+    parser.add_argument("--eval-before", action="store_true", default=True,
+                        help="Run eval on base model before training")
+    parser.add_argument("--no-eval-before", dest="eval_before", action="store_false",
+                        help="Skip before-training eval")
     parser.add_argument("--use-vllm", action="store_true", default=False,
-                        help="Use vLLM for generation (requires vllm installed)")
+                        help="Use vLLM for generation (requires compatible vllm)")
     parser.add_argument("--output-dir", default="./checkpoints")
     args = parser.parse_args()
 
-    tasks = load_tasks(worlds_base=args.worlds_base)
+    start_time = time.time()
+
+    # Load tasks
+    tasks = load_tasks(worlds_base=args.worlds_base, single_world=args.single_world)
     print(f"Loaded {len(tasks)} tasks")
 
+    # For eval, use single world if available, otherwise first world from augmented set
+    eval_tasks = tasks
+    if args.single_world:
+        eval_tasks = load_tasks(single_world=args.single_world)
+
+    # Build dataset
     dataset = build_dataset(tasks, args.samples)
     print(f"Training dataset: {len(dataset)} samples")
     print(f"Prompt length (sample): {len(dataset[0]['prompt'])} chars")
 
-    # Before-training eval
-    before_score = None
-    if args.eval_before:
-        before_score = quick_eval(args.model, tasks, label="BEFORE training")
+    # Training math
+    effective_batch = args.batch_size * args.grad_accum
+    steps_per_epoch = max(len(dataset) // effective_batch, 1)
+    total_steps = steps_per_epoch * args.epochs
+    print(f"\nTraining plan:")
+    print(f"  Model:          {args.model}")
+    print(f"  Epochs:         {args.epochs}")
+    print(f"  Samples:        {args.samples}")
+    print(f"  Batch:          {args.batch_size} x {args.grad_accum} = {effective_batch} effective")
+    print(f"  Steps/epoch:    ~{steps_per_epoch}")
+    print(f"  Total steps:    ~{total_steps}")
+    print(f"  Generations:    {args.num_generations} per prompt")
+    print(f"  Learning rate:  {args.lr}")
+    print(f"  Rewards:        correctness + format + completeness (GDPO-style)")
 
-    # Import reward functions and trainer
+    # ── Before-training eval ──
+    before_score, before_results = None, None
+    if args.eval_before:
+        before_score, before_results = run_eval(args.model, eval_tasks, label="BEFORE training")
+
+    # ── GRPO Training ──
     from harfeast_openenv.rewards import reward_correctness, reward_format, reward_completeness
     from trl import GRPOConfig, GRPOTrainer
     from transformers import TrainerCallback
 
     class LoggingCallback(TrainerCallback):
-        """Print live training progress."""
         def __init__(self):
             self._start = time.time()
+            self._rewards = []
 
         def on_log(self, args, state, control, logs=None, **kwargs):
             if logs is None:
@@ -265,29 +323,46 @@ def main():
             step = state.global_step
             total = state.max_steps
             pct = (step / total * 100) if total > 0 else 0
-            reward_str = ""
+
+            parts = []
             for k in sorted(logs):
-                if "reward" in k.lower() or "loss" in k.lower():
-                    reward_str += f"  {k}={logs[k]:.4f}"
-            print(f"[Step {step}/{total} ({pct:.0f}%) | {elapsed:.0f}s]{reward_str}", flush=True)
+                if isinstance(logs[k], (int, float)):
+                    parts.append(f"{k}={logs[k]:.4f}")
+            log_str = "  ".join(parts)
+            print(f"[Step {step}/{total} ({pct:.0f}%) | {elapsed:.0f}s]  {log_str}", flush=True)
 
-    vllm_kwargs = {}
-    if args.use_vllm:
-        vllm_kwargs = {"use_vllm": True, "vllm_mode": "colocate"}
+            if "reward" in str(logs):
+                self._rewards.append({"step": step, **{k: v for k, v in logs.items() if isinstance(v, (int, float))}})
 
-    config = GRPOConfig(
-        output_dir=args.output_dir,
-        **vllm_kwargs,
-        num_train_epochs=args.epochs,
-        num_generations=4,
-        max_completion_length=512,
-        max_prompt_length=4096,
-        per_device_train_batch_size=2,
-        gradient_accumulation_steps=4,
-        logging_steps=1,
-        save_steps=50,
-        bf16=True,
-    )
+        def on_train_end(self, args, state, control, **kwargs):
+            elapsed = time.time() - self._start
+            print(f"\nTraining complete in {elapsed:.0f}s ({elapsed/60:.1f} min)")
+            if self._rewards:
+                first = self._rewards[0]
+                last = self._rewards[-1]
+                print(f"  First step rewards: {first}")
+                print(f"  Last step rewards:  {last}")
+
+    grpo_kwargs = {
+        "output_dir": args.output_dir,
+        "use_vllm": args.use_vllm,
+        "num_train_epochs": args.epochs,
+        "num_generations": args.num_generations,
+        "max_completion_length": args.max_completion_length,
+        "per_device_train_batch_size": args.batch_size,
+        "gradient_accumulation_steps": args.grad_accum,
+        "learning_rate": args.lr,
+        "logging_steps": 1,
+        "save_steps": 50,
+        "save_total_limit": 2,
+        "bf16": True,
+        "warmup_steps": 2,
+        "report_to": "none",
+    }
+    try:
+        config = GRPOConfig(max_prompt_length=4096, **grpo_kwargs)
+    except TypeError:
+        config = GRPOConfig(**grpo_kwargs)
 
     trainer = GRPOTrainer(
         model=args.model,
@@ -297,26 +372,56 @@ def main():
         callbacks=[LoggingCallback()],
     )
 
-    print("\nStarting GRPO training with 3 reward signals (correctness, format, completeness)...")
-    print(f"  use_vllm={args.use_vllm}  epochs={args.epochs}  samples={args.samples}")
+    print("\n" + "="*70)
+    print("  STARTING GRPO TRAINING")
+    print("="*70)
     trainer.train()
     trainer.save_model(args.output_dir)
     print(f"\nModel saved to {args.output_dir}")
 
-    # After-training eval
-    after_score = quick_eval(args.output_dir, tasks, label="AFTER training")
+    # ── After-training eval ──
+    after_score, after_results = run_eval(args.output_dir, eval_tasks, label="AFTER training")
 
-    # Summary
-    print(f"\n{'='*60}")
+    # ── Summary ──
+    total_time = time.time() - start_time
+    print(f"\n{'='*70}")
     print(f"  TRAINING SUMMARY")
-    print(f"{'='*60}")
+    print(f"{'='*70}")
     if before_score is not None:
         print(f"  Before: {before_score:.1f}%")
     print(f"  After:  {after_score:.1f}%")
     if before_score is not None:
         delta = after_score - before_score
         print(f"  Delta:  {'+' if delta >= 0 else ''}{delta:.1f}%")
-    print(f"{'='*60}")
+    print(f"  Time:   {total_time:.0f}s ({total_time/60:.1f} min)")
+    print(f"{'='*70}")
+
+    if before_results and after_results:
+        print(f"\n{'Task':<10} {'Before':>10} {'After':>10} {'Delta':>10}")
+        print("-" * 44)
+        for rb, ra in zip(before_results, after_results):
+            d = ra["score"] - rb["score"]
+            sign = "+" if d >= 0 else ""
+            print(f"{rb['task_id']:<10} {rb['score']:>8.1f}%  {ra['score']:>8.1f}%  {sign}{d:>7.1f}%")
+
+    # Save results JSON for later analysis
+    results_path = os.path.join(args.output_dir, "training_results.json")
+    results_data = {
+        "model": args.model,
+        "epochs": args.epochs,
+        "samples": args.samples,
+        "num_generations": args.num_generations,
+        "learning_rate": args.lr,
+        "before_score": before_score,
+        "after_score": after_score,
+        "before_results": before_results,
+        "after_results": after_results,
+        "total_time_s": round(total_time, 1),
+    }
+    os.makedirs(args.output_dir, exist_ok=True)
+    with open(results_path, "w") as f:
+        json.dump(results_data, f, indent=2)
+    print(f"\nResults saved to {results_path}")
 
 
 if __name__ == "__main__":
