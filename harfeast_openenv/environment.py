@@ -45,7 +45,7 @@ class HarFeastOpenEnv:
         self._rng: random.Random | None = None
         self._history: list[dict] = []
 
-        self.CONTEXT_WINDOW_STEPS = 5
+        self.CONTEXT_WINDOW_STEPS = 8
         self.MAX_STEPS = 20
 
     @property
@@ -316,8 +316,8 @@ class HarFeastOpenEnv:
             action = entry["action"]
             action_name = action.get("action", "?")
             obs = entry["observation"]
-            if len(obs) > 120:
-                obs_short = obs[:120] + "..."
+            if len(obs) > 300:
+                obs_short = obs[:300] + "..."
             else:
                 obs_short = obs
             obs_short = " ".join(obs_short.split())

@@ -1,11 +1,12 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --time=4:00:00
+#SBATCH --cpus-per-task=8
+#SBATCH --time=6:00:00
 #SBATCH --job-name=harfeast_mt
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:v100-sxm2:1
+#SBATCH --gres=gpu:h200:1
 #SBATCH --output=logs/harfeast_%j.out
 #SBATCH --error=logs/harfeast_%j.err
 
@@ -22,15 +23,16 @@ mkdir -p logs checkpoints_multiturn
 export PYTHONPATH="$PROJECT_DIR:$PYTHONPATH"
 export USE_TF=0
 export TF_CPP_MIN_LOG_LEVEL=3
+export WANDB_API_KEY="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"
 
 echo "=== GPU Info ==="
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 echo ""
 
-# ── Install deps (cached after first run) ────────────────────────
-pip install -q trl datasets accelerate transformers openenv-core fastapi uvicorn 2>/dev/null
+# ── Install deps ─────────────────────────────────────────────────
+pip install -q trl datasets accelerate transformers openenv-core fastapi uvicorn wandb 2>/dev/null
 
-# ── Generate data (pure Python, ~30s) ────────────────────────────
+# ── Generate data ────────────────────────────────────────────────
 if [ ! -f harfeast_world/tasks.json ]; then
     echo "Generating default world (seed=42)..."
     python harfeast_synthetic_world_generator.py --seed 42 --output-dir ./harfeast_world
@@ -41,17 +43,16 @@ echo "Data ready"
 echo ""
 echo "=== Starting Multi-Turn GRPO training ==="
 echo "Model:      unsloth/Qwen3-4B"
-echo "Training:   Multi-turn agent (tool calling + environment interaction)"
-echo "Epochs:     3"
-echo "Gen/task:   4 trajectories"
+echo "Training:   Multi-turn agent (batched, K=16)"
+echo "Epochs:     10"
 echo "Max turns:  10"
 echo ""
 
 python train_multiturn.py \
     --model unsloth/Qwen3-4B \
     --world ./harfeast_world \
-    --epochs 3 \
-    --num-generations 4 \
+    --epochs 10 \
+    --num-generations 16 \
     --max-turns 10 \
     --lr 5e-6 \
     --temperature 0.8 \

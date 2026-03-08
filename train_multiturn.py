@@ -124,7 +124,7 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
 
         inputs = tokenizer(
             prompts, return_tensors="pt", truncation=True,
-            max_length=4096, padding=True,
+            max_length=8192, padding=True,
         ).to(model.device)
 
         with torch.no_grad():
@@ -180,7 +180,7 @@ def compute_turn_loss(model, tokenizer, messages, turn_index):
 
     prompt_ids = tokenizer(prompt_text, return_tensors="pt").input_ids
     full_ids = tokenizer(
-        full_text, return_tensors="pt", truncation=True, max_length=4096
+        full_text, return_tensors="pt", truncation=True, max_length=8192
     ).input_ids.to(model.device)
 
     if full_ids.shape[1] <= prompt_ids.shape[1]:
@@ -311,6 +311,23 @@ def main():
     start_time = time.time()
     world_path = os.path.abspath(args.world)
 
+    # ── W&B ──
+    use_wandb = True
+    try:
+        import wandb
+        if os.environ.get("WANDB_API_KEY"):
+            wandb.init(
+                project="harfeast-grpo",
+                name=f"mt-K{args.num_generations}-e{args.epochs}-lr{args.lr}",
+                config=vars(args),
+            )
+            use_wandb = True
+            print("W&B logging enabled")
+        else:
+            print("W&B: no API key found, logging disabled")
+    except ImportError:
+        print("W&B: not installed, logging disabled")
+
     # ── Load model ──
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -341,6 +358,8 @@ def main():
         before_score, before_results = run_eval(
             model, tokenizer, world_path, tasks, "BEFORE training (multi-turn)"
         )
+        if use_wandb:
+            wandb.log({"eval/before_score": before_score})
 
     # ── Training ──
     K = args.num_generations
@@ -423,33 +442,74 @@ def main():
                 torch.cuda.empty_cache()
 
             task_time = time.time() - task_start
+            loss_val = batch_loss.item()
             print(
                 f"  [{t_idx+1}/{len(tasks)}] {task['task_id']}  "
                 f"r=[{', '.join(f'{r:.2f}' for r in rewards)}]  "
                 f"adv_range=[{min(advantages):+.2f},{max(advantages):+.2f}]  "
-                f"loss={batch_loss.item():.4f}  step={global_step}  ({task_time:.0f}s)"
+                f"loss={loss_val:.4f}  step={global_step}  ({task_time:.0f}s)"
             )
 
+            if use_wandb:
+                wandb.log({
+                    "train/loss": loss_val,
+                    "train/mean_reward": mean_r,
+                    "train/max_reward": max(rewards),
+                    "train/reward_variance": var_r,
+                    "train/task_time_s": task_time,
+                    "train/step": global_step,
+                    f"task_reward/{task['task_id']}": mean_r,
+                })
+
         mean_r = sum(epoch_rewards) / max(len(epoch_rewards), 1)
+        nonzero_rewards = sum(1 for r in epoch_rewards if r > 0)
         print(
             f"\n  Epoch {epoch+1}: mean_reward={mean_r:.3f}, "
             f"signal_steps={steps_with_signal}/{len(tasks)}, "
+            f"nonzero_rewards={nonzero_rewards}/{len(epoch_rewards)}, "
             f"global_step={global_step}"
         )
 
-    # ── Save ──
+        if use_wandb:
+            wandb.log({
+                "epoch/mean_reward": mean_r,
+                "epoch/signal_tasks": steps_with_signal,
+                "epoch/nonzero_rewards_pct": nonzero_rewards / max(len(epoch_rewards), 1),
+                "epoch/epoch": epoch + 1,
+            })
+
+        # Save checkpoint after each epoch
+        if hasattr(model, "gradient_checkpointing_disable"):
+            model.gradient_checkpointing_disable()
+        ckpt_path = os.path.join(args.output_dir, f"epoch_{epoch+1}")
+        os.makedirs(ckpt_path, exist_ok=True)
+        model.save_pretrained(ckpt_path)
+        tokenizer.save_pretrained(ckpt_path)
+        with open(os.path.join(ckpt_path, "train_state.json"), "w") as f:
+            json.dump({"epoch": epoch+1, "global_step": global_step,
+                        "mean_reward": mean_r, "signal_steps": steps_with_signal}, f, indent=2)
+        print(f"  Checkpoint saved: {ckpt_path}\n")
+        if hasattr(model, "gradient_checkpointing_enable"):
+            model.gradient_checkpointing_enable()
+
+    # ── Save final ──
     if hasattr(model, "gradient_checkpointing_disable"):
         model.gradient_checkpointing_disable()
 
     os.makedirs(args.output_dir, exist_ok=True)
     model.save_pretrained(args.output_dir)
     tokenizer.save_pretrained(args.output_dir)
-    print(f"\nModel saved to {args.output_dir}")
+    print(f"\nFinal model saved to {args.output_dir}")
 
     # ── After-training eval ──
     after_score, after_results = run_eval(
         model, tokenizer, world_path, tasks, "AFTER training (multi-turn)"
     )
+
+    if use_wandb:
+        wandb.log({"eval/after_score": after_score})
+        if before_score is not None:
+            wandb.log({"eval/delta": after_score - before_score})
 
     # ── Summary ──
     total_time = time.time() - start_time
@@ -494,6 +554,9 @@ def main():
     with open(results_path, "w") as f:
         json.dump(results_data, f, indent=2)
     print(f"\nResults saved to {results_path}")
+
+    if use_wandb:
+        wandb.finish()
 
 
 if __name__ == "__main__":
