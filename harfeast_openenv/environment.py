@@ -1,0 +1,206 @@
+"""HarFeast OpenEnv environment."""
+
+import json
+import os
+import random
+from .schemas import ActionResult, StepResult, parse_action
+from . import actions
+
+
+class HarFeastOpenEnv:
+    """
+    OpenEnv environment for HarFeast management consulting tasks.
+    Phase 1: files.list, files.read. Other actions return stub messages.
+    """
+
+    def __init__(self, world_path: str | None = None):
+        self.world_path = world_path or os.path.join(
+            os.path.dirname(__file__), "..", "harfeast_world"
+        )
+        self.world_path = os.path.abspath(self.world_path)
+        
+        self._task: dict | None = None
+        self._tasks: list = []
+        self._prompt: str = ""
+        self._step_count: int = 0
+        self._done: bool = False
+        self._submitted_answer: str | None = None
+        self._rubric_score: float | None = None
+        self._filtered_datasets: dict = {}
+        self._rng: random.Random | None = None
+
+    @property
+    def state(self) -> dict:
+        """Current environment state."""
+        return {
+            "task_id": self._task["task_id"] if self._task else None,
+            "task_name": self._task["task_name"] if self._task else None,
+            "prompt": self._prompt,
+            "step_count": self._step_count,
+            "done": self._done,
+            "submitted_answer": self._submitted_answer,
+            "rubric_score": self._rubric_score,
+            "filtered_datasets": list(self._filtered_datasets.keys()),
+        }
+
+    def reset(
+        self,
+        task_id: str | None = None,
+        seed: int | None = None,
+        **kwargs,
+    ) -> StepResult:
+        """
+        Reset environment and load a task.
+        If task_id is None, pick a random task.
+        """
+        self._step_count = 0
+        self._done = False
+        self._submitted_answer = None
+        self._rubric_score = None
+        self._filtered_datasets = {}
+        self._rng = random.Random(seed) if seed is not None else random.Random()
+        
+        # Load tasks
+        tasks_path = os.path.join(self.world_path, "tasks.json")
+        if not os.path.isfile(tasks_path):
+            raise FileNotFoundError(f"Tasks not found: {tasks_path}. Run world generator first.")
+        
+        with open(tasks_path, "r", encoding="utf-8") as f:
+            self._tasks = json.load(f)
+        
+        # Select task
+        if task_id:
+            matches = [t for t in self._tasks if t["task_id"] == task_id]
+            if not matches:
+                raise ValueError(f"Task not found: {task_id}")
+            self._task = matches[0]
+        else:
+            self._task = self._rng.choice(self._tasks)
+        
+        self._prompt = self._task["prompt"]
+        
+        return StepResult(
+            observation=f"Task: {self._task['task_name']}\n\nPrompt:\n{self._prompt}\n\nYou can use files.list(path), files.read(path), or other actions. What would you like to do?",
+            prompt=self._prompt,
+            step_count=0,
+            done=False,
+            reward=0.0,
+            info={"task_id": self._task["task_id"], "action_taken": "reset"},
+        )
+
+    def step(self, action: dict | str) -> StepResult:
+        """
+        Execute one action and return the result.
+        Action format: {"action": "files.list", "path": "."} or JSON string.
+        """
+        if self._done:
+            return StepResult(
+                observation="Episode already ended. Call reset() to start a new episode.",
+                prompt=self._prompt,
+                step_count=self._step_count,
+                done=True,
+                reward=self._rubric_score or 0.0,
+                info={"action_taken": "none", "last_error": "Episode already ended"},
+            )
+        
+        try:
+            name, params = parse_action(action)
+        except (ValueError, json.JSONDecodeError) as e:
+            return self._make_step_result(
+                observation=f"Invalid action format: {e}",
+                action_taken="parse_error",
+                success=False,
+                last_error=str(e),
+            )
+        
+        # Dispatch to handler
+        result = self._dispatch(name, params)
+        self._step_count += 1
+        
+        return self._make_step_result(
+            observation=result.observation,
+            action_taken=name,
+            success=result.success,
+            last_error=result.error,
+        )
+
+    def _dispatch(self, name: str, params: dict) -> ActionResult:
+        """Dispatch action to handler."""
+        if name == "files.list":
+            path = params.get("path", ".")
+            return actions.handle_files_list(self.world_path, path)
+        
+        if name == "files.read":
+            path = params.get("path")
+            if path is None:
+                return ActionResult(
+                    observation="files.read requires 'path' parameter.",
+                    success=False,
+                    error="Missing path",
+                )
+            return actions.handle_files_read(self.world_path, path)
+        
+        # Phase 2+ actions - stub
+        if name == "spreadsheet.read_range":
+            return ActionResult(
+                observation="spreadsheet.read_range is not yet implemented (Phase 2).",
+                success=False,
+                error="Not implemented",
+            )
+        if name == "data.filter":
+            return ActionResult(
+                observation="data.filter is not yet implemented (Phase 2).",
+                success=False,
+                error="Not implemented",
+            )
+        if name == "data.group_by":
+            return ActionResult(
+                observation="data.group_by is not yet implemented (Phase 2).",
+                success=False,
+                error="Not implemented",
+            )
+        if name == "data.add_columns":
+            return ActionResult(
+                observation="data.add_columns is not yet implemented (Phase 2).",
+                success=False,
+                error="Not implemented",
+            )
+        if name == "data.compute":
+            return ActionResult(
+                observation="data.compute is not yet implemented (Phase 2).",
+                success=False,
+                error="Not implemented",
+            )
+        if name == "submit":
+            return ActionResult(
+                observation="submit is not yet implemented (Phase 3).",
+                success=False,
+                error="Not implemented",
+            )
+        
+        return ActionResult(
+            observation=f"Unknown action: {name}. Valid actions: files.list, files.read, spreadsheet.read_range, data.filter, data.group_by, data.add_columns, data.compute, submit.",
+            success=False,
+            error=f"Unknown action: {name}",
+        )
+
+    def _make_step_result(
+        self,
+        observation: str,
+        action_taken: str,
+        success: bool = True,
+        last_error: str | None = None,
+    ) -> StepResult:
+        """Build StepResult from action outcome."""
+        return StepResult(
+            observation=observation,
+            prompt=self._prompt,
+            step_count=self._step_count,
+            done=self._done,
+            reward=self._rubric_score if self._done else 0.0,
+            info={
+                "action_taken": action_taken,
+                "datasets_available": list(self._filtered_datasets.keys()),
+                "last_error": last_error,
+            },
+        )

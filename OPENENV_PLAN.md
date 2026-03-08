@@ -129,12 +129,12 @@ harfeast_apex_openenv_hackathon/
 
 ## 6. Implementation Phases
 
-### Phase 1: Core Environment Shell
-- [ ] Create `harfeast_openenv/` package.
-- [ ] Implement `reset()` and `step()` with stub handlers.
-- [ ] Support `files.list` and `files.read` only.
-- [ ] Validate against a single task (e.g., Task 14 – training quality).
-- [ ] CLI: `python run_environment.py --task task_14`.
+### Phase 1: Core Environment Shell ✅
+- [x] Create `harfeast_openenv/` package.
+- [x] Implement `reset()` and `step()` with stub handlers.
+- [x] Support `files.list` and `files.read` only.
+- [x] Validate against a single task (e.g., Task 14 – training quality).
+- [x] CLI: `python run_environment.py --task task_14`.
 
 ### Phase 2: Spreadsheet & Data Actions
 - [ ] Implement `spreadsheet.read_range` with CSV loading.
