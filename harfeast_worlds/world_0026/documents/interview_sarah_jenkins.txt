@@ -1,0 +1,13 @@
+Expert Interview Transcript - Sarah Jenkins, VP Operations
+Date: November 15, 2024
+
+Q: Of the digital levers evaluated, which would deliver the fastest and 
+biggest boost to HarFeast's Gross Margin?
+
+A: "We've evaluated several options including predictive maintenance, 
+automated scheduling, and IoT-based monitoring. In my assessment, 
+IoT Sensors for yield monitoring would deliver the fastest and most 
+significant boost to our Gross Margin. The real-time data on production 
+yield lets us catch quality issues at the source before they cascade 
+into scrap. I've seen it work at comparable food manufacturers with 
+measurable margin improvement within 6 months of deployment."

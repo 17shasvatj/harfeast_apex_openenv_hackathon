@@ -15,10 +15,15 @@ COPY harfeast_synthetic_world_generator.py /app/
 # Generate world if missing (e.g. harfeast_world not committed)
 RUN python /app/harfeast_synthetic_world_generator.py --output-dir /app/harfeast_world 2>/dev/null || true
 
+# Optional: generate augmented dataset (200+ task variations) for RL training
+# Uncomment to enable HARFEAST_WORLDS_BASE:
+# RUN python /app/harfeast_synthetic_world_generator.py --batch 40 --output-dir /app/harfeast_worlds
+
 # Install dependencies
 RUN pip install --no-cache-dir openenv-core>=0.2.1 fastapi uvicorn
 
 ENV HARFEAST_WORLD_PATH=/app/harfeast_world
+# ENV HARFEAST_WORLDS_BASE=/app/harfeast_worlds
 ENV PYTHONPATH=/app
 ENV ENABLE_WEB_INTERFACE=true
 

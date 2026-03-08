@@ -1,0 +1,63 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-CHA-000,"Champaign, Illinois",Maintenance Tech,19.28,2080,Non-Union,non-production,East North Central
+LAB-CHA-001,"Champaign, Illinois",Production Operator,15.61,2080,Non-Union,non-production,East North Central
+LAB-CHA-002,"Champaign, Illinois",Maintenance Tech,18.34,2080,Non-Union,non-production,East North Central
+LAB-CHA-003,"Champaign, Illinois",Maintenance Tech,17.74,2080,Union,non-production,East North Central
+LAB-CHA-004,"Champaign, Illinois",Quality Inspector,18.43,2080,Union,non-production,East North Central
+LAB-CHA-005,"Champaign, Illinois",Maintenance Tech,20.12,2080,Union,non-production,East North Central
+LAB-CHA-006,"Champaign, Illinois",Production Supervisor,19.44,2080,Union,production,East North Central
+LAB-CHA-007,"Champaign, Illinois",Quality Inspector,18.91,2080,Union,non-production,East North Central
+LAB-CHA-008,"Champaign, Illinois",Line Lead,24.34,2080,Non-Union,production,East North Central
+LAB-CHA-009,"Champaign, Illinois",Line Lead,23.9,2080,Non-Union,production,East North Central
+LAB-CHA-010,"Champaign, Illinois",Packaging Operator,15.83,2080,Union,non-production,East North Central
+LAB-CHA-011,"Champaign, Illinois",Packaging Operator,19.24,2080,Non-Union,non-production,East North Central
+LAB-CHA-012,"Champaign, Illinois",Packaging Operator,18.04,2080,Union,non-production,East North Central
+LAB-CHA-013,"Champaign, Illinois",Production Supervisor,25.1,2080,Non-Union,production,East North Central
+LAB-CHA-014,"Champaign, Illinois",Quality Inspector,17.73,2080,Non-Union,non-production,East North Central
+LAB-CHA-015,"Champaign, Illinois",Maintenance Tech,18.18,2080,Union,non-production,East North Central
+LAB-CHA-016,"Champaign, Illinois",Production Supervisor,23.0,2080,Non-Union,production,East North Central
+LAB-CHA-017,"Champaign, Illinois",Maintenance Tech,20.63,2080,Union,non-production,East North Central
+LAB-CHA-018,"Champaign, Illinois",Quality Inspector,16.95,2080,Non-Union,non-production,East North Central
+LAB-CHA-019,"Champaign, Illinois",Production Supervisor,22.35,2080,Union,production,East North Central
+LAB-CHA-020,"Champaign, Illinois",Line Lead,24.67,2080,Non-Union,production,East North Central
+LAB-CHA-021,"Champaign, Illinois",Packaging Operator,17.38,2080,Non-Union,non-production,East North Central
+LAB-MAD-022,"Madison, Wisconsin",Maintenance Tech,17.43,2080,Union,non-production,East North Central
+LAB-MAD-023,"Madison, Wisconsin",Line Lead,20.49,2080,Non-Union,production,East North Central
+LAB-MAD-024,"Madison, Wisconsin",Maintenance Tech,20.23,2080,Union,non-production,East North Central
+LAB-MAD-025,"Madison, Wisconsin",Packaging Operator,18.39,2080,Non-Union,non-production,East North Central
+LAB-MAD-026,"Madison, Wisconsin",Production Supervisor,19.38,2080,Non-Union,production,East North Central
+LAB-MAD-027,"Madison, Wisconsin",Production Operator,15.38,2080,Union,non-production,East North Central
+LAB-MAD-028,"Madison, Wisconsin",Line Lead,23.31,2080,Non-Union,production,East North Central
+LAB-MAD-029,"Madison, Wisconsin",Maintenance Tech,16.23,2080,Union,non-production,East North Central
+LAB-MAD-030,"Madison, Wisconsin",Production Operator,15.09,2080,Non-Union,non-production,East North Central
+LAB-MAD-031,"Madison, Wisconsin",Production Operator,19.09,2080,Union,non-production,East North Central
+LAB-MAD-032,"Madison, Wisconsin",Maintenance Tech,19.13,2080,Non-Union,non-production,East North Central
+LAB-MAD-033,"Madison, Wisconsin",Production Supervisor,21.76,2080,Non-Union,production,East North Central
+LAB-MAD-034,"Madison, Wisconsin",Production Operator,22.01,2080,Union,non-production,East North Central
+LAB-MAD-035,"Madison, Wisconsin",Maintenance Tech,20.25,2080,Non-Union,non-production,East North Central
+LAB-MAD-036,"Madison, Wisconsin",Production Supervisor,22.08,2080,Union,production,East North Central
+LAB-CED-037,"Cedar Rapids, Iowa",Quality Inspector,16.45,2080,Union,non-production,West North Central
+LAB-CED-038,"Cedar Rapids, Iowa",Line Lead,23.48,2080,Non-Union,production,West North Central
+LAB-CED-039,"Cedar Rapids, Iowa",Production Operator,14,2080,Union,non-production,West North Central
+LAB-CED-040,"Cedar Rapids, Iowa",Maintenance Tech,17.52,2080,Union,non-production,West North Central
+LAB-CED-041,"Cedar Rapids, Iowa",Production Operator,14,2080,Union,non-production,West North Central
+LAB-CED-042,"Cedar Rapids, Iowa",Packaging Operator,20.14,2080,Non-Union,non-production,West North Central
+LAB-CED-043,"Cedar Rapids, Iowa",Production Supervisor,21.35,2080,Non-Union,production,West North Central
+LAB-CED-044,"Cedar Rapids, Iowa",Maintenance Tech,16.73,2080,Non-Union,non-production,West North Central
+LAB-CED-045,"Cedar Rapids, Iowa",Production Supervisor,26.37,2080,Union,production,West North Central
+LAB-CED-046,"Cedar Rapids, Iowa",Maintenance Tech,17.36,2080,Union,non-production,West North Central
+LAB-CED-047,"Cedar Rapids, Iowa",Production Operator,18.55,2080,Non-Union,non-production,West North Central
+LAB-CED-048,"Cedar Rapids, Iowa",Line Lead,24.24,2080,Union,production,West North Central
+LAB-CED-049,"Cedar Rapids, Iowa",Line Lead,21.86,2080,Union,production,West North Central
+LAB-CED-050,"Cedar Rapids, Iowa",Line Lead,23.24,2080,Union,production,West North Central
+LAB-CED-051,"Cedar Rapids, Iowa",Production Supervisor,20.74,2080,Non-Union,production,West North Central
+LAB-CED-052,"Cedar Rapids, Iowa",Maintenance Tech,17.89,2080,Non-Union,non-production,West North Central
+LAB-CED-053,"Cedar Rapids, Iowa",Production Operator,15.72,2080,Union,non-production,West North Central
+LAB-CED-054,"Cedar Rapids, Iowa",Production Operator,15.93,2080,Union,non-production,West North Central
+LAB-CED-055,"Cedar Rapids, Iowa",Maintenance Tech,15.63,2080,Union,non-production,West North Central
+LAB-CED-056,"Cedar Rapids, Iowa",Line Lead,21.46,2080,Non-Union,production,West North Central
+LAB-CED-057,"Cedar Rapids, Iowa",Maintenance Tech,21.2,2080,Union,non-production,West North Central
+LAB-CED-058,"Cedar Rapids, Iowa",Production Supervisor,20.63,2080,Union,production,West North Central
+LAB-CED-059,"Cedar Rapids, Iowa",Quality Inspector,16.22,2080,Non-Union,non-production,West North Central
+LAB-CED-060,"Cedar Rapids, Iowa",Line Lead,19.19,2080,Union,production,West North Central
+LAB-CED-061,"Cedar Rapids, Iowa",Packaging Operator,18.39,2080,Non-Union,non-production,West North Central

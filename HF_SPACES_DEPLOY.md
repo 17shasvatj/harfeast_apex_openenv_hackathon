@@ -45,12 +45,31 @@ print(result.observation.observation)
 client.close()
 ```
 
+## Augmented Dataset (200+ Task Variations)
+
+For RL training with varied task instances, generate and use the augmented dataset:
+
+```bash
+# Generate 40 worlds (~560 distinct task instances)
+python harfeast_synthetic_world_generator.py --batch 40 --output-dir ./harfeast_worlds
+
+# Run locally with augmented dataset
+python run_environment.py --worlds-base ./harfeast_worlds
+
+# Or set for server
+export HARFEAST_WORLDS_BASE=/app/harfeast_worlds
+```
+
 ## Training with TRL
 
 After deployment, run the training script pointing to your Space URL:
 
 ```bash
+# Single world (14 tasks)
 python train_harfeast.py --env-url https://YOUR-USERNAME-harfeast-env.hf.space
+
+# Augmented dataset (200+ task variations) - requires server with HARFEAST_WORLDS_BASE
+python train_harfeast.py --env-url https://YOUR-USERNAME-harfeast-env.hf.space --worlds-base ./harfeast_worlds
 ```
 
 For Colab: copy `train_harfeast.py` and the `harfeast_env` package, install `trl`, `harfeast-env`, and run.

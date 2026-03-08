@@ -33,9 +33,13 @@ class HarFeastEnvironment(Environment[HarFeastAction, HarFeastObservation, State
 
     SUPPORTS_CONCURRENT_SESSIONS: bool = False  # Session state (filtered datasets)
 
-    def __init__(self, world_path: str | None = None):
+    def __init__(self, world_path: str | None = None, worlds_base: str | None = None):
         self._world_path = world_path or os.path.join(_project_root, "harfeast_world")
-        self._env = HarFeastOpenEnv(world_path=self._world_path)
+        self._worlds_base = (worlds_base or os.environ.get("HARFEAST_WORLDS_BASE") or "").strip() or None
+        self._env = HarFeastOpenEnv(
+            world_path=self._world_path,
+            worlds_base=os.path.abspath(self._worlds_base) if self._worlds_base else None,
+        )
         self._state = State(episode_id=str(uuid4()), step_count=0)
 
     def reset(
@@ -45,9 +49,14 @@ class HarFeastEnvironment(Environment[HarFeastAction, HarFeastObservation, State
         task_id: str | None = None,
         **kwargs,
     ) -> HarFeastObservation:
-        """Reset environment and load a task."""
+        """Reset environment and load a task. Supports task_index for augmented dataset."""
         self._state = State(episode_id=str(uuid4()), step_count=0)
-        result: StepResult = self._env.reset(seed=seed, task_id=task_id or kwargs.get("task_id"), **kwargs)
+        result: StepResult = self._env.reset(
+            seed=seed,
+            task_id=task_id or kwargs.get("task_id"),
+            task_index=kwargs.get("task_index"),
+            **{k: v for k, v in kwargs.items() if k not in ("task_id", "task_index")},
+        )
         return self._step_result_to_obs(result)
 
     def step(

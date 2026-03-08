@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 45,
+    "high_priority_pct": 1.5,
+    "hp_inefficient_hours": 936.0,
+    "hp_inefficient_pct": 1.6,
+    "hp_frontline": 15,
+    "hp_backoffice": 17,
+    "hp_supervisor": 7,
+    "hp_management": 6
+  },
+  "task2": {
+    "Rockford, Illinois": 24763407025,
+    "Green Bay, Wisconsin": 24075528210,
+    "Davenport, Iowa": 26010815573,
+    "Cleveland, Ohio": 23618254255,
+    "Kalamazoo, Michigan": 28778066245
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.7,
+      "units_avoided": 59174
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 71873
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 96869
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8731
+    },
+    "Green Bay, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8669
+    },
+    "Davenport, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8721
+    },
+    "Cleveland, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8703
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8508
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 788757,
+      "efficiency_gains": 149440,
+      "union_demand_increase": 22212
+    },
+    "Green Bay, Wisconsin": {
+      "total_labor_cost": 643178,
+      "efficiency_gains": 108746,
+      "union_demand_increase": 19571
+    },
+    "Davenport, Iowa": {
+      "total_labor_cost": 864136,
+      "efficiency_gains": 75071,
+      "union_demand_increase": 23935
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.4,
+      "Green Bay, Wisconsin": 8.5,
+      "Davenport, Iowa": 8.5,
+      "Cleveland, Ohio": 37.5,
+      "Kalamazoo, Michigan": 38.1
+    },
+    "most_efficient": [
+      "Rockford, Illinois"
+    ],
+    "least_efficient": "Kalamazoo, Michigan",
+    "pct_difference": 354
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20016,
+      "Quality Control/Quality Assurance": 22883,
+      "Maintenance Technician": 27132,
+      "Production Supervisor/Team Lead": 29998,
+      "Supply Chain/Logistics Coordinator": 25043,
+      "Demand Planning/Forecasting": 31287,
+      "Administrative/Support Staff": 20897,
+      "Plant Management": 45159
+    },
+    "total_annual_loss": 81056269
+  },
+  "task8": {
+    "hp_quality_losses": 1938077,
+    "hp_pct_of_cv_losses": 41
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 10283,
+      "variance_dollars": 207408.11,
+      "productivity_index": 0.93
+    },
+    "Green Bay, Wisconsin": {
+      "variance_hours": 17011,
+      "variance_dollars": 343111.87,
+      "productivity_index": 0.89
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.2,
+    "annual_productivity_loss": 94348000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Rockford, Illinois": {
+        "new_unit_sales": 20078723,
+        "new_projected_sales": 60236169
+      },
+      "Green Bay, Wisconsin": {
+        "new_unit_sales": 24254969,
+        "new_projected_sales": 74947854
+      },
+      "Davenport, Iowa": {
+        "new_unit_sales": 5717708,
+        "new_projected_sales": 34477779
+      },
+      "Cleveland, Ohio": {
+        "new_unit_sales": 7425857,
+        "new_projected_sales": 48565105
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 9108771,
+        "new_projected_sales": 55927854
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Green Bay, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Demand Planning/Forecasting",
+      2.43
+    ],
+    "highest_role_in_highest_plant": [
+      "Production Supervisor/Team Lead",
+      3.95
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 27,
+        "total_cost": 2720
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 22,
+        "total_cost": 10080
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 6,
+    "Green Bay, Wisconsin": 6,
+    "Davenport, Iowa": 6,
+    "Cleveland, Ohio": 6,
+    "Kalamazoo, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1434,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 39,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

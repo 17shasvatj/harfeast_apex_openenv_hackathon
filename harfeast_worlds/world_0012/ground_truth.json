@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 53,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1138.0,
+    "hp_inefficient_pct": 2.3,
+    "hp_frontline": 23,
+    "hp_backoffice": 22,
+    "hp_supervisor": 3,
+    "hp_management": 5
+  },
+  "task2": {
+    "Springfield, Illinois": 25671106263,
+    "Kenosha, Wisconsin": 23026796882,
+    "Des Moines, Iowa": 30881555680,
+    "Columbus, Ohio": 25574382911,
+    "Detroit, Michigan": 25809637238
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 72253
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 70728
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 74298
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Springfield, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8575
+    },
+    "Kenosha, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8724
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8533
+    },
+    "Columbus, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.85
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8725
+    }
+  },
+  "task5": {
+    "Springfield, Illinois": {
+      "total_labor_cost": 789485,
+      "efficiency_gains": 137280,
+      "union_demand_increase": 12960
+    },
+    "Kenosha, Wisconsin": {
+      "total_labor_cost": 783827,
+      "efficiency_gains": 135715,
+      "union_demand_increase": 17505
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 930010,
+      "efficiency_gains": 81485,
+      "union_demand_increase": 24285
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Springfield, Illinois": 8.5,
+      "Kenosha, Wisconsin": 8.4,
+      "Des Moines, Iowa": 8.3,
+      "Columbus, Ohio": 37.3,
+      "Detroit, Michigan": 37.9
+    },
+    "most_efficient": [
+      "Des Moines, Iowa"
+    ],
+    "least_efficient": "Detroit, Michigan",
+    "pct_difference": 357
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 17520,
+      "Quality Control/Quality Assurance": 23783,
+      "Maintenance Technician": 25381,
+      "Production Supervisor/Team Lead": 27590,
+      "Supply Chain/Logistics Coordinator": 23755,
+      "Demand Planning/Forecasting": 32758,
+      "Administrative/Support Staff": 20105,
+      "Plant Management": 39360
+    },
+    "total_annual_loss": 65514352
+  },
+  "task8": {
+    "hp_quality_losses": 1874676,
+    "hp_pct_of_cv_losses": 44
+  },
+  "task9": {
+    "Springfield, Illinois": {
+      "variance_hours": 13919,
+      "variance_dollars": 266131.28,
+      "productivity_index": 0.9
+    },
+    "Kenosha, Wisconsin": {
+      "variance_hours": 17190,
+      "variance_dollars": 328672.8,
+      "productivity_index": 0.88
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 29.58,
+    "annual_productivity_loss": 77284000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Springfield, Illinois": {
+        "new_unit_sales": 24451290,
+        "new_projected_sales": 73109357
+      },
+      "Kenosha, Wisconsin": {
+        "new_unit_sales": 24014113,
+        "new_projected_sales": 78286008
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 6780300,
+        "new_projected_sales": 38851119
+      },
+      "Columbus, Ohio": {
+        "new_unit_sales": 7346892,
+        "new_projected_sales": 48856832
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 9277271,
+        "new_projected_sales": 56962444
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Springfield, Illinois",
+    "highest_willingness_plant": "Kenosha, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Administrative/Support Staff",
+      2.44
+    ],
+    "highest_role_in_highest_plant": [
+      "Production Supervisor/Team Lead",
+      3.9
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 22,
+        "total_cost": 8640
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 31,
+        "total_cost": 6720
+      }
+    }
+  },
+  "task13": {
+    "Springfield, Illinois": 7,
+    "Kenosha, Wisconsin": 6,
+    "Des Moines, Iowa": 6,
+    "Columbus, Ohio": 6,
+    "Detroit, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 919,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 16,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "task1": {
+    "high_priority_count": 71,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1617.0,
+    "hp_inefficient_pct": 2.4,
+    "hp_frontline": 26,
+    "hp_backoffice": 23,
+    "hp_supervisor": 14,
+    "hp_management": 8
+  },
+  "task2": {
+    "Champaign, Illinois": 23539941909,
+    "Kenosha, Wisconsin": 27111219311,
+    "Des Moines, Iowa": 24260444831,
+    "Cincinnati, Ohio": 24014952813,
+    "Detroit, Michigan": 23590843167
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.6,
+      "units_avoided": 46135
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 5.9,
+      "units_avoided": 99398
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 97379
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8628
+    },
+    "Kenosha, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8543
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8809
+    },
+    "Cincinnati, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8655
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8605
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 747240,
+      "efficiency_gains": 134085,
+      "union_demand_increase": 18802
+    },
+    "Kenosha, Wisconsin": {
+      "total_labor_cost": 771888,
+      "efficiency_gains": 148191,
+      "union_demand_increase": 29678
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 828027,
+      "efficiency_gains": 76224,
+      "union_demand_increase": 19561
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.4,
+      "Kenosha, Wisconsin": 8.4,
+      "Des Moines, Iowa": 8.7,
+      "Cincinnati, Ohio": 37.5,
+      "Detroit, Michigan": 37.4
+    },
+    "most_efficient": [
+      "Champaign, Illinois",
+      "Kenosha, Wisconsin"
+    ],
+    "least_efficient": "Cincinnati, Ohio",
+    "pct_difference": 346
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 21425,
+      "Quality Control/Quality Assurance": 23671,
+      "Maintenance Technician": 27873,
+      "Production Supervisor/Team Lead": 31008,
+      "Supply Chain/Logistics Coordinator": 26728,
+      "Demand Planning/Forecasting": 33806,
+      "Administrative/Support Staff": 22749,
+      "Plant Management": 47385
+    },
+    "total_annual_loss": 97783093
+  },
+  "task8": {
+    "hp_quality_losses": 1608486,
+    "hp_pct_of_cv_losses": 38
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 11572,
+      "variance_dollars": 238498.92,
+      "productivity_index": 0.91
+    },
+    "Kenosha, Wisconsin": {
+      "variance_hours": 14418,
+      "variance_dollars": 297154.98,
+      "productivity_index": 0.91
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.88,
+    "annual_productivity_loss": 113665000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 22838872,
+        "new_projected_sales": 68516616
+      },
+      "Kenosha, Wisconsin": {
+        "new_unit_sales": 31176033,
+        "new_projected_sales": 99139785
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 5952358,
+        "new_projected_sales": 34107011
+      },
+      "Cincinnati, Ohio": {
+        "new_unit_sales": 6841703,
+        "new_projected_sales": 48849759
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 9178105,
+        "new_projected_sales": 52865885
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Kenosha, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production Supervisor/Team Lead",
+      2.36
+    ],
+    "highest_role_in_highest_plant": [
+      "Production Supervisor/Team Lead",
+      3.86
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 25,
+        "total_cost": 2592
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 28,
+        "total_cost": 2944
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Kenosha, Wisconsin": 6,
+    "Des Moines, Iowa": 6,
+    "Cincinnati, Ohio": 5,
+    "Detroit, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1159,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

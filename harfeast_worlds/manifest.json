@@ -1,0 +1,242 @@
+[
+  {
+    "world_id": 0,
+    "path": "./harfeast_worlds/world_0000",
+    "seed": 1866,
+    "task_count": 14
+  },
+  {
+    "world_id": 1,
+    "path": "./harfeast_worlds/world_0001",
+    "seed": 10451,
+    "task_count": 14
+  },
+  {
+    "world_id": 2,
+    "path": "./harfeast_worlds/world_0002",
+    "seed": 24548,
+    "task_count": 14
+  },
+  {
+    "world_id": 3,
+    "path": "./harfeast_worlds/world_0003",
+    "seed": 34054,
+    "task_count": 14
+  },
+  {
+    "world_id": 4,
+    "path": "./harfeast_worlds/world_0004",
+    "seed": 43699,
+    "task_count": 14
+  },
+  {
+    "world_id": 5,
+    "path": "./harfeast_worlds/world_0005",
+    "seed": 52328,
+    "task_count": 14
+  },
+  {
+    "world_id": 6,
+    "path": "./harfeast_worlds/world_0006",
+    "seed": 61721,
+    "task_count": 14
+  },
+  {
+    "world_id": 7,
+    "path": "./harfeast_worlds/world_0007",
+    "seed": 78977,
+    "task_count": 14
+  },
+  {
+    "world_id": 8,
+    "path": "./harfeast_worlds/world_0008",
+    "seed": 81466,
+    "task_count": 14
+  },
+  {
+    "world_id": 9,
+    "path": "./harfeast_worlds/world_0009",
+    "seed": 99716,
+    "task_count": 14
+  },
+  {
+    "world_id": 10,
+    "path": "./harfeast_worlds/world_0010",
+    "seed": 106954,
+    "task_count": 14
+  },
+  {
+    "world_id": 11,
+    "path": "./harfeast_worlds/world_0011",
+    "seed": 110562,
+    "task_count": 14
+  },
+  {
+    "world_id": 12,
+    "path": "./harfeast_worlds/world_0012",
+    "seed": 120530,
+    "task_count": 14
+  },
+  {
+    "world_id": 13,
+    "path": "./harfeast_worlds/world_0013",
+    "seed": 131577,
+    "task_count": 14
+  },
+  {
+    "world_id": 14,
+    "path": "./harfeast_worlds/world_0014",
+    "seed": 143624,
+    "task_count": 14
+  },
+  {
+    "world_id": 15,
+    "path": "./harfeast_worlds/world_0015",
+    "seed": 153853,
+    "task_count": 14
+  },
+  {
+    "world_id": 16,
+    "path": "./harfeast_worlds/world_0016",
+    "seed": 168321,
+    "task_count": 14
+  },
+  {
+    "world_id": 17,
+    "path": "./harfeast_worlds/world_0017",
+    "seed": 179905,
+    "task_count": 14
+  },
+  {
+    "world_id": 18,
+    "path": "./harfeast_worlds/world_0018",
+    "seed": 180476,
+    "task_count": 14
+  },
+  {
+    "world_id": 19,
+    "path": "./harfeast_worlds/world_0019",
+    "seed": 199237,
+    "task_count": 14
+  },
+  {
+    "world_id": 20,
+    "path": "./harfeast_worlds/world_0020",
+    "seed": 203299,
+    "task_count": 14
+  },
+  {
+    "world_id": 21,
+    "path": "./harfeast_worlds/world_0021",
+    "seed": 218970,
+    "task_count": 14
+  },
+  {
+    "world_id": 22,
+    "path": "./harfeast_worlds/world_0022",
+    "seed": 226915,
+    "task_count": 14
+  },
+  {
+    "world_id": 23,
+    "path": "./harfeast_worlds/world_0023",
+    "seed": 233653,
+    "task_count": 14
+  },
+  {
+    "world_id": 24,
+    "path": "./harfeast_worlds/world_0024",
+    "seed": 247401,
+    "task_count": 14
+  },
+  {
+    "world_id": 25,
+    "path": "./harfeast_worlds/world_0025",
+    "seed": 259696,
+    "task_count": 14
+  },
+  {
+    "world_id": 26,
+    "path": "./harfeast_worlds/world_0026",
+    "seed": 264599,
+    "task_count": 14
+  },
+  {
+    "world_id": 27,
+    "path": "./harfeast_worlds/world_0027",
+    "seed": 270148,
+    "task_count": 14
+  },
+  {
+    "world_id": 28,
+    "path": "./harfeast_worlds/world_0028",
+    "seed": 282657,
+    "task_count": 14
+  },
+  {
+    "world_id": 29,
+    "path": "./harfeast_worlds/world_0029",
+    "seed": 296966,
+    "task_count": 14
+  },
+  {
+    "world_id": 30,
+    "path": "./harfeast_worlds/world_0030",
+    "seed": 305616,
+    "task_count": 14
+  },
+  {
+    "world_id": 31,
+    "path": "./harfeast_worlds/world_0031",
+    "seed": 314594,
+    "task_count": 14
+  },
+  {
+    "world_id": 32,
+    "path": "./harfeast_worlds/world_0032",
+    "seed": 322589,
+    "task_count": 14
+  },
+  {
+    "world_id": 33,
+    "path": "./harfeast_worlds/world_0033",
+    "seed": 333569,
+    "task_count": 14
+  },
+  {
+    "world_id": 34,
+    "path": "./harfeast_worlds/world_0034",
+    "seed": 345556,
+    "task_count": 14
+  },
+  {
+    "world_id": 35,
+    "path": "./harfeast_worlds/world_0035",
+    "seed": 351716,
+    "task_count": 14
+  },
+  {
+    "world_id": 36,
+    "path": "./harfeast_worlds/world_0036",
+    "seed": 361561,
+    "task_count": 14
+  },
+  {
+    "world_id": 37,
+    "path": "./harfeast_worlds/world_0037",
+    "seed": 376266,
+    "task_count": 14
+  },
+  {
+    "world_id": 38,
+    "path": "./harfeast_worlds/world_0038",
+    "seed": 381626,
+    "task_count": 14
+  },
+  {
+    "world_id": 39,
+    "path": "./harfeast_worlds/world_0039",
+    "seed": 395923,
+    "task_count": 14
+  }
+]

@@ -1,0 +1,66 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-SPR-000,"Springfield, Illinois",Production Supervisor,21.29,2080,Non-Union,production,East North Central
+LAB-SPR-001,"Springfield, Illinois",Maintenance Tech,20.58,2080,Non-Union,non-production,East North Central
+LAB-SPR-002,"Springfield, Illinois",Packaging Operator,16.53,2080,Union,non-production,East North Central
+LAB-SPR-003,"Springfield, Illinois",Packaging Operator,18.43,2080,Non-Union,non-production,East North Central
+LAB-SPR-004,"Springfield, Illinois",Quality Inspector,21.43,2080,Union,non-production,East North Central
+LAB-SPR-005,"Springfield, Illinois",Quality Inspector,20.64,2080,Non-Union,non-production,East North Central
+LAB-SPR-006,"Springfield, Illinois",Maintenance Tech,18.91,2080,Union,non-production,East North Central
+LAB-SPR-007,"Springfield, Illinois",Production Supervisor,22.55,2080,Non-Union,production,East North Central
+LAB-SPR-008,"Springfield, Illinois",Maintenance Tech,14,2080,Non-Union,non-production,East North Central
+LAB-SPR-009,"Springfield, Illinois",Production Operator,16.55,2080,Non-Union,non-production,East North Central
+LAB-SPR-010,"Springfield, Illinois",Quality Inspector,14.51,2080,Non-Union,non-production,East North Central
+LAB-SPR-011,"Springfield, Illinois",Production Supervisor,20.88,2080,Non-Union,production,East North Central
+LAB-SPR-012,"Springfield, Illinois",Packaging Operator,14,2080,Non-Union,non-production,East North Central
+LAB-SPR-013,"Springfield, Illinois",Line Lead,24.62,2080,Non-Union,production,East North Central
+LAB-SPR-014,"Springfield, Illinois",Production Supervisor,20.44,2080,Non-Union,production,East North Central
+LAB-SPR-015,"Springfield, Illinois",Maintenance Tech,15.76,2080,Union,non-production,East North Central
+LAB-SPR-016,"Springfield, Illinois",Maintenance Tech,20.66,2080,Union,non-production,East North Central
+LAB-SPR-017,"Springfield, Illinois",Production Supervisor,25.47,2080,Non-Union,production,East North Central
+LAB-SPR-018,"Springfield, Illinois",Production Supervisor,22.93,2080,Union,production,East North Central
+LAB-SPR-019,"Springfield, Illinois",Packaging Operator,16.39,2080,Union,non-production,East North Central
+LAB-SPR-020,"Springfield, Illinois",Line Lead,24.08,2080,Union,production,East North Central
+LAB-SPR-021,"Springfield, Illinois",Maintenance Tech,17.53,2080,Union,non-production,East North Central
+LAB-RAC-022,"Racine, Wisconsin",Packaging Operator,22.06,2080,Union,non-production,East North Central
+LAB-RAC-023,"Racine, Wisconsin",Maintenance Tech,20.06,2080,Non-Union,non-production,East North Central
+LAB-RAC-024,"Racine, Wisconsin",Production Operator,19.89,2080,Union,non-production,East North Central
+LAB-RAC-025,"Racine, Wisconsin",Line Lead,21.43,2080,Union,production,East North Central
+LAB-RAC-026,"Racine, Wisconsin",Production Operator,20.8,2080,Union,non-production,East North Central
+LAB-RAC-027,"Racine, Wisconsin",Production Supervisor,21.24,2080,Union,production,East North Central
+LAB-RAC-028,"Racine, Wisconsin",Maintenance Tech,15.17,2080,Non-Union,non-production,East North Central
+LAB-RAC-029,"Racine, Wisconsin",Maintenance Tech,16.51,2080,Non-Union,non-production,East North Central
+LAB-RAC-030,"Racine, Wisconsin",Production Operator,20.96,2080,Non-Union,non-production,East North Central
+LAB-RAC-031,"Racine, Wisconsin",Production Supervisor,21.28,2080,Union,production,East North Central
+LAB-RAC-032,"Racine, Wisconsin",Line Lead,21.8,2080,Union,production,East North Central
+LAB-RAC-033,"Racine, Wisconsin",Production Supervisor,22.79,2080,Union,production,East North Central
+LAB-RAC-034,"Racine, Wisconsin",Line Lead,23.99,2080,Union,production,East North Central
+LAB-RAC-035,"Racine, Wisconsin",Maintenance Tech,17.51,2080,Union,non-production,East North Central
+LAB-RAC-036,"Racine, Wisconsin",Line Lead,22.32,2080,Non-Union,production,East North Central
+LAB-RAC-037,"Racine, Wisconsin",Production Supervisor,22.15,2080,Non-Union,production,East North Central
+LAB-RAC-038,"Racine, Wisconsin",Line Lead,22.45,2080,Non-Union,production,East North Central
+LAB-RAC-039,"Racine, Wisconsin",Production Operator,20.89,2080,Non-Union,non-production,East North Central
+LAB-RAC-040,"Racine, Wisconsin",Line Lead,21.3,2080,Union,production,East North Central
+LAB-SIO-041,"Sioux City, Iowa",Packaging Operator,14.4,2080,Non-Union,non-production,West North Central
+LAB-SIO-042,"Sioux City, Iowa",Maintenance Tech,15.41,2080,Union,non-production,West North Central
+LAB-SIO-043,"Sioux City, Iowa",Packaging Operator,18.9,2080,Union,non-production,West North Central
+LAB-SIO-044,"Sioux City, Iowa",Packaging Operator,20.09,2080,Union,non-production,West North Central
+LAB-SIO-045,"Sioux City, Iowa",Quality Inspector,16.44,2080,Union,non-production,West North Central
+LAB-SIO-046,"Sioux City, Iowa",Quality Inspector,18.52,2080,Non-Union,non-production,West North Central
+LAB-SIO-047,"Sioux City, Iowa",Production Supervisor,19.54,2080,Union,production,West North Central
+LAB-SIO-048,"Sioux City, Iowa",Production Operator,15.5,2080,Non-Union,non-production,West North Central
+LAB-SIO-049,"Sioux City, Iowa",Packaging Operator,18.21,2080,Union,non-production,West North Central
+LAB-SIO-050,"Sioux City, Iowa",Line Lead,18.93,2080,Union,production,West North Central
+LAB-SIO-051,"Sioux City, Iowa",Line Lead,22.02,2080,Union,production,West North Central
+LAB-SIO-052,"Sioux City, Iowa",Maintenance Tech,19.01,2080,Non-Union,non-production,West North Central
+LAB-SIO-053,"Sioux City, Iowa",Production Operator,14.68,2080,Non-Union,non-production,West North Central
+LAB-SIO-054,"Sioux City, Iowa",Maintenance Tech,16.64,2080,Union,non-production,West North Central
+LAB-SIO-055,"Sioux City, Iowa",Packaging Operator,17.22,2080,Union,non-production,West North Central
+LAB-SIO-056,"Sioux City, Iowa",Production Supervisor,21.86,2080,Union,production,West North Central
+LAB-SIO-057,"Sioux City, Iowa",Production Operator,15.1,2080,Union,non-production,West North Central
+LAB-SIO-058,"Sioux City, Iowa",Production Supervisor,22.15,2080,Non-Union,production,West North Central
+LAB-SIO-059,"Sioux City, Iowa",Production Supervisor,20.7,2080,Union,production,West North Central
+LAB-SIO-060,"Sioux City, Iowa",Maintenance Tech,19.37,2080,Non-Union,non-production,West North Central
+LAB-SIO-061,"Sioux City, Iowa",Quality Inspector,15.49,2080,Union,non-production,West North Central
+LAB-SIO-062,"Sioux City, Iowa",Maintenance Tech,18.23,2080,Non-Union,non-production,West North Central
+LAB-SIO-063,"Sioux City, Iowa",Packaging Operator,20.2,2080,Union,non-production,West North Central
+LAB-SIO-064,"Sioux City, Iowa",Maintenance Tech,19.65,2080,Union,non-production,West North Central

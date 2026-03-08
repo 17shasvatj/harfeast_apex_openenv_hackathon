@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 75,
+    "high_priority_pct": 2.4,
+    "hp_inefficient_hours": 1518.0,
+    "hp_inefficient_pct": 2.4,
+    "hp_frontline": 27,
+    "hp_backoffice": 32,
+    "hp_supervisor": 6,
+    "hp_management": 10
+  },
+  "task2": {
+    "Rockford, Illinois": 22529129030,
+    "Milwaukee, Wisconsin": 23230792545,
+    "Des Moines, Iowa": 21588540596,
+    "Cincinnati, Ohio": 26524658074,
+    "Lansing, Michigan": 23643671677
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 80292
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 64967
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 64137
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.857
+    },
+    "Milwaukee, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8566
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8521
+    },
+    "Cincinnati, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8669
+    },
+    "Lansing, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8624
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 789797,
+      "efficiency_gains": 145604,
+      "union_demand_increase": 25451
+    },
+    "Milwaukee, Wisconsin": {
+      "total_labor_cost": 930779,
+      "efficiency_gains": 144292,
+      "union_demand_increase": 11911
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 878301,
+      "efficiency_gains": 83378,
+      "union_demand_increase": 19076
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.2,
+      "Milwaukee, Wisconsin": 8.5,
+      "Des Moines, Iowa": 8.3,
+      "Cincinnati, Ohio": 37.7,
+      "Lansing, Michigan": 37.7
+    },
+    "most_efficient": [
+      "Rockford, Illinois"
+    ],
+    "least_efficient": "Lansing, Michigan",
+    "pct_difference": 360
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20296,
+      "Quality Control/Quality Assurance": 23846,
+      "Maintenance Technician": 28934,
+      "Production Supervisor/Team Lead": 30239,
+      "Supply Chain/Logistics Coordinator": 26389,
+      "Demand Planning/Forecasting": 31122,
+      "Administrative/Support Staff": 22064,
+      "Plant Management": 44456
+    },
+    "total_annual_loss": 90031384
+  },
+  "task8": {
+    "hp_quality_losses": 1382784,
+    "hp_pct_of_cv_losses": 37
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 14704,
+      "variance_dollars": 303637.6,
+      "productivity_index": 0.89
+    },
+    "Milwaukee, Wisconsin": {
+      "variance_hours": 14708,
+      "variance_dollars": 303720.2,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.94,
+    "annual_productivity_loss": 105895000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Rockford, Illinois": {
+        "new_unit_sales": 19195318,
+        "new_projected_sales": 57777907
+      },
+      "Milwaukee, Wisconsin": {
+        "new_unit_sales": 24222455,
+        "new_projected_sales": 75574060
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 5508531,
+        "new_projected_sales": 32665589
+      },
+      "Cincinnati, Ohio": {
+        "new_unit_sales": 5869544,
+        "new_projected_sales": 39971595
+      },
+      "Lansing, Michigan": {
+        "new_unit_sales": 8740963,
+        "new_projected_sales": 54980657
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Milwaukee, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Demand Planning/Forecasting",
+      2.48
+    ],
+    "highest_role_in_highest_plant": [
+      "Quality Control/Quality Assurance",
+      3.84
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 20,
+        "total_cost": 2240
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 24,
+        "total_cost": 12160
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 6,
+    "Milwaukee, Wisconsin": 6,
+    "Des Moines, Iowa": 6,
+    "Cincinnati, Ohio": 6,
+    "Lansing, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1337,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

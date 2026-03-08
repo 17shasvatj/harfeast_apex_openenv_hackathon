@@ -4,24 +4,24 @@
     "task_name": "High-Priority Digital Training Employees",
     "prompt": "I'm trying to get a sense of which HarFeast employees are most ready for the digital training rollout. Can you pull the workforce survey data and identify all employees who are above their role type's median readiness score, willing to pilot new tools, willing to spend >2 days in training with dedicated training time, and above the overall median digital comfort score?\n\nOnce you've identified that group, tell me:\n1. How many \"high-priority\" employees are there, and what % of total employees do they represent?\n2. How many total hours does this group spend weekly on manual entry, searching data, or fixing errors? What % of the company-wide total is that?\n3. Break down the high-priority count by role type.\n\nReport your answer here.",
     "ground_truth": {
-      "high_priority_count": 62,
+      "high_priority_count": 52,
       "high_priority_pct": 2.1,
-      "hp_inefficient_hours": 1211.0,
-      "hp_inefficient_pct": 2.0,
-      "hp_frontline": 20,
-      "hp_backoffice": 21,
-      "hp_supervisor": 9,
-      "hp_management": 12
+      "hp_inefficient_hours": 1068.0,
+      "hp_inefficient_pct": 2.2,
+      "hp_frontline": 19,
+      "hp_backoffice": 17,
+      "hp_supervisor": 8,
+      "hp_management": 8
     },
     "rubric": [
-      "States that the number of high-priority employees is 62",
+      "States that the number of high-priority employees is 52",
       "States that the percentage of all employees the high-priority employees represent is 2.1%",
-      "States that the total hours high-priority employees spend on manual entry, searching data or fixing errors is 1211",
-      "States that the percentage of all such hours from high-priority employees is 2.0%",
-      "States that the number of high-priority employees in the Front-line role type is 20",
-      "States that the number of high-priority employees in the Back-office/Support role type is 21",
-      "States that the number of high-priority employees in the Supervisor/Team Lead role type is 9",
-      "States that the number of high-priority employees in the Management role type is 12"
+      "States that the total hours high-priority employees spend on manual entry, searching data or fixing errors is 1068",
+      "States that the percentage of all such hours from high-priority employees is 2.2%",
+      "States that the number of high-priority employees in the Front-line role type is 19",
+      "States that the number of high-priority employees in the Back-office/Support role type is 17",
+      "States that the number of high-priority employees in the Supervisor/Team Lead role type is 8",
+      "States that the number of high-priority employees in the Management role type is 8"
     ]
   },
   {
@@ -29,18 +29,18 @@
     "task_name": "Adjusted Cost of Instability",
     "prompt": "Calculate the Adjusted Cost of Instability for each site, defined as Abnormal scrap cost/(Actual Scrap % - Normal Scrap %) = adjusted cost of instability. The target scrap rate of HarFeast is the minimum in the range of acceptable scrap rate in the scrap rate report. Just use COGS per ton as your scrap cost for now.\n\nReport your final answers to me in a message. Round values to the nearest dollar.",
     "ground_truth": {
-      "Rockford, Illinois": 21953848911,
-      "Madison, Wisconsin": 24458886590,
-      "Cedar Rapids, Iowa": 22802801503,
-      "Toledo, Ohio": 29409892855,
-      "Kalamazoo, Michigan": 24998918795
+      "Rockford, Illinois": 28559265184,
+      "Madison, Wisconsin": 25208027893,
+      "Davenport, Iowa": 23644183501,
+      "Columbus, Ohio": 25448856089,
+      "Lansing, Michigan": 21243014839
     },
     "rubric": [
-      "States that the adjusted cost of instability for Rockford, Illinois is $21,953,848,911",
-      "States that the adjusted cost of instability for Madison, Wisconsin is $24,458,886,590",
-      "States that the adjusted cost of instability for Cedar Rapids, Iowa is $22,802,801,503",
-      "States that the adjusted cost of instability for Toledo, Ohio is $29,409,892,855",
-      "States that the adjusted cost of instability for Kalamazoo, Michigan is $24,998,918,795"
+      "States that the adjusted cost of instability for Rockford, Illinois is $28,559,265,184",
+      "States that the adjusted cost of instability for Madison, Wisconsin is $25,208,027,893",
+      "States that the adjusted cost of instability for Davenport, Iowa is $23,644,183,501",
+      "States that the adjusted cost of instability for Columbus, Ohio is $25,448,856,089",
+      "States that the adjusted cost of instability for Lansing, Michigan is $21,243,014,839"
     ]
   },
   {
@@ -49,25 +49,25 @@
     "prompt": "Using HarFeast's equipment data, assess the impact of predictive maintenance on HarFeast's scrap rate. We will pilot predictive maintenance only on equipment a) whose scheduled hours per year are at or above that equipment type's median scheduled hours and b) whose labor hours are at or above its plant's median labor hours. For all equipment qualifying for the pilot, apply a 15% reduction to their scrap rate.\n\nCalculate:\n1. The new overall scrap rate for each product family (as a %)\n2. The total number of scrap units each product family avoids every year\n\nReport rounded to 1 decimal place for rates and nearest whole number for units.",
     "ground_truth": {
       "Canned Vegetables": {
-        "new_scrap_rate_pct": 6.3,
-        "units_avoided": 111266
+        "new_scrap_rate_pct": 6.1,
+        "units_avoided": 68948
       },
       "Condiments": {
-        "new_scrap_rate_pct": 6.3,
-        "units_avoided": 54095
+        "new_scrap_rate_pct": 6.1,
+        "units_avoided": 84913
       },
       "Sauces": {
-        "new_scrap_rate_pct": 6.4,
-        "units_avoided": 59592
+        "new_scrap_rate_pct": 6.0,
+        "units_avoided": 69887
       }
     },
     "rubric": [
-      "States that the new overall scrap rate for Canned Vegetables is 6.3%",
-      "States that the scrap units Canned Vegetables avoids per year is 111266",
-      "States that the new overall scrap rate for Condiments is 6.3%",
-      "States that the scrap units Condiments avoids per year is 54095",
-      "States that the new overall scrap rate for Sauces is 6.4%",
-      "States that the scrap units Sauces avoids per year is 59592"
+      "States that the new overall scrap rate for Canned Vegetables is 6.1%",
+      "States that the scrap units Canned Vegetables avoids per year is 68948",
+      "States that the new overall scrap rate for Condiments is 6.1%",
+      "States that the scrap units Condiments avoids per year is 84913",
+      "States that the new overall scrap rate for Sauces is 6.0%",
+      "States that the scrap units Sauces avoids per year is 69887"
     ]
   },
   {
@@ -77,71 +77,71 @@
     "ground_truth": {
       "digital_lever": "IoT Sensors for yield",
       "Rockford, Illinois": {
-        "first_year_exceeds": 2028,
-        "oee_at_that_year": 0.87
+        "first_year_exceeds": 2027,
+        "oee_at_that_year": 0.8591
       },
       "Madison, Wisconsin": {
         "first_year_exceeds": 2029,
-        "oee_at_that_year": 0.872
+        "oee_at_that_year": 0.8661
       },
-      "Cedar Rapids, Iowa": {
+      "Davenport, Iowa": {
         "first_year_exceeds": 2027,
-        "oee_at_that_year": 0.864
+        "oee_at_that_year": 0.8768
       },
-      "Toledo, Ohio": {
-        "first_year_exceeds": 2031,
-        "oee_at_that_year": 0.855
-      },
-      "Kalamazoo, Michigan": {
+      "Columbus, Ohio": {
         "first_year_exceeds": 2032,
-        "oee_at_that_year": 0.854
+        "oee_at_that_year": 0.8641
+      },
+      "Lansing, Michigan": {
+        "first_year_exceeds": 2031,
+        "oee_at_that_year": 0.8528
       }
     },
     "rubric": [
       "States that the digital lever is IoT Sensors for yield",
-      "States that the OEE level for Rockford, Illinois in the first year exceeding world-class target is 87.00%",
-      "States that the first year Rockford, Illinois exceeds world-class target is 2028",
-      "States that the OEE level for Madison, Wisconsin in the first year exceeding world-class target is 87.20%",
+      "States that the OEE level for Rockford, Illinois in the first year exceeding world-class target is 85.91%",
+      "States that the first year Rockford, Illinois exceeds world-class target is 2027",
+      "States that the OEE level for Madison, Wisconsin in the first year exceeding world-class target is 86.61%",
       "States that the first year Madison, Wisconsin exceeds world-class target is 2029",
-      "States that the OEE level for Cedar Rapids, Iowa in the first year exceeding world-class target is 86.40%",
-      "States that the first year Cedar Rapids, Iowa exceeds world-class target is 2027",
-      "States that the OEE level for Toledo, Ohio in the first year exceeding world-class target is 85.50%",
-      "States that the first year Toledo, Ohio exceeds world-class target is 2031",
-      "States that the OEE level for Kalamazoo, Michigan in the first year exceeding world-class target is 85.40%",
-      "States that the first year Kalamazoo, Michigan exceeds world-class target is 2032"
+      "States that the OEE level for Davenport, Iowa in the first year exceeding world-class target is 87.68%",
+      "States that the first year Davenport, Iowa exceeds world-class target is 2027",
+      "States that the OEE level for Columbus, Ohio in the first year exceeding world-class target is 86.41%",
+      "States that the first year Columbus, Ohio exceeds world-class target is 2032",
+      "States that the OEE level for Lansing, Michigan in the first year exceeding world-class target is 85.28%",
+      "States that the first year Lansing, Michigan exceeds world-class target is 2031"
     ]
   },
   {
     "task_id": "task_05",
     "task_name": "Labor Cost Analysis",
-    "prompt": "1. Give me the total labor cost for each plant location (Rockford IL, Madison WI, Cedar Rapids IA only).\n\n2. Give me the efficiency gains for each plant location. West North Central division plant locations only have a 10% annual efficiency gain from labor cost. For other locations, the efficiency gain is 20%. However, the efficiency gain is 5% for non-unionized production supervisors no matter where they are located.\n\n3. Give me the forecasted labor cost increase from union demands, assuming a 5% increase for all union workers.\n\nRound to the nearest dollar.",
+    "prompt": "1. Give me the total labor cost for each plant location (Rockford, Illinois, Madison, Wisconsin, Davenport, Iowa only).\n\n2. Give me the efficiency gains for each plant location. West North Central division plant locations only have a 10% annual efficiency gain from labor cost. For other locations, the efficiency gain is 20%. However, the efficiency gain is 5% for non-unionized production supervisors no matter where they are located.\n\n3. Give me the forecasted labor cost increase from union demands, assuming a 5% increase for all union workers.\n\nRound to the nearest dollar.",
     "ground_truth": {
       "Rockford, Illinois": {
-        "total_labor_cost": 638123,
-        "efficiency_gains": 107884,
-        "union_demand_increase": 9497
+        "total_labor_cost": 692058,
+        "efficiency_gains": 97277,
+        "union_demand_increase": 16631
       },
       "Madison, Wisconsin": {
-        "total_labor_cost": 829317,
-        "efficiency_gains": 145081,
-        "union_demand_increase": 16711
+        "total_labor_cost": 1032866,
+        "efficiency_gains": 156478,
+        "union_demand_increase": 19974
       },
-      "Cedar Rapids, Iowa": {
-        "total_labor_cost": 859290,
-        "efficiency_gains": 81275,
-        "union_demand_increase": 18263
+      "Davenport, Iowa": {
+        "total_labor_cost": 919381,
+        "efficiency_gains": 78062,
+        "union_demand_increase": 16771
       }
     },
     "rubric": [
-      "States that the Total Annual Labor Cost for Rockford, Illinois is $638,123",
-      "States that the Efficiency Gains for Rockford, Illinois is $107,884",
-      "States that the Union Demand Increase for Rockford, Illinois is $9,497",
-      "States that the Total Annual Labor Cost for Madison, Wisconsin is $829,317",
-      "States that the Efficiency Gains for Madison, Wisconsin is $145,081",
-      "States that the Union Demand Increase for Madison, Wisconsin is $16,711",
-      "States that the Total Annual Labor Cost for Cedar Rapids, Iowa is $859,290",
-      "States that the Efficiency Gains for Cedar Rapids, Iowa is $81,275",
-      "States that the Union Demand Increase for Cedar Rapids, Iowa is $18,263"
+      "States that the Total Annual Labor Cost for Rockford, Illinois is $692,058",
+      "States that the Efficiency Gains for Rockford, Illinois is $97,277",
+      "States that the Union Demand Increase for Rockford, Illinois is $16,631",
+      "States that the Total Annual Labor Cost for Madison, Wisconsin is $1,032,866",
+      "States that the Efficiency Gains for Madison, Wisconsin is $156,478",
+      "States that the Union Demand Increase for Madison, Wisconsin is $19,974",
+      "States that the Total Annual Labor Cost for Davenport, Iowa is $919,381",
+      "States that the Efficiency Gains for Davenport, Iowa is $78,062",
+      "States that the Union Demand Increase for Davenport, Iowa is $16,771"
     ]
   },
   {
@@ -151,26 +151,30 @@
     "ground_truth": {
       "avg_by_plant": {
         "Rockford, Illinois": 8.7,
-        "Madison, Wisconsin": 8.5,
-        "Cedar Rapids, Iowa": 8.6,
-        "Toledo, Ohio": 37.1,
-        "Kalamazoo, Michigan": 37.5
+        "Madison, Wisconsin": 8.7,
+        "Davenport, Iowa": 8.7,
+        "Columbus, Ohio": 37.2,
+        "Lansing, Michigan": 37.4
       },
       "most_efficient": [
-        "Madison, Wisconsin"
+        "Rockford, Illinois",
+        "Madison, Wisconsin",
+        "Davenport, Iowa"
       ],
-      "least_efficient": "Kalamazoo, Michigan",
-      "pct_difference": 341
+      "least_efficient": "Lansing, Michigan",
+      "pct_difference": 330
     },
     "rubric": [
       "States the average inefficient time in Rockford, Illinois is 8.7",
-      "States the average inefficient time in Madison, Wisconsin is 8.5",
-      "States the average inefficient time in Cedar Rapids, Iowa is 8.6",
-      "States the average inefficient time in Toledo, Ohio is 37.1",
-      "States the average inefficient time in Kalamazoo, Michigan is 37.5",
+      "States the average inefficient time in Madison, Wisconsin is 8.7",
+      "States the average inefficient time in Davenport, Iowa is 8.7",
+      "States the average inefficient time in Columbus, Ohio is 37.2",
+      "States the average inefficient time in Lansing, Michigan is 37.4",
+      "States that Rockford, Illinois is a plant with the lowest average inefficient time",
       "States that Madison, Wisconsin is a plant with the lowest average inefficient time",
-      "States that Kalamazoo, Michigan is the plant with the highest average inefficient time",
-      "States that the difference between highest and lowest average inefficient time is 341%"
+      "States that Davenport, Iowa is a plant with the lowest average inefficient time",
+      "States that Lansing, Michigan is the plant with the highest average inefficient time",
+      "States that the difference between highest and lowest average inefficient time is 330%"
     ]
   },
   {
@@ -179,27 +183,27 @@
     "prompt": "I want to quantify the average annual productivity loss at a cost level for each employee in each primary role based on the sum of average hours spent doing manual entry, searching data, and fixing errors. Then, I want to calculate the total productivity loss cost HarFeast faces every year, company-wide.\n\nNote that the survey responses represent one week of work. Report your final answer as a message. Round to the nearest dollar.",
     "ground_truth": {
       "avg_loss_by_role": {
-        "Production/Manufacturing Operator": 19593,
-        "Quality Control/Quality Assurance": 23110,
-        "Maintenance Technician": 26953,
-        "Production Supervisor/Team Lead": 29838,
-        "Supply Chain/Logistics Coordinator": 24288,
-        "Demand Planning/Forecasting": 31183,
-        "Administrative/Support Staff": 21378,
-        "Plant Management": 45610
+        "Production/Manufacturing Operator": 18964,
+        "Quality Control/Quality Assurance": 21948,
+        "Maintenance Technician": 25004,
+        "Production Supervisor/Team Lead": 28288,
+        "Supply Chain/Logistics Coordinator": 22701,
+        "Demand Planning/Forecasting": 28129,
+        "Administrative/Support Staff": 21637,
+        "Plant Management": 41416
       },
-      "total_annual_loss": 83189910
+      "total_annual_loss": 62914681
     },
     "rubric": [
-      "States the average annual productivity loss cost of a Production/Manufacturing Operator employee is $19,593",
-      "States the average annual productivity loss cost of a Quality Control/Quality Assurance employee is $23,110",
-      "States the average annual productivity loss cost of a Maintenance Technician employee is $26,953",
-      "States the average annual productivity loss cost of a Production Supervisor/Team Lead employee is $29,838",
-      "States the average annual productivity loss cost of a Supply Chain/Logistics Coordinator employee is $24,288",
-      "States the average annual productivity loss cost of a Demand Planning/Forecasting employee is $31,183",
-      "States the average annual productivity loss cost of a Administrative/Support Staff employee is $21,378",
-      "States the average annual productivity loss cost of a Plant Management employee is $45,610",
-      "States the total annual productivity loss cost is $83,189,910"
+      "States the average annual productivity loss cost of a Production/Manufacturing Operator employee is $18,964",
+      "States the average annual productivity loss cost of a Quality Control/Quality Assurance employee is $21,948",
+      "States the average annual productivity loss cost of a Maintenance Technician employee is $25,004",
+      "States the average annual productivity loss cost of a Production Supervisor/Team Lead employee is $28,288",
+      "States the average annual productivity loss cost of a Supply Chain/Logistics Coordinator employee is $22,701",
+      "States the average annual productivity loss cost of a Demand Planning/Forecasting employee is $28,129",
+      "States the average annual productivity loss cost of a Administrative/Support Staff employee is $21,637",
+      "States the average annual productivity loss cost of a Plant Management employee is $41,416",
+      "States the total annual productivity loss cost is $62,914,681"
     ]
   },
   {
@@ -207,37 +211,37 @@
     "task_name": "High-Priority Equipment Quality Losses",
     "prompt": "Using HarFeast's equipment data and quality losses dataset, consider all canned vegetables assets with a scrap rate > 5% and with unplanned downtime hours above the plant median for canned vegetables as \"high-priority\".\n\n1. For the \"high-priority\" group, calculate the total annual quality-related losses (scrap cost + unplanned failure cost).\n2. What percentage of all canned-vegetable quality losses comes from these high-priority assets?\n\nReport losses rounded to the nearest dollar and percentage to the nearest whole number.",
     "ground_truth": {
-      "hp_quality_losses": 1446225,
-      "hp_pct_of_cv_losses": 35
+      "hp_quality_losses": 1526123,
+      "hp_pct_of_cv_losses": 38
     },
     "rubric": [
-      "States that the total annual quality-related losses for the high-priority group is $1,446,225",
-      "States that the percentage of all canned-vegetable quality losses from high-priority assets is 35%"
+      "States that the total annual quality-related losses for the high-priority group is $1,526,123",
+      "States that the percentage of all canned-vegetable quality losses from high-priority assets is 38%"
     ]
   },
   {
     "task_id": "task_09",
     "task_name": "Labor Variance Analysis",
-    "prompt": "Calculate the total labor variance in hours (favorable should be positive) and dollars for the Illinois and Wisconsin plants. A positive variance means Total Actual Hours are less than Total Standard Hours. Use the median wage for All Occupations in the food manufacturing industry from the BLS wage benchmark file to convert from hours to dollars.\n\nAlso give me the straight productivity index (Actual Hours / Standard Hours) for each plant.\n\nRound hours to 2 decimal places, dollars to 2 decimal places, and the index to 2 decimal places.",
+    "prompt": "Calculate the total labor variance in hours (favorable should be positive) and dollars for the Illinois and Wisconsin plants (Rockford, Illinois and Madison, Wisconsin). A positive variance means Total Actual Hours are less than Total Standard Hours. Use the median wage for All Occupations in the food manufacturing industry from the BLS wage benchmark file to convert from hours to dollars.\n\nAlso give me the straight productivity index (Actual Hours / Standard Hours) for each plant.\n\nRound hours to 2 decimal places, dollars to 2 decimal places, and the index to 2 decimal places.",
     "ground_truth": {
       "Rockford, Illinois": {
-        "variance_hours": 14519,
-        "variance_dollars": 286895.44,
-        "productivity_index": 0.91
+        "variance_hours": 18506,
+        "variance_dollars": 350503.64,
+        "productivity_index": 0.89
       },
       "Madison, Wisconsin": {
-        "variance_hours": 14175,
-        "variance_dollars": 280098.0,
-        "productivity_index": 0.91
+        "variance_hours": 13695,
+        "variance_dollars": 259383.3,
+        "productivity_index": 0.92
       }
     },
     "rubric": [
-      "States that the Labor Efficiency Variance (Hours) for Rockford, Illinois is 14519 hours",
-      "States that the Labor Cost Variance for Rockford, Illinois is $286895.44",
-      "States that the Productivity Index for Rockford, Illinois is 0.91",
-      "States that the Labor Efficiency Variance (Hours) for Madison, Wisconsin is 14175 hours",
-      "States that the Labor Cost Variance for Madison, Wisconsin is $280098.0",
-      "States that the Productivity Index for Madison, Wisconsin is 0.91"
+      "States that the Labor Efficiency Variance (Hours) for Rockford, Illinois is 18506 hours",
+      "States that the Labor Cost Variance for Rockford, Illinois is $350503.64",
+      "States that the Productivity Index for Rockford, Illinois is 0.89",
+      "States that the Labor Efficiency Variance (Hours) for Madison, Wisconsin is 13695 hours",
+      "States that the Labor Cost Variance for Madison, Wisconsin is $259383.3",
+      "States that the Productivity Index for Madison, Wisconsin is 0.92"
     ]
   },
   {
@@ -245,12 +249,12 @@
     "task_name": "Updated Productivity Loss with New Wages",
     "prompt": "The client sent us employee wage data (attached), so we need to update our assumptions. Find the average hourly salary across all employee roles in the attached wage file and use that to calculate the updated annual productivity loss for the entire company.\n\nNote that survey responses represent one week of work. Report the annual productivity loss in thousands (000s) rounded to the nearest thousand. Also state the average hourly wage used.\n\nReport your answer here.",
     "ground_truth": {
-      "avg_hourly_wage": 30.56,
-      "annual_productivity_loss": 96668000
+      "avg_hourly_wage": 29.3,
+      "annual_productivity_loss": 73552000
     },
     "rubric": [
-      "States the updated annual productivity loss is $96,668,000",
-      "States the average fully-loaded hourly wage is $30.56"
+      "States the updated annual productivity loss is $73,552,000",
+      "States the average fully-loaded hourly wage is $29.3"
     ]
   },
   {
@@ -263,42 +267,42 @@
         "Predictive Maintenance",
         "Robotic Automation",
         "Advanced Analytics",
-        "Cloud ERP"
+        "AI Quality Control"
       ],
       "plant_results": {
-        "Cedar Rapids, Iowa": {
-          "new_unit_sales": 22593871,
-          "new_projected_sales": 69815061
-        },
         "Rockford, Illinois": {
-          "new_unit_sales": 28208106,
-          "new_projected_sales": 88009291
+          "new_unit_sales": 25575169,
+          "new_projected_sales": 75702500
         },
         "Madison, Wisconsin": {
-          "new_unit_sales": 6408444,
-          "new_projected_sales": 38322495
+          "new_unit_sales": 27711624,
+          "new_projected_sales": 89508546
         },
-        "Toledo, Ohio": {
-          "new_unit_sales": 6696002,
-          "new_projected_sales": 45934574
+        "Davenport, Iowa": {
+          "new_unit_sales": 6074125,
+          "new_projected_sales": 35715855
         },
-        "Kalamazoo, Michigan": {
-          "new_unit_sales": 8763683,
-          "new_projected_sales": 52757372
+        "Columbus, Ohio": {
+          "new_unit_sales": 6207493,
+          "new_projected_sales": 42459252
+        },
+        "Lansing, Michigan": {
+          "new_unit_sales": 8194640,
+          "new_projected_sales": 49003947
         }
       }
     },
     "rubric": [
-      "States that the unit sales for Cedar Rapids, Iowa after deploying initiatives is 22,593,871",
-      "States that the Revised Projected Sales for Cedar Rapids, Iowa is $69,815,061",
-      "States that the unit sales for Rockford, Illinois after deploying initiatives is 28,208,106",
-      "States that the Revised Projected Sales for Rockford, Illinois is $88,009,291",
-      "States that the unit sales for Madison, Wisconsin after deploying initiatives is 6,408,444",
-      "States that the Revised Projected Sales for Madison, Wisconsin is $38,322,495",
-      "States that the unit sales for Toledo, Ohio after deploying initiatives is 6,696,002",
-      "States that the Revised Projected Sales for Toledo, Ohio is $45,934,574",
-      "States that the unit sales for Kalamazoo, Michigan after deploying initiatives is 8,763,683",
-      "States that the Revised Projected Sales for Kalamazoo, Michigan is $52,757,372"
+      "States that the unit sales for Rockford, Illinois after deploying initiatives is 25,575,169",
+      "States that the Revised Projected Sales for Rockford, Illinois is $75,702,500",
+      "States that the unit sales for Madison, Wisconsin after deploying initiatives is 27,711,624",
+      "States that the Revised Projected Sales for Madison, Wisconsin is $89,508,546",
+      "States that the unit sales for Davenport, Iowa after deploying initiatives is 6,074,125",
+      "States that the Revised Projected Sales for Davenport, Iowa is $35,715,855",
+      "States that the unit sales for Columbus, Ohio after deploying initiatives is 6,207,493",
+      "States that the Revised Projected Sales for Columbus, Ohio is $42,459,252",
+      "States that the unit sales for Lansing, Michigan after deploying initiatives is 8,194,640",
+      "States that the Revised Projected Sales for Lansing, Michigan is $49,003,947"
     ]
   },
   {
@@ -307,33 +311,33 @@
     "prompt": "To implement the required roadmap, we need to identify what roles and plants are most and least willing to go through a digital transformation.\n\nDetermine the plant with the highest and lowest average willingness to adopt digital tools. Within those plants, identify the roles with the highest and lowest willingness. For those specific role-plant combinations, determine the preferred training length, the count of employees preferring 1-2 days of training, and the total training cost (at $8/hour training rate).\n\nReport your findings here.",
     "ground_truth": {
       "lowest_willingness_plant": "Rockford, Illinois",
-      "highest_willingness_plant": "Cedar Rapids, Iowa",
+      "highest_willingness_plant": "Madison, Wisconsin",
       "lowest_role_in_lowest_plant": [
-        "Supply Chain/Logistics Coordinator",
-        2.41
+        "Maintenance Technician",
+        2.47
       ],
       "highest_role_in_highest_plant": [
-        "Administrative/Support Staff",
-        3.92
+        "Quality Control/Quality Assurance",
+        3.95
       ],
       "training_details": {
         "lowest_plant_lowest_role": {
-          "preferred_length": "<1 day",
+          "preferred_length": ">2 days",
           "count_1_2_days": 19,
-          "total_cost": 2656
+          "total_cost": 9920
         },
         "highest_plant_highest_role": {
-          "preferred_length": ">2 days",
-          "count_1_2_days": 24,
-          "total_cost": 11520
+          "preferred_length": "<1 day",
+          "count_1_2_days": 21,
+          "total_cost": 2016
         }
       }
     },
     "rubric": [
       "States that the plant with lowest willingness to adopt is Rockford, Illinois",
-      "States that the plant with highest willingness to adopt is Cedar Rapids, Iowa",
-      "States the role with lowest willingness in Rockford, Illinois is Supply Chain/Logistics Coordinator",
-      "States the role with highest willingness in Cedar Rapids, Iowa is Administrative/Support Staff"
+      "States that the plant with highest willingness to adopt is Madison, Wisconsin",
+      "States the role with lowest willingness in Rockford, Illinois is Maintenance Technician",
+      "States the role with highest willingness in Madison, Wisconsin is Quality Control/Quality Assurance"
     ]
   },
   {
@@ -343,16 +347,16 @@
     "ground_truth": {
       "Rockford, Illinois": 5,
       "Madison, Wisconsin": 6,
-      "Cedar Rapids, Iowa": 6,
-      "Toledo, Ohio": 5,
-      "Kalamazoo, Michigan": 5
+      "Davenport, Iowa": 5,
+      "Columbus, Ohio": 5,
+      "Lansing, Michigan": 5
     },
     "rubric": [
       "States that the new unplanned downtime ratio for Rockford, Illinois is 5%",
       "States that the new unplanned downtime ratio for Madison, Wisconsin is 6%",
-      "States that the new unplanned downtime ratio for Cedar Rapids, Iowa is 6%",
-      "States that the new unplanned downtime ratio for Toledo, Ohio is 5%",
-      "States that the new unplanned downtime ratio for Kalamazoo, Michigan is 5%"
+      "States that the new unplanned downtime ratio for Davenport, Iowa is 5%",
+      "States that the new unplanned downtime ratio for Columbus, Ohio is 5%",
+      "States that the new unplanned downtime ratio for Lansing, Michigan is 5%"
     ]
   },
   {
@@ -360,18 +364,18 @@
     "task_name": "Training Quality Assessment",
     "prompt": "Use the workforce survey responses to identify the number of respondents who received any kind of training on digital tools. Of those respondents, return the percentage of respondents for each training quality rating.\n\nReply back here to me.",
     "ground_truth": {
-      "trained_count": 1202,
+      "trained_count": 1099,
       "quality_pcts": {
         "Excellent- comprehensive and very helpful": 14,
-        "Good- adequate for most needs": 41,
+        "Good- adequate for most needs": 40,
         "Fair- some gaps or inconsistencies": 36,
         "Poor - insufficient or unhelpful": 9
       }
     },
     "rubric": [
-      "States that the number of respondents who received training is 1202",
+      "States that the number of respondents who received training is 1099",
       "States that percentage of respondents rated training as \"Excellent- comprehensive and very helpful\" is 14%",
-      "States that percentage of respondents rated training as \"Good- adequate for most needs\" is 41%",
+      "States that percentage of respondents rated training as \"Good- adequate for most needs\" is 40%",
       "States that percentage of respondents rated training as \"Fair- some gaps or inconsistencies\" is 36%",
       "States that percentage of respondents rated training as \"Poor - insufficient or unhelpful\" is 9%"
     ]

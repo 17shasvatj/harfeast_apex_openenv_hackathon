@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 61,
+    "high_priority_pct": 1.8,
+    "hp_inefficient_hours": 1059.0,
+    "hp_inefficient_pct": 1.6,
+    "hp_frontline": 26,
+    "hp_backoffice": 19,
+    "hp_supervisor": 6,
+    "hp_management": 10
+  },
+  "task2": {
+    "Peoria, Illinois": 26001314290,
+    "Green Bay, Wisconsin": 26127975218,
+    "Iowa City, Iowa": 26098223367,
+    "Akron, Ohio": 22774648421,
+    "Grand Rapids, Michigan": 25906863418
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 62062
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 64221
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 71949
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Peoria, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8501
+    },
+    "Green Bay, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8786
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8766
+    },
+    "Akron, Ohio": {
+      "first_year_exceeds": 2030,
+      "oee_at_that_year": 0.8517
+    },
+    "Grand Rapids, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8685
+    }
+  },
+  "task5": {
+    "Peoria, Illinois": {
+      "total_labor_cost": 869128,
+      "efficiency_gains": 167423,
+      "union_demand_increase": 28155
+    },
+    "Green Bay, Wisconsin": {
+      "total_labor_cost": 733949,
+      "efficiency_gains": 112588,
+      "union_demand_increase": 15726
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 712026,
+      "efficiency_gains": 57846,
+      "union_demand_increase": 11312
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Peoria, Illinois": 8.4,
+      "Green Bay, Wisconsin": 8.4,
+      "Iowa City, Iowa": 8.3,
+      "Akron, Ohio": 37.7,
+      "Grand Rapids, Michigan": 37.5
+    },
+    "most_efficient": [
+      "Iowa City, Iowa"
+    ],
+    "least_efficient": "Akron, Ohio",
+    "pct_difference": 354
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19704,
+      "Quality Control/Quality Assurance": 22999,
+      "Maintenance Technician": 27950,
+      "Production Supervisor/Team Lead": 30999,
+      "Supply Chain/Logistics Coordinator": 25100,
+      "Demand Planning/Forecasting": 31190,
+      "Administrative/Support Staff": 19995,
+      "Plant Management": 42479
+    },
+    "total_annual_loss": 90967036
+  },
+  "task8": {
+    "hp_quality_losses": 1235508,
+    "hp_pct_of_cv_losses": 35
+  },
+  "task9": {
+    "Peoria, Illinois": {
+      "variance_hours": 13774,
+      "variance_dollars": 273413.9,
+      "productivity_index": 0.92
+    },
+    "Green Bay, Wisconsin": {
+      "variance_hours": 12468,
+      "variance_dollars": 247489.8,
+      "productivity_index": 0.92
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.69,
+    "annual_productivity_loss": 106411000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Peoria, Illinois": {
+        "new_unit_sales": 25870475,
+        "new_projected_sales": 83044225
+      },
+      "Green Bay, Wisconsin": {
+        "new_unit_sales": 26491009,
+        "new_projected_sales": 80002847
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 7306173,
+        "new_projected_sales": 44859902
+      },
+      "Akron, Ohio": {
+        "new_unit_sales": 6598376,
+        "new_projected_sales": 45462811
+      },
+      "Grand Rapids, Michigan": {
+        "new_unit_sales": 8320742,
+        "new_projected_sales": 50756526
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Peoria, Illinois",
+    "highest_willingness_plant": "Green Bay, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production/Manufacturing Operator",
+      2.41
+    ],
+    "highest_role_in_highest_plant": [
+      "Production Supervisor/Team Lead",
+      3.92
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 35,
+        "total_cost": 9216
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 20,
+        "total_cost": 10880
+      }
+    }
+  },
+  "task13": {
+    "Peoria, Illinois": 6,
+    "Green Bay, Wisconsin": 6,
+    "Iowa City, Iowa": 6,
+    "Akron, Ohio": 5,
+    "Grand Rapids, Michigan": 7
+  },
+  "task14": {
+    "trained_count": 1415,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 16,
+      "Good- adequate for most needs": 39,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

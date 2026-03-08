@@ -33,6 +33,11 @@ def main():
         help="Path to harfeast_world directory. Default: ./harfeast_world",
     )
     parser.add_argument(
+        "--worlds-base",
+        default=None,
+        help="Path to augmented dataset (harfeast_worlds with all_tasks.json). Samples across 200+ tasks.",
+    )
+    parser.add_argument(
         "--interactive",
         action="store_true",
         help="Interactive mode: prompt for actions.",
@@ -46,7 +51,7 @@ def main():
     args = parser.parse_args()
 
     world_path = args.world or os.path.join(os.path.dirname(__file__), "harfeast_world")
-    env = HarFeastOpenEnv(world_path=world_path)
+    env = HarFeastOpenEnv(world_path=world_path, worlds_base=args.worlds_base)
 
     result = env.reset(task_id=args.task, seed=args.seed)
     print("=== RESET ===")

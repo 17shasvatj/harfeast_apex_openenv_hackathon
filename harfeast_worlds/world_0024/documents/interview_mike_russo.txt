@@ -1,0 +1,13 @@
+Expert Interview Transcript - Mike Russo, Head of Digital Transformation
+Date: November 17, 2024
+
+Q: Which digital lever should HarFeast prioritize for the fastest 
+margin improvement?
+
+A: "After analyzing all the options, I keep coming back to 
+IoT Sensors for yield. The ROI timeline is shortest — typically 
+4-8 months to see measurable improvement. Predictive maintenance 
+is a close second but has a longer implementation cycle. Cloud ERP 
+is foundational but doesn't directly move gross margin in the near 
+term. IoT Sensors for yield monitoring is the clear priority if 
+we want the fastest and biggest boost to Gross Margin."

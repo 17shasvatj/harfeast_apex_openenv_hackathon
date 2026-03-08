@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 45,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1066.0,
+    "hp_inefficient_pct": 2.4,
+    "hp_frontline": 16,
+    "hp_backoffice": 17,
+    "hp_supervisor": 8,
+    "hp_management": 4
+  },
+  "task2": {
+    "Springfield, Illinois": 25605744124,
+    "Racine, Wisconsin": 23813887745,
+    "Davenport, Iowa": 26470189682,
+    "Toledo, Ohio": 20979543404,
+    "Detroit, Michigan": 27516587892
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.6,
+      "units_avoided": 89603
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 43872
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 84866
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Springfield, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8561
+    },
+    "Racine, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8711
+    },
+    "Davenport, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8528
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8614
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8731
+    }
+  },
+  "task5": {
+    "Springfield, Illinois": {
+      "total_labor_cost": 734552,
+      "efficiency_gains": 146910,
+      "union_demand_increase": 20663
+    },
+    "Racine, Wisconsin": {
+      "total_labor_cost": 932443,
+      "efficiency_gains": 151517,
+      "union_demand_increase": 25659
+    },
+    "Davenport, Iowa": {
+      "total_labor_cost": 768206,
+      "efficiency_gains": 72064,
+      "union_demand_increase": 20921
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Springfield, Illinois": 8.5,
+      "Racine, Wisconsin": 8.4,
+      "Davenport, Iowa": 8.7,
+      "Toledo, Ohio": 37.2,
+      "Detroit, Michigan": 37.8
+    },
+    "most_efficient": [
+      "Racine, Wisconsin"
+    ],
+    "least_efficient": "Detroit, Michigan",
+    "pct_difference": 350
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19263,
+      "Quality Control/Quality Assurance": 26714,
+      "Maintenance Technician": 25742,
+      "Production Supervisor/Team Lead": 30660,
+      "Supply Chain/Logistics Coordinator": 25739,
+      "Demand Planning/Forecasting": 34343,
+      "Administrative/Support Staff": 22767,
+      "Plant Management": 46782
+    },
+    "total_annual_loss": 62554266
+  },
+  "task8": {
+    "hp_quality_losses": 1753645,
+    "hp_pct_of_cv_losses": 40
+  },
+  "task9": {
+    "Springfield, Illinois": {
+      "variance_hours": 11376,
+      "variance_dollars": 234914.4,
+      "productivity_index": 0.93
+    },
+    "Racine, Wisconsin": {
+      "variance_hours": 13416,
+      "variance_dollars": 277040.4,
+      "productivity_index": 0.92
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.93,
+    "annual_productivity_loss": 73267000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Springfield, Illinois": {
+        "new_unit_sales": 26006686,
+        "new_projected_sales": 76459657
+      },
+      "Racine, Wisconsin": {
+        "new_unit_sales": 27529755,
+        "new_projected_sales": 87544621
+      },
+      "Davenport, Iowa": {
+        "new_unit_sales": 7157288,
+        "new_projected_sales": 43444738
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 6706145,
+        "new_projected_sales": 43925250
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 7480658,
+        "new_projected_sales": 42938977
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Springfield, Illinois",
+    "highest_willingness_plant": "Racine, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Maintenance Technician",
+      2.45
+    ],
+    "highest_role_in_highest_plant": [
+      "Administrative/Support Staff",
+      4.03
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 14,
+        "total_cost": 8960
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 16,
+        "total_cost": 9440
+      }
+    }
+  },
+  "task13": {
+    "Springfield, Illinois": 6,
+    "Racine, Wisconsin": 6,
+    "Davenport, Iowa": 6,
+    "Toledo, Ohio": 6,
+    "Detroit, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1126,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 31,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

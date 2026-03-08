@@ -21,16 +21,33 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 
 def get_harfeast_prompts(tasks_path: str, n: int = 32) -> list[dict]:
-    """Load task prompts for training."""
+    """Load task prompts for training (single world)."""
     with open(tasks_path) as f:
         tasks = json.load(f)
-    # Cycle through tasks
     samples = []
     for i in range(n):
         t = tasks[i % len(tasks)]
         samples.append({
             "prompt": t["prompt"],
             "task_id": t["task_id"],
+            "task_index": None,  # single world - env uses task_id
+        })
+    return samples
+
+
+def get_harfeast_prompts_from_all_tasks(all_tasks_path: str, n: int = 32, seed: int = 42) -> list[dict]:
+    """Load task prompts from augmented dataset (all_tasks.json)."""
+    with open(all_tasks_path) as f:
+        all_tasks = json.load(f)
+    rng = __import__("random").Random(seed)
+    indices = [rng.randint(0, len(all_tasks) - 1) for _ in range(n)] if len(all_tasks) > 1 else [0] * n
+    samples = []
+    for i in indices:
+        t = all_tasks[i]
+        samples.append({
+            "prompt": t["prompt"],
+            "task_id": t["task_id"],
+            "task_index": i,
         })
     return samples
 
@@ -39,6 +56,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--env-url", default="http://localhost:8000",
                         help="HarFeast env URL (HF Space or local)")
+    parser.add_argument("--worlds-base", default=None,
+                        help="Path to augmented dataset (harfeast_worlds). Uses all_tasks.json for 200+ task variations.")
     parser.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--samples", type=int, default=16)
@@ -48,12 +67,19 @@ def main():
     from datasets import Dataset
     from harfeast_env import HarFeastEnv, HarFeastAction
 
-    # Load prompts
-    tasks_path = os.path.join(os.path.dirname(__file__), "harfeast_world", "tasks.json")
-    if not os.path.isfile(tasks_path):
-        print("Run harfeast_synthetic_world_generator.py first.")
-        sys.exit(1)
-    samples = get_harfeast_prompts(tasks_path, args.samples)
+    # Load prompts (augmented dataset or single world)
+    if args.worlds_base:
+        all_tasks_path = os.path.join(args.worlds_base, "all_tasks.json")
+        if not os.path.isfile(all_tasks_path):
+            print(f"all_tasks.json not found in {args.worlds_base}. Run: python harfeast_synthetic_world_generator.py --batch 40 --output-dir {args.worlds_base}")
+            sys.exit(1)
+        samples = get_harfeast_prompts_from_all_tasks(all_tasks_path, args.samples)
+    else:
+        tasks_path = os.path.join(os.path.dirname(__file__), "harfeast_world", "tasks.json")
+        if not os.path.isfile(tasks_path):
+            print("Run harfeast_synthetic_world_generator.py first.")
+            sys.exit(1)
+        samples = get_harfeast_prompts(tasks_path, args.samples)
 
     # Build dataset - prompt instructs model to analyze and submit answer
     system = (
@@ -65,6 +91,11 @@ def main():
         f"{system}\n\nTask:\n{s['prompt']}\n\nAnswer:"
         for s in samples
     ]
+    # Map prompt -> task_index for rollout (augmented dataset only)
+    prompt_to_task_index = {
+        prompts[i]: samples[i].get("task_index")
+        for i in range(len(samples))
+    }
     dataset = Dataset.from_dict({"prompt": prompts})
 
     # Connect to env
@@ -85,7 +116,6 @@ def main():
 
         env_rewards = []
         for i, comp in enumerate(completions):
-            # Extract answer (after "Answer:" or use full completion)
             answer = comp
             if "Answer:" in comp:
                 answer = comp.split("Answer:")[-1].strip()
@@ -93,7 +123,13 @@ def main():
                 answer = comp[:500]
 
             try:
-                client.reset(seed=i)
+                # Use task_index for augmented dataset (prompt lookup)
+                reset_kw = {"seed": i}
+                if i < len(prompts_list):
+                    ti = prompt_to_task_index.get(prompts_list[i])
+                    if ti is not None:
+                        reset_kw["task_index"] = ti
+                client.reset(**reset_kw)
                 action = HarFeastAction(action_json=json.dumps({"action": "submit", "answer": answer}))
                 result = client.step(action)
                 env_rewards.append(float(result.reward or 0))

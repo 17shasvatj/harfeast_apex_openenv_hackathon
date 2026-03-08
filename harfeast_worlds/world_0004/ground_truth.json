@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 59,
+    "high_priority_pct": 1.9,
+    "hp_inefficient_hours": 1170.0,
+    "hp_inefficient_pct": 1.9,
+    "hp_frontline": 22,
+    "hp_backoffice": 22,
+    "hp_supervisor": 8,
+    "hp_management": 7
+  },
+  "task2": {
+    "Champaign, Illinois": 27081454840,
+    "Racine, Wisconsin": 26291924602,
+    "Iowa City, Iowa": 28900558664,
+    "Toledo, Ohio": 29925717781,
+    "Detroit, Michigan": 23183535070
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 78352
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 81012
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 93889
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8624
+    },
+    "Racine, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8531
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8531
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.873
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8621
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 914701,
+      "efficiency_gains": 151019,
+      "union_demand_increase": 25504
+    },
+    "Racine, Wisconsin": {
+      "total_labor_cost": 887349,
+      "efficiency_gains": 149702,
+      "union_demand_increase": 18244
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 731141,
+      "efficiency_gains": 66348,
+      "union_demand_increase": 18255
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.6,
+      "Racine, Wisconsin": 8.4,
+      "Iowa City, Iowa": 8.6,
+      "Toledo, Ohio": 37.3,
+      "Detroit, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Racine, Wisconsin"
+    ],
+    "least_efficient": "Detroit, Michigan",
+    "pct_difference": 348
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19588,
+      "Quality Control/Quality Assurance": 22696,
+      "Maintenance Technician": 26637,
+      "Production Supervisor/Team Lead": 30250,
+      "Supply Chain/Logistics Coordinator": 24257,
+      "Demand Planning/Forecasting": 30557,
+      "Administrative/Support Staff": 20479,
+      "Plant Management": 41841
+    },
+    "total_annual_loss": 84738782
+  },
+  "task8": {
+    "hp_quality_losses": 1458519,
+    "hp_pct_of_cv_losses": 38
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 14288,
+      "variance_dollars": 281616.48,
+      "productivity_index": 0.91
+    },
+    "Racine, Wisconsin": {
+      "variance_hours": 12044,
+      "variance_dollars": 237387.24,
+      "productivity_index": 0.91
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.48,
+    "annual_productivity_loss": 98868000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 21965912,
+        "new_projected_sales": 65019100
+      },
+      "Racine, Wisconsin": {
+        "new_unit_sales": 31883839,
+        "new_projected_sales": 102665962
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 6964124,
+        "new_projected_sales": 40879408
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 6355681,
+        "new_projected_sales": 44362653
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 9115464,
+        "new_projected_sales": 54237011
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Racine, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Quality Control/Quality Assurance",
+      2.39
+    ],
+    "highest_role_in_highest_plant": [
+      "Production Supervisor/Team Lead",
+      3.89
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 38,
+        "total_cost": 7392
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 28,
+        "total_cost": 13280
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Racine, Wisconsin": 7,
+    "Iowa City, Iowa": 6,
+    "Toledo, Ohio": 6,
+    "Detroit, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1321,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 16,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

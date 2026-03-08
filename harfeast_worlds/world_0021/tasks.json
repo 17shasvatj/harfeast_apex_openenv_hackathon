@@ -1,0 +1,379 @@
+[
+  {
+    "task_id": "task_01",
+    "task_name": "High-Priority Digital Training Employees",
+    "prompt": "I'm trying to get a sense of which HarFeast employees are most ready for the digital training rollout. Can you pull the workforce survey data and identify all employees who are above their role type's median readiness score, willing to pilot new tools, willing to spend >2 days in training with dedicated training time, and above the overall median digital comfort score?\n\nOnce you've identified that group, tell me:\n1. How many \"high-priority\" employees are there, and what % of total employees do they represent?\n2. How many total hours does this group spend weekly on manual entry, searching data, or fixing errors? What % of the company-wide total is that?\n3. Break down the high-priority count by role type.\n\nReport your answer here.",
+    "ground_truth": {
+      "high_priority_count": 39,
+      "high_priority_pct": 1.8,
+      "hp_inefficient_hours": 881.0,
+      "hp_inefficient_pct": 2.0,
+      "hp_frontline": 17,
+      "hp_backoffice": 16,
+      "hp_supervisor": 2,
+      "hp_management": 4
+    },
+    "rubric": [
+      "States that the number of high-priority employees is 39",
+      "States that the percentage of all employees the high-priority employees represent is 1.8%",
+      "States that the total hours high-priority employees spend on manual entry, searching data or fixing errors is 881",
+      "States that the percentage of all such hours from high-priority employees is 2.0%",
+      "States that the number of high-priority employees in the Front-line role type is 17",
+      "States that the number of high-priority employees in the Back-office/Support role type is 16",
+      "States that the number of high-priority employees in the Supervisor/Team Lead role type is 2",
+      "States that the number of high-priority employees in the Management role type is 4"
+    ]
+  },
+  {
+    "task_id": "task_02",
+    "task_name": "Adjusted Cost of Instability",
+    "prompt": "Calculate the Adjusted Cost of Instability for each site, defined as Abnormal scrap cost/(Actual Scrap % - Normal Scrap %) = adjusted cost of instability. The target scrap rate of HarFeast is the minimum in the range of acceptable scrap rate in the scrap rate report. Just use COGS per ton as your scrap cost for now.\n\nReport your final answers to me in a message. Round values to the nearest dollar.",
+    "ground_truth": {
+      "Rockford, Illinois": 26132191110,
+      "Kenosha, Wisconsin": 30592496369,
+      "Davenport, Iowa": 25679378650,
+      "Toledo, Ohio": 21509489371,
+      "Detroit, Michigan": 29428936277
+    },
+    "rubric": [
+      "States that the adjusted cost of instability for Rockford, Illinois is $26,132,191,110",
+      "States that the adjusted cost of instability for Kenosha, Wisconsin is $30,592,496,369",
+      "States that the adjusted cost of instability for Davenport, Iowa is $25,679,378,650",
+      "States that the adjusted cost of instability for Toledo, Ohio is $21,509,489,371",
+      "States that the adjusted cost of instability for Detroit, Michigan is $29,428,936,277"
+    ]
+  },
+  {
+    "task_id": "task_03",
+    "task_name": "Predictive Maintenance Scrap Impact",
+    "prompt": "Using HarFeast's equipment data, assess the impact of predictive maintenance on HarFeast's scrap rate. We will pilot predictive maintenance only on equipment a) whose scheduled hours per year are at or above that equipment type's median scheduled hours and b) whose labor hours are at or above its plant's median labor hours. For all equipment qualifying for the pilot, apply a 15% reduction to their scrap rate.\n\nCalculate:\n1. The new overall scrap rate for each product family (as a %)\n2. The total number of scrap units each product family avoids every year\n\nReport rounded to 1 decimal place for rates and nearest whole number for units.",
+    "ground_truth": {
+      "Canned Vegetables": {
+        "new_scrap_rate_pct": 6.1,
+        "units_avoided": 54008
+      },
+      "Condiments": {
+        "new_scrap_rate_pct": 6.4,
+        "units_avoided": 74596
+      },
+      "Sauces": {
+        "new_scrap_rate_pct": 6.4,
+        "units_avoided": 81785
+      }
+    },
+    "rubric": [
+      "States that the new overall scrap rate for Canned Vegetables is 6.1%",
+      "States that the scrap units Canned Vegetables avoids per year is 54008",
+      "States that the new overall scrap rate for Condiments is 6.4%",
+      "States that the scrap units Condiments avoids per year is 74596",
+      "States that the new overall scrap rate for Sauces is 6.4%",
+      "States that the scrap units Sauces avoids per year is 81785"
+    ]
+  },
+  {
+    "task_id": "task_04",
+    "task_name": "Digital Lever Agreement and OEE Projections",
+    "prompt": "1. What is the digital lever that Sarah Jenkins, David Chen, and Mike Russo agree will deliver the fastest and biggest boost to HarFeast's Gross Margin?\n\n2. Assuming HarFeast adopts the chosen digital lever, determine the OEE level in the first full year in each plant location where the annual OEE value exceeds the world-class target. Use the OEE improvement assumptions file for growth rates and start dates.\n\nReport OEE values to 2 decimal places as percentages.",
+    "ground_truth": {
+      "digital_lever": "IoT Sensors for yield",
+      "Rockford, Illinois": {
+        "first_year_exceeds": 2028,
+        "oee_at_that_year": 0.8558
+      },
+      "Kenosha, Wisconsin": {
+        "first_year_exceeds": 2028,
+        "oee_at_that_year": 0.8546
+      },
+      "Davenport, Iowa": {
+        "first_year_exceeds": 2027,
+        "oee_at_that_year": 0.8694
+      },
+      "Toledo, Ohio": {
+        "first_year_exceeds": 2031,
+        "oee_at_that_year": 0.8646
+      },
+      "Detroit, Michigan": {
+        "first_year_exceeds": 2032,
+        "oee_at_that_year": 0.8667
+      }
+    },
+    "rubric": [
+      "States that the digital lever is IoT Sensors for yield",
+      "States that the OEE level for Rockford, Illinois in the first year exceeding world-class target is 85.58%",
+      "States that the first year Rockford, Illinois exceeds world-class target is 2028",
+      "States that the OEE level for Kenosha, Wisconsin in the first year exceeding world-class target is 85.46%",
+      "States that the first year Kenosha, Wisconsin exceeds world-class target is 2028",
+      "States that the OEE level for Davenport, Iowa in the first year exceeding world-class target is 86.94%",
+      "States that the first year Davenport, Iowa exceeds world-class target is 2027",
+      "States that the OEE level for Toledo, Ohio in the first year exceeding world-class target is 86.46%",
+      "States that the first year Toledo, Ohio exceeds world-class target is 2031",
+      "States that the OEE level for Detroit, Michigan in the first year exceeding world-class target is 86.67%",
+      "States that the first year Detroit, Michigan exceeds world-class target is 2032"
+    ]
+  },
+  {
+    "task_id": "task_05",
+    "task_name": "Labor Cost Analysis",
+    "prompt": "1. Give me the total labor cost for each plant location (Rockford, Illinois, Kenosha, Wisconsin, Davenport, Iowa only).\n\n2. Give me the efficiency gains for each plant location. West North Central division plant locations only have a 10% annual efficiency gain from labor cost. For other locations, the efficiency gain is 20%. However, the efficiency gain is 5% for non-unionized production supervisors no matter where they are located.\n\n3. Give me the forecasted labor cost increase from union demands, assuming a 5% increase for all union workers.\n\nRound to the nearest dollar.",
+    "ground_truth": {
+      "Rockford, Illinois": {
+        "total_labor_cost": 729581,
+        "efficiency_gains": 120432,
+        "union_demand_increase": 24512
+      },
+      "Kenosha, Wisconsin": {
+        "total_labor_cost": 951725,
+        "efficiency_gains": 141919,
+        "union_demand_increase": 13478
+      },
+      "Davenport, Iowa": {
+        "total_labor_cost": 594838,
+        "efficiency_gains": 48722,
+        "union_demand_increase": 9172
+      }
+    },
+    "rubric": [
+      "States that the Total Annual Labor Cost for Rockford, Illinois is $729,581",
+      "States that the Efficiency Gains for Rockford, Illinois is $120,432",
+      "States that the Union Demand Increase for Rockford, Illinois is $24,512",
+      "States that the Total Annual Labor Cost for Kenosha, Wisconsin is $951,725",
+      "States that the Efficiency Gains for Kenosha, Wisconsin is $141,919",
+      "States that the Union Demand Increase for Kenosha, Wisconsin is $13,478",
+      "States that the Total Annual Labor Cost for Davenport, Iowa is $594,838",
+      "States that the Efficiency Gains for Davenport, Iowa is $48,722",
+      "States that the Union Demand Increase for Davenport, Iowa is $9,172"
+    ]
+  },
+  {
+    "task_id": "task_06",
+    "task_name": "Operational Efficiency Analysis",
+    "prompt": "Analyze the operational efficiency at HarFeast and assess how many inefficient employee hours each plant is recording on average. Which plants have the most efficient operations and the least efficient operations? How much more efficient are the highest efficiency locations vs the lowest efficiency locations?\n\nAssume the following activities are considered inefficient: (a) manual data entry, (b) searching for data, (c) fixing errors. Use the workforce survey data. Report averages to 1 decimal place.",
+    "ground_truth": {
+      "avg_by_plant": {
+        "Rockford, Illinois": 8.6,
+        "Kenosha, Wisconsin": 8.7,
+        "Davenport, Iowa": 8.5,
+        "Toledo, Ohio": 37.7,
+        "Detroit, Michigan": 37.7
+      },
+      "most_efficient": [
+        "Davenport, Iowa"
+      ],
+      "least_efficient": "Detroit, Michigan",
+      "pct_difference": 344
+    },
+    "rubric": [
+      "States the average inefficient time in Rockford, Illinois is 8.6",
+      "States the average inefficient time in Kenosha, Wisconsin is 8.7",
+      "States the average inefficient time in Davenport, Iowa is 8.5",
+      "States the average inefficient time in Toledo, Ohio is 37.7",
+      "States the average inefficient time in Detroit, Michigan is 37.7",
+      "States that Davenport, Iowa is a plant with the lowest average inefficient time",
+      "States that Detroit, Michigan is the plant with the highest average inefficient time",
+      "States that the difference between highest and lowest average inefficient time is 344%"
+    ]
+  },
+  {
+    "task_id": "task_07",
+    "task_name": "Productivity Loss Quantification",
+    "prompt": "I want to quantify the average annual productivity loss at a cost level for each employee in each primary role based on the sum of average hours spent doing manual entry, searching data, and fixing errors. Then, I want to calculate the total productivity loss cost HarFeast faces every year, company-wide.\n\nNote that the survey responses represent one week of work. Report your final answer as a message. Round to the nearest dollar.",
+    "ground_truth": {
+      "avg_loss_by_role": {
+        "Production/Manufacturing Operator": 18993,
+        "Quality Control/Quality Assurance": 24572,
+        "Maintenance Technician": 26365,
+        "Production Supervisor/Team Lead": 26631,
+        "Supply Chain/Logistics Coordinator": 26268,
+        "Demand Planning/Forecasting": 32813,
+        "Administrative/Support Staff": 20683,
+        "Plant Management": 43900
+      },
+      "total_annual_loss": 59754794
+    },
+    "rubric": [
+      "States the average annual productivity loss cost of a Production/Manufacturing Operator employee is $18,993",
+      "States the average annual productivity loss cost of a Quality Control/Quality Assurance employee is $24,572",
+      "States the average annual productivity loss cost of a Maintenance Technician employee is $26,365",
+      "States the average annual productivity loss cost of a Production Supervisor/Team Lead employee is $26,631",
+      "States the average annual productivity loss cost of a Supply Chain/Logistics Coordinator employee is $26,268",
+      "States the average annual productivity loss cost of a Demand Planning/Forecasting employee is $32,813",
+      "States the average annual productivity loss cost of a Administrative/Support Staff employee is $20,683",
+      "States the average annual productivity loss cost of a Plant Management employee is $43,900",
+      "States the total annual productivity loss cost is $59,754,794"
+    ]
+  },
+  {
+    "task_id": "task_08",
+    "task_name": "High-Priority Equipment Quality Losses",
+    "prompt": "Using HarFeast's equipment data and quality losses dataset, consider all canned vegetables assets with a scrap rate > 5% and with unplanned downtime hours above the plant median for canned vegetables as \"high-priority\".\n\n1. For the \"high-priority\" group, calculate the total annual quality-related losses (scrap cost + unplanned failure cost).\n2. What percentage of all canned-vegetable quality losses comes from these high-priority assets?\n\nReport losses rounded to the nearest dollar and percentage to the nearest whole number.",
+    "ground_truth": {
+      "hp_quality_losses": 1114333,
+      "hp_pct_of_cv_losses": 34
+    },
+    "rubric": [
+      "States that the total annual quality-related losses for the high-priority group is $1,114,333",
+      "States that the percentage of all canned-vegetable quality losses from high-priority assets is 34%"
+    ]
+  },
+  {
+    "task_id": "task_09",
+    "task_name": "Labor Variance Analysis",
+    "prompt": "Calculate the total labor variance in hours (favorable should be positive) and dollars for the Illinois and Wisconsin plants (Rockford, Illinois and Kenosha, Wisconsin). A positive variance means Total Actual Hours are less than Total Standard Hours. Use the median wage for All Occupations in the food manufacturing industry from the BLS wage benchmark file to convert from hours to dollars.\n\nAlso give me the straight productivity index (Actual Hours / Standard Hours) for each plant.\n\nRound hours to 2 decimal places, dollars to 2 decimal places, and the index to 2 decimal places.",
+    "ground_truth": {
+      "Rockford, Illinois": {
+        "variance_hours": 10584,
+        "variance_dollars": 206811.36,
+        "productivity_index": 0.92
+      },
+      "Kenosha, Wisconsin": {
+        "variance_hours": 11436,
+        "variance_dollars": 223459.44,
+        "productivity_index": 0.93
+      }
+    },
+    "rubric": [
+      "States that the Labor Efficiency Variance (Hours) for Rockford, Illinois is 10584 hours",
+      "States that the Labor Cost Variance for Rockford, Illinois is $206811.36",
+      "States that the Productivity Index for Rockford, Illinois is 0.92",
+      "States that the Labor Efficiency Variance (Hours) for Kenosha, Wisconsin is 11436 hours",
+      "States that the Labor Cost Variance for Kenosha, Wisconsin is $223459.44",
+      "States that the Productivity Index for Kenosha, Wisconsin is 0.93"
+    ]
+  },
+  {
+    "task_id": "task_10",
+    "task_name": "Updated Productivity Loss with New Wages",
+    "prompt": "The client sent us employee wage data (attached), so we need to update our assumptions. Find the average hourly salary across all employee roles in the attached wage file and use that to calculate the updated annual productivity loss for the entire company.\n\nNote that survey responses represent one week of work. Report the annual productivity loss in thousands (000s) rounded to the nearest thousand. Also state the average hourly wage used.\n\nReport your answer here.",
+    "ground_truth": {
+      "avg_hourly_wage": 30.23,
+      "annual_productivity_loss": 69351000
+    },
+    "rubric": [
+      "States the updated annual productivity loss is $69,351,000",
+      "States the average fully-loaded hourly wage is $30.23"
+    ]
+  },
+  {
+    "task_id": "task_11",
+    "task_name": "Technology Investment Impact",
+    "prompt": "Identify the top five technology investments from the Aptean report with the largest positive difference in percentage revenue growth between users and non-users. Include only investments that the report explicitly identifies as either top technology investments to date or top investments planned for 2024.\n\nNext, assume that HarFeast will deploy all five of these top initiatives at every plant location. Apply the cumulative growth impact to each plant's current unit sales and calculate the revised projected sales revenue.\n\nRound unit sales to the nearest whole number and revenue to the nearest dollar.",
+    "ground_truth": {
+      "top5_technologies": [
+        "IoT Sensors",
+        "Predictive Maintenance",
+        "Robotic Automation",
+        "Advanced Analytics",
+        "AI Quality Control"
+      ],
+      "plant_results": {
+        "Rockford, Illinois": {
+          "new_unit_sales": 21692344,
+          "new_projected_sales": 65727802
+        },
+        "Kenosha, Wisconsin": {
+          "new_unit_sales": 28870974,
+          "new_projected_sales": 87767761
+        },
+        "Davenport, Iowa": {
+          "new_unit_sales": 5503045,
+          "new_projected_sales": 31862631
+        },
+        "Toledo, Ohio": {
+          "new_unit_sales": 7655383,
+          "new_projected_sales": 53434573
+        },
+        "Detroit, Michigan": {
+          "new_unit_sales": 7791269,
+          "new_projected_sales": 48851257
+        }
+      }
+    },
+    "rubric": [
+      "States that the unit sales for Rockford, Illinois after deploying initiatives is 21,692,344",
+      "States that the Revised Projected Sales for Rockford, Illinois is $65,727,802",
+      "States that the unit sales for Kenosha, Wisconsin after deploying initiatives is 28,870,974",
+      "States that the Revised Projected Sales for Kenosha, Wisconsin is $87,767,761",
+      "States that the unit sales for Davenport, Iowa after deploying initiatives is 5,503,045",
+      "States that the Revised Projected Sales for Davenport, Iowa is $31,862,631",
+      "States that the unit sales for Toledo, Ohio after deploying initiatives is 7,655,383",
+      "States that the Revised Projected Sales for Toledo, Ohio is $53,434,573",
+      "States that the unit sales for Detroit, Michigan after deploying initiatives is 7,791,269",
+      "States that the Revised Projected Sales for Detroit, Michigan is $48,851,257"
+    ]
+  },
+  {
+    "task_id": "task_12",
+    "task_name": "Digital Adoption Willingness Analysis",
+    "prompt": "To implement the required roadmap, we need to identify what roles and plants are most and least willing to go through a digital transformation.\n\nDetermine the plant with the highest and lowest average willingness to adopt digital tools. Within those plants, identify the roles with the highest and lowest willingness. For those specific role-plant combinations, determine the preferred training length, the count of employees preferring 1-2 days of training, and the total training cost (at $8/hour training rate).\n\nReport your findings here.",
+    "ground_truth": {
+      "lowest_willingness_plant": "Rockford, Illinois",
+      "highest_willingness_plant": "Kenosha, Wisconsin",
+      "lowest_role_in_lowest_plant": [
+        "Maintenance Technician",
+        2.33
+      ],
+      "highest_role_in_highest_plant": [
+        "Maintenance Technician",
+        3.85
+      ],
+      "training_details": {
+        "lowest_plant_lowest_role": {
+          "preferred_length": "1-2 days",
+          "count_1_2_days": 26,
+          "total_cost": 6624
+        },
+        "highest_plant_highest_role": {
+          "preferred_length": ">2 days",
+          "count_1_2_days": 14,
+          "total_cost": 8320
+        }
+      }
+    },
+    "rubric": [
+      "States that the plant with lowest willingness to adopt is Rockford, Illinois",
+      "States that the plant with highest willingness to adopt is Kenosha, Wisconsin",
+      "States the role with lowest willingness in Rockford, Illinois is Maintenance Technician",
+      "States the role with highest willingness in Kenosha, Wisconsin is Maintenance Technician"
+    ]
+  },
+  {
+    "task_id": "task_13",
+    "task_name": "Frito-Lay Downtime Reduction Application",
+    "prompt": "Can you look at the Frito-Lay case study and apply their downtime reduction to HarFeast's numbers in the equipment data? I want to estimate what the improvement would look like for us (rounded to the nearest full percentage point).\n\nCalculate the current unplanned downtime ratio (unplanned downtime hours / scheduled hours) for each plant, apply the reduction from the case study, and report the new ratios.\n\nOutput the information in a message here.",
+    "ground_truth": {
+      "Rockford, Illinois": 6,
+      "Kenosha, Wisconsin": 6,
+      "Davenport, Iowa": 6,
+      "Toledo, Ohio": 7,
+      "Detroit, Michigan": 6
+    },
+    "rubric": [
+      "States that the new unplanned downtime ratio for Rockford, Illinois is 6%",
+      "States that the new unplanned downtime ratio for Kenosha, Wisconsin is 6%",
+      "States that the new unplanned downtime ratio for Davenport, Iowa is 6%",
+      "States that the new unplanned downtime ratio for Toledo, Ohio is 7%",
+      "States that the new unplanned downtime ratio for Detroit, Michigan is 6%"
+    ]
+  },
+  {
+    "task_id": "task_14",
+    "task_name": "Training Quality Assessment",
+    "prompt": "Use the workforce survey responses to identify the number of respondents who received any kind of training on digital tools. Of those respondents, return the percentage of respondents for each training quality rating.\n\nReply back here to me.",
+    "ground_truth": {
+      "trained_count": 885,
+      "quality_pcts": {
+        "Excellent- comprehensive and very helpful": 17,
+        "Good- adequate for most needs": 38,
+        "Fair- some gaps or inconsistencies": 35,
+        "Poor - insufficient or unhelpful": 9
+      }
+    },
+    "rubric": [
+      "States that the number of respondents who received training is 885",
+      "States that percentage of respondents rated training as \"Excellent- comprehensive and very helpful\" is 17%",
+      "States that percentage of respondents rated training as \"Good- adequate for most needs\" is 38%",
+      "States that percentage of respondents rated training as \"Fair- some gaps or inconsistencies\" is 35%",
+      "States that percentage of respondents rated training as \"Poor - insufficient or unhelpful\" is 9%"
+    ]
+  }
+]

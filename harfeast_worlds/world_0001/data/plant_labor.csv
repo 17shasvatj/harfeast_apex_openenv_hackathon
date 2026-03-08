@@ -1,0 +1,61 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-PEO-000,"Peoria, Illinois",Line Lead,22.5,2080,Union,production,East North Central
+LAB-PEO-001,"Peoria, Illinois",Packaging Operator,17.34,2080,Non-Union,non-production,East North Central
+LAB-PEO-002,"Peoria, Illinois",Line Lead,26.05,2080,Union,production,East North Central
+LAB-PEO-003,"Peoria, Illinois",Maintenance Tech,17.24,2080,Non-Union,non-production,East North Central
+LAB-PEO-004,"Peoria, Illinois",Production Operator,18.55,2080,Non-Union,non-production,East North Central
+LAB-PEO-005,"Peoria, Illinois",Line Lead,17.84,2080,Union,production,East North Central
+LAB-PEO-006,"Peoria, Illinois",Maintenance Tech,21.14,2080,Non-Union,non-production,East North Central
+LAB-PEO-007,"Peoria, Illinois",Maintenance Tech,17.08,2080,Union,non-production,East North Central
+LAB-PEO-008,"Peoria, Illinois",Quality Inspector,17.69,2080,Non-Union,non-production,East North Central
+LAB-PEO-009,"Peoria, Illinois",Packaging Operator,16.23,2080,Union,non-production,East North Central
+LAB-PEO-010,"Peoria, Illinois",Quality Inspector,18.6,2080,Non-Union,non-production,East North Central
+LAB-PEO-011,"Peoria, Illinois",Production Operator,21.2,2080,Union,non-production,East North Central
+LAB-PEO-012,"Peoria, Illinois",Maintenance Tech,17.89,2080,Union,non-production,East North Central
+LAB-PEO-013,"Peoria, Illinois",Quality Inspector,17.59,2080,Union,non-production,East North Central
+LAB-PEO-014,"Peoria, Illinois",Quality Inspector,17.43,2080,Non-Union,non-production,East North Central
+LAB-PEO-015,"Peoria, Illinois",Production Supervisor,25.96,2080,Union,production,East North Central
+LAB-PEO-016,"Peoria, Illinois",Production Operator,14.83,2080,Non-Union,non-production,East North Central
+LAB-PEO-017,"Peoria, Illinois",Quality Inspector,16.18,2080,Union,non-production,East North Central
+LAB-PEO-018,"Peoria, Illinois",Production Operator,17.3,2080,Union,non-production,East North Central
+LAB-PEO-019,"Peoria, Illinois",Production Supervisor,24.7,2080,Union,production,East North Central
+LAB-PEO-020,"Peoria, Illinois",Maintenance Tech,20.42,2080,Union,non-production,East North Central
+LAB-PEO-021,"Peoria, Illinois",Quality Inspector,18.62,2080,Union,non-production,East North Central
+LAB-PEO-022,"Peoria, Illinois",Quality Inspector,20.66,2080,Union,non-production,East North Central
+LAB-PEO-023,"Peoria, Illinois",Quality Inspector,18.02,2080,Union,non-production,East North Central
+LAB-PEO-024,"Peoria, Illinois",Maintenance Tech,18.1,2080,Non-Union,non-production,East North Central
+LAB-KEN-025,"Kenosha, Wisconsin",Maintenance Tech,16.74,2080,Non-Union,non-production,East North Central
+LAB-KEN-026,"Kenosha, Wisconsin",Line Lead,20.13,2080,Union,production,East North Central
+LAB-KEN-027,"Kenosha, Wisconsin",Packaging Operator,19.57,2080,Union,non-production,East North Central
+LAB-KEN-028,"Kenosha, Wisconsin",Quality Inspector,18.43,2080,Union,non-production,East North Central
+LAB-KEN-029,"Kenosha, Wisconsin",Quality Inspector,17.43,2080,Non-Union,non-production,East North Central
+LAB-KEN-030,"Kenosha, Wisconsin",Production Operator,16.89,2080,Non-Union,non-production,East North Central
+LAB-KEN-031,"Kenosha, Wisconsin",Production Supervisor,24.11,2080,Union,production,East North Central
+LAB-KEN-032,"Kenosha, Wisconsin",Maintenance Tech,21.8,2080,Union,non-production,East North Central
+LAB-KEN-033,"Kenosha, Wisconsin",Quality Inspector,17.78,2080,Non-Union,non-production,East North Central
+LAB-KEN-034,"Kenosha, Wisconsin",Line Lead,26.52,2080,Non-Union,production,East North Central
+LAB-KEN-035,"Kenosha, Wisconsin",Maintenance Tech,19.2,2080,Non-Union,non-production,East North Central
+LAB-KEN-036,"Kenosha, Wisconsin",Maintenance Tech,14.86,2080,Union,non-production,East North Central
+LAB-KEN-037,"Kenosha, Wisconsin",Production Operator,17.01,2080,Non-Union,non-production,East North Central
+LAB-KEN-038,"Kenosha, Wisconsin",Line Lead,22.14,2080,Non-Union,production,East North Central
+LAB-KEN-039,"Kenosha, Wisconsin",Production Operator,20.55,2080,Non-Union,non-production,East North Central
+LAB-KEN-040,"Kenosha, Wisconsin",Line Lead,20.52,2080,Non-Union,production,East North Central
+LAB-KEN-041,"Kenosha, Wisconsin",Line Lead,23.57,2080,Non-Union,production,East North Central
+LAB-DES-042,"Des Moines, Iowa",Packaging Operator,20.29,2080,Non-Union,non-production,West North Central
+LAB-DES-043,"Des Moines, Iowa",Packaging Operator,19.01,2080,Non-Union,non-production,West North Central
+LAB-DES-044,"Des Moines, Iowa",Production Supervisor,19.29,2080,Non-Union,production,West North Central
+LAB-DES-045,"Des Moines, Iowa",Line Lead,24.8,2080,Non-Union,production,West North Central
+LAB-DES-046,"Des Moines, Iowa",Quality Inspector,17.55,2080,Union,non-production,West North Central
+LAB-DES-047,"Des Moines, Iowa",Production Operator,19.93,2080,Union,non-production,West North Central
+LAB-DES-048,"Des Moines, Iowa",Quality Inspector,20.26,2080,Union,non-production,West North Central
+LAB-DES-049,"Des Moines, Iowa",Production Supervisor,22.36,2080,Non-Union,production,West North Central
+LAB-DES-050,"Des Moines, Iowa",Production Supervisor,21.26,2080,Union,production,West North Central
+LAB-DES-051,"Des Moines, Iowa",Production Operator,17.86,2080,Union,non-production,West North Central
+LAB-DES-052,"Des Moines, Iowa",Quality Inspector,15.34,2080,Union,non-production,West North Central
+LAB-DES-053,"Des Moines, Iowa",Packaging Operator,18.42,2080,Non-Union,non-production,West North Central
+LAB-DES-054,"Des Moines, Iowa",Packaging Operator,16.63,2080,Union,non-production,West North Central
+LAB-DES-055,"Des Moines, Iowa",Maintenance Tech,20.42,2080,Union,non-production,West North Central
+LAB-DES-056,"Des Moines, Iowa",Packaging Operator,18.96,2080,Union,non-production,West North Central
+LAB-DES-057,"Des Moines, Iowa",Production Operator,19.88,2080,Non-Union,non-production,West North Central
+LAB-DES-058,"Des Moines, Iowa",Packaging Operator,21.03,2080,Non-Union,non-production,West North Central
+LAB-DES-059,"Des Moines, Iowa",Packaging Operator,20.6,2080,Non-Union,non-production,West North Central

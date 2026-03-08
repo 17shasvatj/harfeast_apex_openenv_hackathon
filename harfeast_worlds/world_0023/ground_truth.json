@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 97,
+    "high_priority_pct": 2.2,
+    "hp_inefficient_hours": 1772.0,
+    "hp_inefficient_pct": 2.0,
+    "hp_frontline": 34,
+    "hp_backoffice": 36,
+    "hp_supervisor": 16,
+    "hp_management": 11
+  },
+  "task2": {
+    "Bloomington, Illinois": 28171363724,
+    "Green Bay, Wisconsin": 28864400732,
+    "Sioux City, Iowa": 29197488423,
+    "Cincinnati, Ohio": 27092050102,
+    "Kalamazoo, Michigan": 24336585558
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.7,
+      "units_avoided": 69449
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 5.9,
+      "units_avoided": 89419
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.6,
+      "units_avoided": 62074
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Bloomington, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.857
+    },
+    "Green Bay, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8505
+    },
+    "Sioux City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8804
+    },
+    "Cincinnati, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8724
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8628
+    }
+  },
+  "task5": {
+    "Bloomington, Illinois": {
+      "total_labor_cost": 868338,
+      "efficiency_gains": 132668,
+      "union_demand_increase": 13548
+    },
+    "Green Bay, Wisconsin": {
+      "total_labor_cost": 987979,
+      "efficiency_gains": 179646,
+      "union_demand_increase": 23888
+    },
+    "Sioux City, Iowa": {
+      "total_labor_cost": 871374,
+      "efficiency_gains": 82806,
+      "union_demand_increase": 23376
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Bloomington, Illinois": 8.5,
+      "Green Bay, Wisconsin": 8.5,
+      "Sioux City, Iowa": 8.3,
+      "Cincinnati, Ohio": 37.4,
+      "Kalamazoo, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Sioux City, Iowa"
+    ],
+    "least_efficient": "Kalamazoo, Michigan",
+    "pct_difference": 353
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19414,
+      "Quality Control/Quality Assurance": 22976,
+      "Maintenance Technician": 25109,
+      "Production Supervisor/Team Lead": 27149,
+      "Supply Chain/Logistics Coordinator": 25044,
+      "Demand Planning/Forecasting": 30397,
+      "Administrative/Support Staff": 21093,
+      "Plant Management": 44306
+    },
+    "total_annual_loss": 120075296
+  },
+  "task8": {
+    "hp_quality_losses": 1510137,
+    "hp_pct_of_cv_losses": 38
+  },
+  "task9": {
+    "Bloomington, Illinois": {
+      "variance_hours": 14156,
+      "variance_dollars": 275192.64,
+      "productivity_index": 0.92
+    },
+    "Green Bay, Wisconsin": {
+      "variance_hours": 16619,
+      "variance_dollars": 323073.36,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.06,
+    "annual_productivity_loss": 139696000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Bloomington, Illinois": {
+        "new_unit_sales": 23028063,
+        "new_projected_sales": 68853908
+      },
+      "Green Bay, Wisconsin": {
+        "new_unit_sales": 24983472,
+        "new_projected_sales": 78697937
+      },
+      "Sioux City, Iowa": {
+        "new_unit_sales": 6931022,
+        "new_projected_sales": 39922687
+      },
+      "Cincinnati, Ohio": {
+        "new_unit_sales": 6712181,
+        "new_projected_sales": 47790729
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 8422572,
+        "new_projected_sales": 50114303
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Bloomington, Illinois",
+    "highest_willingness_plant": "Green Bay, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Plant Management",
+      2.44
+    ],
+    "highest_role_in_highest_plant": [
+      "Demand Planning/Forecasting",
+      3.9
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 35,
+        "total_cost": 16960
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 39,
+        "total_cost": 19360
+      }
+    }
+  },
+  "task13": {
+    "Bloomington, Illinois": 5,
+    "Green Bay, Wisconsin": 5,
+    "Sioux City, Iowa": 5,
+    "Cincinnati, Ohio": 6,
+    "Kalamazoo, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1647,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 39,
+    "high_priority_pct": 1.9,
+    "hp_inefficient_hours": 842.0,
+    "hp_inefficient_pct": 2.0,
+    "hp_frontline": 11,
+    "hp_backoffice": 16,
+    "hp_supervisor": 7,
+    "hp_management": 5
+  },
+  "task2": {
+    "Peoria, Illinois": 21818949641,
+    "Kenosha, Wisconsin": 27419888409,
+    "Sioux City, Iowa": 22923535632,
+    "Akron, Ohio": 24309982043,
+    "Kalamazoo, Michigan": 23638998485
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 71404
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 70081
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 57263
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Peoria, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8768
+    },
+    "Kenosha, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8612
+    },
+    "Sioux City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8768
+    },
+    "Akron, Ohio": {
+      "first_year_exceeds": 2030,
+      "oee_at_that_year": 0.8513
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.863
+    }
+  },
+  "task5": {
+    "Peoria, Illinois": {
+      "total_labor_cost": 735301,
+      "efficiency_gains": 140050,
+      "union_demand_increase": 17770
+    },
+    "Kenosha, Wisconsin": {
+      "total_labor_cost": 690622,
+      "efficiency_gains": 131551,
+      "union_demand_increase": 15931
+    },
+    "Sioux City, Iowa": {
+      "total_labor_cost": 750506,
+      "efficiency_gains": 63619,
+      "union_demand_increase": 14480
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Peoria, Illinois": 8.1,
+      "Kenosha, Wisconsin": 8.3,
+      "Sioux City, Iowa": 8.4,
+      "Akron, Ohio": 37.3,
+      "Kalamazoo, Michigan": 36.8
+    },
+    "most_efficient": [
+      "Peoria, Illinois"
+    ],
+    "least_efficient": "Akron, Ohio",
+    "pct_difference": 360
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20689,
+      "Quality Control/Quality Assurance": 23067,
+      "Maintenance Technician": 28967,
+      "Production Supervisor/Team Lead": 26878,
+      "Supply Chain/Logistics Coordinator": 23442,
+      "Demand Planning/Forecasting": 31305,
+      "Administrative/Support Staff": 20354,
+      "Plant Management": 43273
+    },
+    "total_annual_loss": 54676643
+  },
+  "task8": {
+    "hp_quality_losses": 1718310,
+    "hp_pct_of_cv_losses": 40
+  },
+  "task9": {
+    "Peoria, Illinois": {
+      "variance_hours": 13006,
+      "variance_dollars": 250105.38,
+      "productivity_index": 0.92
+    },
+    "Kenosha, Wisconsin": {
+      "variance_hours": 9423,
+      "variance_dollars": 181204.29,
+      "productivity_index": 0.94
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 29.75,
+    "annual_productivity_loss": 64004000
+  },
+  "task11": {
+    "top5_technologies": [
+      "Predictive Maintenance",
+      "IoT Sensors",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Peoria, Illinois": {
+        "new_unit_sales": 24329485,
+        "new_projected_sales": 73475045
+      },
+      "Kenosha, Wisconsin": {
+        "new_unit_sales": 31112406,
+        "new_projected_sales": 94892838
+      },
+      "Sioux City, Iowa": {
+        "new_unit_sales": 7267856,
+        "new_projected_sales": 44479279
+      },
+      "Akron, Ohio": {
+        "new_unit_sales": 5942946,
+        "new_projected_sales": 40293174
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 8247532,
+        "new_projected_sales": 48825389
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Peoria, Illinois",
+    "highest_willingness_plant": "Kenosha, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production Supervisor/Team Lead",
+      2.3
+    ],
+    "highest_role_in_highest_plant": [
+      "Demand Planning/Forecasting",
+      3.98
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 20,
+        "total_cost": 9760
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 14,
+        "total_cost": 1536
+      }
+    }
+  },
+  "task13": {
+    "Peoria, Illinois": 5,
+    "Kenosha, Wisconsin": 6,
+    "Sioux City, Iowa": 6,
+    "Akron, Ohio": 6,
+    "Kalamazoo, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 802,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 19,
+      "Good- adequate for most needs": 38,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

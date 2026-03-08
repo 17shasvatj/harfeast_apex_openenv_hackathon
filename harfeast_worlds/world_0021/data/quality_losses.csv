@@ -1,0 +1,244 @@
+equipment_id,plant,product_family,scrap_cost,unplanned_failure_cost
+EQ-ROC-000,"Rockford, Illinois",Sauces,72365.15,29958.75
+EQ-ROC-001,"Rockford, Illinois",Condiments,31202.5,23285.61
+EQ-ROC-002,"Rockford, Illinois",Condiments,43044.0,27726.26
+EQ-ROC-003,"Rockford, Illinois",Condiments,32124.5,16367.63
+EQ-ROC-004,"Rockford, Illinois",Sauces,38205.67,15645.65
+EQ-ROC-005,"Rockford, Illinois",Canned Vegetables,11249.55,25414.26
+EQ-ROC-006,"Rockford, Illinois",Condiments,9155.41,11052.14
+EQ-ROC-007,"Rockford, Illinois",Condiments,23977.81,24652.31
+EQ-ROC-008,"Rockford, Illinois",Sauces,27520.24,20369.24
+EQ-ROC-009,"Rockford, Illinois",Sauces,43927.41,12236.62
+EQ-ROC-010,"Rockford, Illinois",Canned Vegetables,27304.85,26914.33
+EQ-ROC-011,"Rockford, Illinois",Sauces,10654.12,23019.69
+EQ-ROC-012,"Rockford, Illinois",Condiments,26629.34,3321.58
+EQ-ROC-013,"Rockford, Illinois",Condiments,42146.04,29381.46
+EQ-ROC-014,"Rockford, Illinois",Canned Vegetables,67501.75,12907.75
+EQ-ROC-015,"Rockford, Illinois",Condiments,33601.8,10459.12
+EQ-ROC-016,"Rockford, Illinois",Condiments,47679.63,18366.53
+EQ-ROC-017,"Rockford, Illinois",Canned Vegetables,15395.07,28965.25
+EQ-ROC-018,"Rockford, Illinois",Sauces,42664.91,27309.15
+EQ-ROC-019,"Rockford, Illinois",Sauces,32301.89,26768.19
+EQ-ROC-020,"Rockford, Illinois",Sauces,24226.38,12007.24
+EQ-ROC-021,"Rockford, Illinois",Sauces,30783.62,26202.24
+EQ-ROC-022,"Rockford, Illinois",Sauces,73253.15,7258.41
+EQ-ROC-023,"Rockford, Illinois",Condiments,38299.84,18891.29
+EQ-ROC-024,"Rockford, Illinois",Sauces,9904.61,22209.97
+EQ-ROC-025,"Rockford, Illinois",Canned Vegetables,73173.15,13833.93
+EQ-ROC-026,"Rockford, Illinois",Condiments,28417.26,21187.35
+EQ-ROC-027,"Rockford, Illinois",Condiments,49167.38,18007.37
+EQ-ROC-028,"Rockford, Illinois",Canned Vegetables,10119.9,29202.0
+EQ-ROC-029,"Rockford, Illinois",Sauces,34370.84,29426.29
+EQ-ROC-030,"Rockford, Illinois",Sauces,33934.71,20224.56
+EQ-ROC-031,"Rockford, Illinois",Canned Vegetables,35405.79,21800.99
+EQ-ROC-032,"Rockford, Illinois",Sauces,28276.71,16324.35
+EQ-ROC-033,"Rockford, Illinois",Sauces,84516.68,24717.17
+EQ-ROC-034,"Rockford, Illinois",Sauces,51124.57,28696.09
+EQ-ROC-035,"Rockford, Illinois",Condiments,5590.18,22730.35
+EQ-ROC-036,"Rockford, Illinois",Condiments,38638.73,10172.67
+EQ-ROC-037,"Rockford, Illinois",Condiments,28817.42,13918.67
+EQ-ROC-038,"Rockford, Illinois",Sauces,15285.57,5468.33
+EQ-ROC-039,"Rockford, Illinois",Sauces,15781.19,11882.76
+EQ-ROC-040,"Rockford, Illinois",Canned Vegetables,59454.06,13536.8
+EQ-ROC-041,"Rockford, Illinois",Sauces,26227.26,20106.29
+EQ-ROC-042,"Rockford, Illinois",Canned Vegetables,17602.12,27382.73
+EQ-ROC-043,"Rockford, Illinois",Canned Vegetables,52197.35,18138.27
+EQ-ROC-044,"Rockford, Illinois",Condiments,41898.69,16676.86
+EQ-ROC-045,"Rockford, Illinois",Canned Vegetables,29224.18,5186.79
+EQ-KEN-046,"Kenosha, Wisconsin",Sauces,23144.56,23156.0
+EQ-KEN-047,"Kenosha, Wisconsin",Sauces,62335.22,7000.24
+EQ-KEN-048,"Kenosha, Wisconsin",Sauces,37453.82,22114.14
+EQ-KEN-049,"Kenosha, Wisconsin",Canned Vegetables,22449.69,18440.65
+EQ-KEN-050,"Kenosha, Wisconsin",Canned Vegetables,22256.92,19106.72
+EQ-KEN-051,"Kenosha, Wisconsin",Condiments,21966.41,29639.09
+EQ-KEN-052,"Kenosha, Wisconsin",Condiments,27957.74,2964.73
+EQ-KEN-053,"Kenosha, Wisconsin",Sauces,18572.78,21908.11
+EQ-KEN-054,"Kenosha, Wisconsin",Condiments,16810.87,8078.29
+EQ-KEN-055,"Kenosha, Wisconsin",Sauces,38887.84,27579.8
+EQ-KEN-056,"Kenosha, Wisconsin",Canned Vegetables,11456.84,24591.16
+EQ-KEN-057,"Kenosha, Wisconsin",Condiments,50166.52,24590.62
+EQ-KEN-058,"Kenosha, Wisconsin",Condiments,47503.98,28821.0
+EQ-KEN-059,"Kenosha, Wisconsin",Canned Vegetables,41517.72,24725.41
+EQ-KEN-060,"Kenosha, Wisconsin",Canned Vegetables,5586.49,18697.99
+EQ-KEN-061,"Kenosha, Wisconsin",Condiments,8193.26,19743.09
+EQ-KEN-062,"Kenosha, Wisconsin",Canned Vegetables,31625.4,18151.71
+EQ-KEN-063,"Kenosha, Wisconsin",Sauces,73139.1,24301.4
+EQ-KEN-064,"Kenosha, Wisconsin",Condiments,15181.26,26910.46
+EQ-KEN-065,"Kenosha, Wisconsin",Canned Vegetables,68004.94,14397.55
+EQ-KEN-066,"Kenosha, Wisconsin",Condiments,20453.95,28730.97
+EQ-KEN-067,"Kenosha, Wisconsin",Sauces,8291.08,19946.73
+EQ-KEN-068,"Kenosha, Wisconsin",Canned Vegetables,36525.18,5267.56
+EQ-KEN-069,"Kenosha, Wisconsin",Sauces,5696.06,25042.73
+EQ-KEN-070,"Kenosha, Wisconsin",Canned Vegetables,33873.36,17117.12
+EQ-KEN-071,"Kenosha, Wisconsin",Sauces,4064.2,19931.03
+EQ-KEN-072,"Kenosha, Wisconsin",Condiments,76733.07,7209.62
+EQ-KEN-073,"Kenosha, Wisconsin",Sauces,13784.99,22244.71
+EQ-KEN-074,"Kenosha, Wisconsin",Condiments,54630.92,8675.34
+EQ-KEN-075,"Kenosha, Wisconsin",Sauces,33040.25,2475.88
+EQ-KEN-076,"Kenosha, Wisconsin",Condiments,60208.98,26509.14
+EQ-KEN-077,"Kenosha, Wisconsin",Canned Vegetables,27231.03,25488.08
+EQ-KEN-078,"Kenosha, Wisconsin",Sauces,13984.3,10371.08
+EQ-KEN-079,"Kenosha, Wisconsin",Condiments,47364.39,9948.48
+EQ-KEN-080,"Kenosha, Wisconsin",Condiments,55997.41,4505.47
+EQ-KEN-081,"Kenosha, Wisconsin",Sauces,34848.74,5051.18
+EQ-KEN-082,"Kenosha, Wisconsin",Condiments,35906.81,4240.41
+EQ-KEN-083,"Kenosha, Wisconsin",Condiments,42990.84,23862.03
+EQ-KEN-084,"Kenosha, Wisconsin",Sauces,65556.93,21928.81
+EQ-KEN-085,"Kenosha, Wisconsin",Condiments,8078.6,20032.43
+EQ-KEN-086,"Kenosha, Wisconsin",Canned Vegetables,5931.89,6107.16
+EQ-KEN-087,"Kenosha, Wisconsin",Canned Vegetables,35275.84,8596.67
+EQ-KEN-088,"Kenosha, Wisconsin",Condiments,36792.8,19341.92
+EQ-KEN-089,"Kenosha, Wisconsin",Sauces,57386.8,22397.94
+EQ-KEN-090,"Kenosha, Wisconsin",Sauces,45684.46,17861.22
+EQ-KEN-091,"Kenosha, Wisconsin",Sauces,55347.73,7576.26
+EQ-KEN-092,"Kenosha, Wisconsin",Sauces,18617.47,27998.41
+EQ-KEN-093,"Kenosha, Wisconsin",Condiments,60291.96,21818.32
+EQ-KEN-094,"Kenosha, Wisconsin",Canned Vegetables,73492.81,2495.12
+EQ-KEN-095,"Kenosha, Wisconsin",Condiments,24782.54,25958.74
+EQ-KEN-096,"Kenosha, Wisconsin",Canned Vegetables,15215.14,3897.34
+EQ-KEN-097,"Kenosha, Wisconsin",Canned Vegetables,27252.45,22168.6
+EQ-DAV-098,"Davenport, Iowa",Sauces,64727.86,29360.58
+EQ-DAV-099,"Davenport, Iowa",Sauces,16084.15,17075.5
+EQ-DAV-100,"Davenport, Iowa",Condiments,40499.27,15606.72
+EQ-DAV-101,"Davenport, Iowa",Sauces,23750.39,2269.01
+EQ-DAV-102,"Davenport, Iowa",Condiments,61268.85,13194.77
+EQ-DAV-103,"Davenport, Iowa",Condiments,30332.03,15740.47
+EQ-DAV-104,"Davenport, Iowa",Sauces,57705.94,9524.79
+EQ-DAV-105,"Davenport, Iowa",Canned Vegetables,13683.2,29368.89
+EQ-DAV-106,"Davenport, Iowa",Canned Vegetables,31607.8,17448.32
+EQ-DAV-107,"Davenport, Iowa",Condiments,82872.8,8406.07
+EQ-DAV-108,"Davenport, Iowa",Condiments,9464.85,9766.55
+EQ-DAV-109,"Davenport, Iowa",Sauces,63577.27,5960.6
+EQ-DAV-110,"Davenport, Iowa",Condiments,56552.83,25696.4
+EQ-DAV-111,"Davenport, Iowa",Canned Vegetables,32775.86,7157.53
+EQ-DAV-112,"Davenport, Iowa",Canned Vegetables,36510.53,6560.15
+EQ-DAV-113,"Davenport, Iowa",Condiments,37389.52,23582.71
+EQ-DAV-114,"Davenport, Iowa",Sauces,18031.49,23262.93
+EQ-DAV-115,"Davenport, Iowa",Canned Vegetables,43891.73,24728.71
+EQ-DAV-116,"Davenport, Iowa",Sauces,71406.96,4670.53
+EQ-DAV-117,"Davenport, Iowa",Sauces,69127.93,23465.64
+EQ-DAV-118,"Davenport, Iowa",Condiments,8784.04,6214.14
+EQ-DAV-119,"Davenport, Iowa",Canned Vegetables,12527.01,17333.41
+EQ-DAV-120,"Davenport, Iowa",Sauces,17937.53,28626.09
+EQ-DAV-121,"Davenport, Iowa",Sauces,24740.86,12946.12
+EQ-DAV-122,"Davenport, Iowa",Sauces,16834.04,13024.27
+EQ-DAV-123,"Davenport, Iowa",Condiments,28247.5,14395.16
+EQ-DAV-124,"Davenport, Iowa",Sauces,12541.19,8134.37
+EQ-DAV-125,"Davenport, Iowa",Condiments,47633.99,20826.03
+EQ-DAV-126,"Davenport, Iowa",Condiments,26417.29,13823.34
+EQ-DAV-127,"Davenport, Iowa",Condiments,19345.3,25573.79
+EQ-DAV-128,"Davenport, Iowa",Canned Vegetables,45987.39,6207.8
+EQ-DAV-129,"Davenport, Iowa",Sauces,56333.66,28952.08
+EQ-DAV-130,"Davenport, Iowa",Condiments,43628.26,17696.51
+EQ-DAV-131,"Davenport, Iowa",Canned Vegetables,39994.51,22446.55
+EQ-DAV-132,"Davenport, Iowa",Condiments,16568.99,27730.53
+EQ-DAV-133,"Davenport, Iowa",Sauces,74824.94,26686.74
+EQ-DAV-134,"Davenport, Iowa",Canned Vegetables,7684.42,5234.88
+EQ-DAV-135,"Davenport, Iowa",Sauces,27472.08,6096.54
+EQ-DAV-136,"Davenport, Iowa",Condiments,17031.86,16907.31
+EQ-DAV-137,"Davenport, Iowa",Canned Vegetables,55417.21,13182.11
+EQ-DAV-138,"Davenport, Iowa",Sauces,76473.51,9988.63
+EQ-DAV-139,"Davenport, Iowa",Sauces,8399.9,28964.61
+EQ-DAV-140,"Davenport, Iowa",Canned Vegetables,19500.8,29800.0
+EQ-DAV-141,"Davenport, Iowa",Canned Vegetables,39705.38,3443.27
+EQ-DAV-142,"Davenport, Iowa",Canned Vegetables,10767.35,2238.69
+EQ-TOL-143,"Toledo, Ohio",Sauces,16278.21,20112.87
+EQ-TOL-144,"Toledo, Ohio",Canned Vegetables,92826.82,4150.77
+EQ-TOL-145,"Toledo, Ohio",Sauces,16648.72,12544.14
+EQ-TOL-146,"Toledo, Ohio",Sauces,72055.06,29433.89
+EQ-TOL-147,"Toledo, Ohio",Sauces,11849.51,17918.25
+EQ-TOL-148,"Toledo, Ohio",Condiments,44830.9,13033.97
+EQ-TOL-149,"Toledo, Ohio",Condiments,53369.7,29150.72
+EQ-TOL-150,"Toledo, Ohio",Sauces,54560.68,7423.5
+EQ-TOL-151,"Toledo, Ohio",Condiments,36321.1,18282.51
+EQ-TOL-152,"Toledo, Ohio",Canned Vegetables,14121.63,13026.63
+EQ-TOL-153,"Toledo, Ohio",Condiments,28197.53,7374.74
+EQ-TOL-154,"Toledo, Ohio",Canned Vegetables,20191.81,14576.49
+EQ-TOL-155,"Toledo, Ohio",Condiments,14897.07,24613.43
+EQ-TOL-156,"Toledo, Ohio",Canned Vegetables,16072.92,11585.8
+EQ-TOL-157,"Toledo, Ohio",Sauces,23564.88,10318.96
+EQ-TOL-158,"Toledo, Ohio",Condiments,27787.56,9528.91
+EQ-TOL-159,"Toledo, Ohio",Sauces,21944.89,14187.51
+EQ-TOL-160,"Toledo, Ohio",Canned Vegetables,7110.98,23026.03
+EQ-TOL-161,"Toledo, Ohio",Sauces,17415.55,27868.71
+EQ-TOL-162,"Toledo, Ohio",Canned Vegetables,35674.74,8061.17
+EQ-TOL-163,"Toledo, Ohio",Canned Vegetables,16783.99,8548.74
+EQ-TOL-164,"Toledo, Ohio",Sauces,27555.63,28475.17
+EQ-TOL-165,"Toledo, Ohio",Canned Vegetables,16382.66,19661.72
+EQ-TOL-166,"Toledo, Ohio",Canned Vegetables,55613.72,23949.51
+EQ-TOL-167,"Toledo, Ohio",Condiments,11920.64,8497.04
+EQ-TOL-168,"Toledo, Ohio",Condiments,77470.01,13658.07
+EQ-TOL-169,"Toledo, Ohio",Sauces,14522.67,16305.03
+EQ-TOL-170,"Toledo, Ohio",Canned Vegetables,30517.25,3748.56
+EQ-TOL-171,"Toledo, Ohio",Sauces,4106.01,15446.4
+EQ-TOL-172,"Toledo, Ohio",Canned Vegetables,62398.28,8989.38
+EQ-TOL-173,"Toledo, Ohio",Condiments,52945.46,2385.01
+EQ-TOL-174,"Toledo, Ohio",Condiments,42312.28,14253.19
+EQ-TOL-175,"Toledo, Ohio",Condiments,19128.18,8087.93
+EQ-TOL-176,"Toledo, Ohio",Canned Vegetables,55236.31,11925.03
+EQ-TOL-177,"Toledo, Ohio",Sauces,7976.82,16115.04
+EQ-TOL-178,"Toledo, Ohio",Sauces,18502.1,20174.93
+EQ-TOL-179,"Toledo, Ohio",Condiments,39677.23,25496.32
+EQ-TOL-180,"Toledo, Ohio",Condiments,23493.44,4069.88
+EQ-TOL-181,"Toledo, Ohio",Sauces,41818.25,10412.17
+EQ-TOL-182,"Toledo, Ohio",Canned Vegetables,22164.67,28671.01
+EQ-TOL-183,"Toledo, Ohio",Sauces,25667.52,22627.77
+EQ-TOL-184,"Toledo, Ohio",Canned Vegetables,37748.22,14739.49
+EQ-TOL-185,"Toledo, Ohio",Sauces,27971.55,20301.58
+EQ-TOL-186,"Toledo, Ohio",Canned Vegetables,18517.79,24876.38
+EQ-TOL-187,"Toledo, Ohio",Sauces,30955.71,23822.45
+EQ-DET-188,"Detroit, Michigan",Sauces,22846.19,5559.46
+EQ-DET-189,"Detroit, Michigan",Canned Vegetables,19021.21,19673.84
+EQ-DET-190,"Detroit, Michigan",Condiments,45932.57,16295.73
+EQ-DET-191,"Detroit, Michigan",Canned Vegetables,33765.6,7479.35
+EQ-DET-192,"Detroit, Michigan",Canned Vegetables,26435.14,18032.82
+EQ-DET-193,"Detroit, Michigan",Canned Vegetables,12351.81,18690.29
+EQ-DET-194,"Detroit, Michigan",Condiments,58117.21,15247.08
+EQ-DET-195,"Detroit, Michigan",Sauces,7788.37,9571.12
+EQ-DET-196,"Detroit, Michigan",Sauces,47896.91,19458.04
+EQ-DET-197,"Detroit, Michigan",Condiments,52221.27,17351.13
+EQ-DET-198,"Detroit, Michigan",Condiments,55222.02,4524.84
+EQ-DET-199,"Detroit, Michigan",Sauces,42748.94,19834.12
+EQ-DET-200,"Detroit, Michigan",Condiments,19305.54,28089.3
+EQ-DET-201,"Detroit, Michigan",Condiments,31129.64,16482.7
+EQ-DET-202,"Detroit, Michigan",Canned Vegetables,43176.53,23355.5
+EQ-DET-203,"Detroit, Michigan",Canned Vegetables,51282.56,12685.67
+EQ-DET-204,"Detroit, Michigan",Condiments,26257.24,13718.47
+EQ-DET-205,"Detroit, Michigan",Sauces,25936.89,29441.42
+EQ-DET-206,"Detroit, Michigan",Sauces,16186.9,2183.09
+EQ-DET-207,"Detroit, Michigan",Condiments,39055.43,12240.47
+EQ-DET-208,"Detroit, Michigan",Condiments,56192.96,6804.31
+EQ-DET-209,"Detroit, Michigan",Sauces,41326.29,24512.11
+EQ-DET-210,"Detroit, Michigan",Sauces,12589.52,8876.86
+EQ-DET-211,"Detroit, Michigan",Canned Vegetables,21434.47,19687.73
+EQ-DET-212,"Detroit, Michigan",Condiments,35416.81,10334.93
+EQ-DET-213,"Detroit, Michigan",Condiments,7766.1,5680.96
+EQ-DET-214,"Detroit, Michigan",Condiments,9688.16,3383.07
+EQ-DET-215,"Detroit, Michigan",Sauces,50977.38,18604.19
+EQ-DET-216,"Detroit, Michigan",Condiments,17482.7,19028.71
+EQ-DET-217,"Detroit, Michigan",Condiments,26530.08,5608.71
+EQ-DET-218,"Detroit, Michigan",Sauces,45288.99,19810.71
+EQ-DET-219,"Detroit, Michigan",Condiments,31575.36,22917.73
+EQ-DET-220,"Detroit, Michigan",Canned Vegetables,9151.32,23470.56
+EQ-DET-221,"Detroit, Michigan",Sauces,33575.73,21978.27
+EQ-DET-222,"Detroit, Michigan",Canned Vegetables,32337.35,4934.78
+EQ-DET-223,"Detroit, Michigan",Condiments,5870.63,25612.04
+EQ-DET-224,"Detroit, Michigan",Sauces,13729.83,18515.66
+EQ-DET-225,"Detroit, Michigan",Condiments,64765.07,8442.03
+EQ-DET-226,"Detroit, Michigan",Sauces,37302.84,3637.63
+EQ-DET-227,"Detroit, Michigan",Condiments,9473.29,8910.41
+EQ-DET-228,"Detroit, Michigan",Sauces,17824.45,4134.64
+EQ-DET-229,"Detroit, Michigan",Condiments,8429.1,21399.32
+EQ-DET-230,"Detroit, Michigan",Sauces,27481.84,26456.76
+EQ-DET-231,"Detroit, Michigan",Canned Vegetables,68336.32,25989.02
+EQ-DET-232,"Detroit, Michigan",Condiments,6017.66,11580.76
+EQ-DET-233,"Detroit, Michigan",Sauces,55285.27,20989.28
+EQ-DET-234,"Detroit, Michigan",Canned Vegetables,21581.27,29053.46
+EQ-DET-235,"Detroit, Michigan",Condiments,49250.55,28995.84
+EQ-DET-236,"Detroit, Michigan",Condiments,35527.72,8665.03
+EQ-DET-237,"Detroit, Michigan",Sauces,30583.36,7882.3
+EQ-DET-238,"Detroit, Michigan",Canned Vegetables,36029.98,5484.0
+EQ-DET-239,"Detroit, Michigan",Condiments,31410.12,21579.1
+EQ-DET-240,"Detroit, Michigan",Sauces,79499.47,21699.94
+EQ-DET-241,"Detroit, Michigan",Condiments,22318.02,24602.17
+EQ-DET-242,"Detroit, Michigan",Canned Vegetables,26803.21,22798.89

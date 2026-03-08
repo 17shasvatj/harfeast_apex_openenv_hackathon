@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 62,
+    "high_priority_pct": 2.5,
+    "hp_inefficient_hours": 1278.0,
+    "hp_inefficient_pct": 2.6,
+    "hp_frontline": 24,
+    "hp_backoffice": 23,
+    "hp_supervisor": 5,
+    "hp_management": 10
+  },
+  "task2": {
+    "Champaign, Illinois": 25387094756,
+    "Madison, Wisconsin": 24455310586,
+    "Cedar Rapids, Iowa": 21760625356,
+    "Akron, Ohio": 22994320362,
+    "Kalamazoo, Michigan": 24423319724
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 103256
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.7,
+      "units_avoided": 66302
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 67680
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8566
+    },
+    "Madison, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8722
+    },
+    "Cedar Rapids, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8569
+    },
+    "Akron, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8523
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8674
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 905237,
+      "efficiency_gains": 143292,
+      "union_demand_increase": 19726
+    },
+    "Madison, Wisconsin": {
+      "total_labor_cost": 603720,
+      "efficiency_gains": 94243,
+      "union_demand_increase": 13775
+    },
+    "Cedar Rapids, Iowa": {
+      "total_labor_cost": 994843,
+      "efficiency_gains": 90433,
+      "union_demand_increase": 29467
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.4,
+      "Madison, Wisconsin": 8.5,
+      "Cedar Rapids, Iowa": 8.8,
+      "Akron, Ohio": 38.3,
+      "Kalamazoo, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Champaign, Illinois"
+    ],
+    "least_efficient": "Akron, Ohio",
+    "pct_difference": 356
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20164,
+      "Quality Control/Quality Assurance": 23894,
+      "Maintenance Technician": 24843,
+      "Production Supervisor/Team Lead": 29423,
+      "Supply Chain/Logistics Coordinator": 26273,
+      "Demand Planning/Forecasting": 30741,
+      "Administrative/Support Staff": 21244,
+      "Plant Management": 43006
+    },
+    "total_annual_loss": 66757385
+  },
+  "task8": {
+    "hp_quality_losses": 1577497,
+    "hp_pct_of_cv_losses": 35
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 14939,
+      "variance_dollars": 299526.95,
+      "productivity_index": 0.91
+    },
+    "Madison, Wisconsin": {
+      "variance_hours": 14766,
+      "variance_dollars": 296058.3,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.02,
+    "annual_productivity_loss": 78165000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 23471827,
+        "new_projected_sales": 70650199
+      },
+      "Madison, Wisconsin": {
+        "new_unit_sales": 25513709,
+        "new_projected_sales": 83174691
+      },
+      "Cedar Rapids, Iowa": {
+        "new_unit_sales": 7013086,
+        "new_projected_sales": 42429170
+      },
+      "Akron, Ohio": {
+        "new_unit_sales": 6824332,
+        "new_projected_sales": 48589244
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 10030176,
+        "new_projected_sales": 59077737
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Madison, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Quality Control/Quality Assurance",
+      2.35
+    ],
+    "highest_role_in_highest_plant": [
+      "Quality Control/Quality Assurance",
+      3.86
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 19,
+        "total_cost": 10880
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 17,
+        "total_cost": 4608
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Madison, Wisconsin": 7,
+    "Cedar Rapids, Iowa": 6,
+    "Akron, Ohio": 5,
+    "Kalamazoo, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 889,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

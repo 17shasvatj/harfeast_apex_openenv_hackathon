@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 53,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1253.0,
+    "hp_inefficient_pct": 2.5,
+    "hp_frontline": 23,
+    "hp_backoffice": 21,
+    "hp_supervisor": 4,
+    "hp_management": 5
+  },
+  "task2": {
+    "Rockford, Illinois": 22425167756,
+    "Milwaukee, Wisconsin": 22318809371,
+    "Sioux City, Iowa": 26418392213,
+    "Columbus, Ohio": 25701587178,
+    "Detroit, Michigan": 26308393988
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 66385
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 82189
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 62327
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8753
+    },
+    "Milwaukee, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.877
+    },
+    "Sioux City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8758
+    },
+    "Columbus, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.865
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8542
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 888805,
+      "efficiency_gains": 149076,
+      "union_demand_increase": 26033
+    },
+    "Milwaukee, Wisconsin": {
+      "total_labor_cost": 851698,
+      "efficiency_gains": 156275,
+      "union_demand_increase": 21097
+    },
+    "Sioux City, Iowa": {
+      "total_labor_cost": 977600,
+      "efficiency_gains": 93127,
+      "union_demand_increase": 22774
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.4,
+      "Milwaukee, Wisconsin": 8.6,
+      "Sioux City, Iowa": 8.6,
+      "Columbus, Ohio": 37.4,
+      "Detroit, Michigan": 36.9
+    },
+    "most_efficient": [
+      "Rockford, Illinois"
+    ],
+    "least_efficient": "Columbus, Ohio",
+    "pct_difference": 345
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 18533,
+      "Quality Control/Quality Assurance": 25047,
+      "Maintenance Technician": 27987,
+      "Production Supervisor/Team Lead": 28817,
+      "Supply Chain/Logistics Coordinator": 25089,
+      "Demand Planning/Forecasting": 31758,
+      "Administrative/Support Staff": 20682,
+      "Plant Management": 44027
+    },
+    "total_annual_loss": 70338967
+  },
+  "task8": {
+    "hp_quality_losses": 1892104,
+    "hp_pct_of_cv_losses": 42
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 12238,
+      "variance_dollars": 245371.9,
+      "productivity_index": 0.91
+    },
+    "Milwaukee, Wisconsin": {
+      "variance_hours": 12865,
+      "variance_dollars": 257943.25,
+      "productivity_index": 0.92
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.01,
+    "annual_productivity_loss": 82121000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Rockford, Illinois": {
+        "new_unit_sales": 21373019,
+        "new_projected_sales": 63905327
+      },
+      "Milwaukee, Wisconsin": {
+        "new_unit_sales": 24444157,
+        "new_projected_sales": 79932393
+      },
+      "Sioux City, Iowa": {
+        "new_unit_sales": 6152387,
+        "new_projected_sales": 36852798
+      },
+      "Columbus, Ohio": {
+        "new_unit_sales": 6308677,
+        "new_projected_sales": 41826529
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 7525266,
+        "new_projected_sales": 46054628
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Milwaukee, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Maintenance Technician",
+      2.34
+    ],
+    "highest_role_in_highest_plant": [
+      "Quality Control/Quality Assurance",
+      3.92
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 28,
+        "total_cost": 5472
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 13,
+        "total_cost": 9440
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 5,
+    "Milwaukee, Wisconsin": 6,
+    "Sioux City, Iowa": 5,
+    "Columbus, Ohio": 5,
+    "Detroit, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1031,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 16,
+      "Good- adequate for most needs": 42,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

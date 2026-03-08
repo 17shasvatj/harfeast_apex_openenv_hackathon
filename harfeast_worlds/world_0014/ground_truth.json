@@ -1,0 +1,193 @@
+{
+  "task1": {
+    "high_priority_count": 77,
+    "high_priority_pct": 2.0,
+    "hp_inefficient_hours": 1548.0,
+    "hp_inefficient_pct": 2.0,
+    "hp_frontline": 22,
+    "hp_backoffice": 27,
+    "hp_supervisor": 15,
+    "hp_management": 13
+  },
+  "task2": {
+    "Champaign, Illinois": 23534980657,
+    "Madison, Wisconsin": 29182090972,
+    "Cedar Rapids, Iowa": 24800994808,
+    "Cleveland, Ohio": 26182330850,
+    "Flint, Michigan": 23641163726
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 64290
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 36097
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 94208
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8704
+    },
+    "Madison, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8653
+    },
+    "Cedar Rapids, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8642
+    },
+    "Cleveland, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8553
+    },
+    "Flint, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8672
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 888014,
+      "efficiency_gains": 150253,
+      "union_demand_increase": 25877
+    },
+    "Madison, Wisconsin": {
+      "total_labor_cost": 890240,
+      "efficiency_gains": 145494,
+      "union_demand_increase": 25994
+    },
+    "Cedar Rapids, Iowa": {
+      "total_labor_cost": 879570,
+      "efficiency_gains": 81070,
+      "union_demand_increase": 16042
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.4,
+      "Madison, Wisconsin": 8.4,
+      "Cedar Rapids, Iowa": 8.4,
+      "Cleveland, Ohio": 37.3,
+      "Flint, Michigan": 38.0
+    },
+    "most_efficient": [
+      "Champaign, Illinois",
+      "Madison, Wisconsin",
+      "Cedar Rapids, Iowa"
+    ],
+    "least_efficient": "Flint, Michigan",
+    "pct_difference": 352
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19995,
+      "Quality Control/Quality Assurance": 23404,
+      "Maintenance Technician": 28047,
+      "Production Supervisor/Team Lead": 30172,
+      "Supply Chain/Logistics Coordinator": 25155,
+      "Demand Planning/Forecasting": 30878,
+      "Administrative/Support Staff": 22040,
+      "Plant Management": 44978
+    },
+    "total_annual_loss": 108721715
+  },
+  "task8": {
+    "hp_quality_losses": 1388079,
+    "hp_pct_of_cv_losses": 36
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 17138,
+      "variance_dollars": 344473.8,
+      "productivity_index": 0.89
+    },
+    "Madison, Wisconsin": {
+      "variance_hours": 12293,
+      "variance_dollars": 247089.3,
+      "productivity_index": 0.93
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.08,
+    "annual_productivity_loss": 125964000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 24241049,
+        "new_projected_sales": 78540999
+      },
+      "Madison, Wisconsin": {
+        "new_unit_sales": 32358901,
+        "new_projected_sales": 103548483
+      },
+      "Cedar Rapids, Iowa": {
+        "new_unit_sales": 6055317,
+        "new_projected_sales": 36453008
+      },
+      "Cleveland, Ohio": {
+        "new_unit_sales": 6383028,
+        "new_projected_sales": 42319476
+      },
+      "Flint, Michigan": {
+        "new_unit_sales": 8289784,
+        "new_projected_sales": 50816376
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Madison, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production/Manufacturing Operator",
+      2.38
+    ],
+    "highest_role_in_highest_plant": [
+      "Maintenance Technician",
+      3.92
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 31,
+        "total_cost": 13600
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 30,
+        "total_cost": 15040
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Madison, Wisconsin": 6,
+    "Cedar Rapids, Iowa": 7,
+    "Cleveland, Ohio": 6,
+    "Flint, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 1433,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 38,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

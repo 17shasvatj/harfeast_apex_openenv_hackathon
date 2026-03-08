@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 50,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1117.0,
+    "hp_inefficient_pct": 2.3,
+    "hp_frontline": 25,
+    "hp_backoffice": 15,
+    "hp_supervisor": 4,
+    "hp_management": 6
+  },
+  "task2": {
+    "Springfield, Illinois": 24768262684,
+    "Milwaukee, Wisconsin": 26337618964,
+    "Iowa City, Iowa": 28868725150,
+    "Cincinnati, Ohio": 25044505142,
+    "Kalamazoo, Michigan": 29175406038
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 48259
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 95294
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 52420
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Springfield, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8734
+    },
+    "Milwaukee, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8612
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.865
+    },
+    "Cincinnati, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.869
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8652
+    }
+  },
+  "task5": {
+    "Springfield, Illinois": {
+      "total_labor_cost": 729893,
+      "efficiency_gains": 105890,
+      "union_demand_increase": 13939
+    },
+    "Milwaukee, Wisconsin": {
+      "total_labor_cost": 813467,
+      "efficiency_gains": 113756,
+      "union_demand_increase": 16995
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 802568,
+      "efficiency_gains": 66563,
+      "union_demand_increase": 14385
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Springfield, Illinois": 8.5,
+      "Milwaukee, Wisconsin": 8.6,
+      "Iowa City, Iowa": 8.4,
+      "Cincinnati, Ohio": 38.0,
+      "Kalamazoo, Michigan": 37.7
+    },
+    "most_efficient": [
+      "Iowa City, Iowa"
+    ],
+    "least_efficient": "Cincinnati, Ohio",
+    "pct_difference": 352
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20083,
+      "Quality Control/Quality Assurance": 23841,
+      "Maintenance Technician": 27759,
+      "Production Supervisor/Team Lead": 30951,
+      "Supply Chain/Logistics Coordinator": 26116,
+      "Demand Planning/Forecasting": 32419,
+      "Administrative/Support Staff": 22240,
+      "Plant Management": 48112
+    },
+    "total_annual_loss": 68892463
+  },
+  "task8": {
+    "hp_quality_losses": 1166434,
+    "hp_pct_of_cv_losses": 39
+  },
+  "task9": {
+    "Springfield, Illinois": {
+      "variance_hours": 12771,
+      "variance_dollars": 258740.46,
+      "productivity_index": 0.91
+    },
+    "Milwaukee, Wisconsin": {
+      "variance_hours": 19389,
+      "variance_dollars": 392821.14,
+      "productivity_index": 0.89
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.33,
+    "annual_productivity_loss": 79761000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "AI Quality Control"
+    ],
+    "plant_results": {
+      "Springfield, Illinois": {
+        "new_unit_sales": 22005115,
+        "new_projected_sales": 67115601
+      },
+      "Milwaukee, Wisconsin": {
+        "new_unit_sales": 26920714,
+        "new_projected_sales": 81031349
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 7330190,
+        "new_projected_sales": 44860763
+      },
+      "Cincinnati, Ohio": {
+        "new_unit_sales": 5713716,
+        "new_projected_sales": 39710326
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 7424619,
+        "new_projected_sales": 46329623
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Springfield, Illinois",
+    "highest_willingness_plant": "Milwaukee, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Supply Chain/Logistics Coordinator",
+      2.44
+    ],
+    "highest_role_in_highest_plant": [
+      "Demand Planning/Forecasting",
+      3.92
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 22,
+        "total_cost": 1920
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 19,
+        "total_cost": 1728
+      }
+    }
+  },
+  "task13": {
+    "Springfield, Illinois": 6,
+    "Milwaukee, Wisconsin": 6,
+    "Iowa City, Iowa": 7,
+    "Cincinnati, Ohio": 5,
+    "Kalamazoo, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1071,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

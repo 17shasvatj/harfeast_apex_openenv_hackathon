@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 74,
+    "high_priority_pct": 2.4,
+    "hp_inefficient_hours": 1819.0,
+    "hp_inefficient_pct": 2.9,
+    "hp_frontline": 27,
+    "hp_backoffice": 19,
+    "hp_supervisor": 14,
+    "hp_management": 14
+  },
+  "task2": {
+    "Bloomington, Illinois": 24716443511,
+    "Milwaukee, Wisconsin": 23747622392,
+    "Des Moines, Iowa": 22943283123,
+    "Cleveland, Ohio": 30568869434,
+    "Detroit, Michigan": 26064565381
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 74558
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 73618
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 56958
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Bloomington, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8764
+    },
+    "Milwaukee, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8526
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8749
+    },
+    "Cleveland, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8582
+    },
+    "Detroit, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.864
+    }
+  },
+  "task5": {
+    "Bloomington, Illinois": {
+      "total_labor_cost": 796598,
+      "efficiency_gains": 145938,
+      "union_demand_increase": 26694
+    },
+    "Milwaukee, Wisconsin": {
+      "total_labor_cost": 777130,
+      "efficiency_gains": 106423,
+      "union_demand_increase": 12916
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 698402,
+      "efficiency_gains": 58594,
+      "union_demand_increase": 12271
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Bloomington, Illinois": 8.5,
+      "Milwaukee, Wisconsin": 8.4,
+      "Des Moines, Iowa": 8.5,
+      "Cleveland, Ohio": 37.7,
+      "Detroit, Michigan": 38.0
+    },
+    "most_efficient": [
+      "Milwaukee, Wisconsin"
+    ],
+    "least_efficient": "Detroit, Michigan",
+    "pct_difference": 352
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20067,
+      "Quality Control/Quality Assurance": 24297,
+      "Maintenance Technician": 28352,
+      "Production Supervisor/Team Lead": 32227,
+      "Supply Chain/Logistics Coordinator": 25180,
+      "Demand Planning/Forecasting": 31820,
+      "Administrative/Support Staff": 22479,
+      "Plant Management": 48979
+    },
+    "total_annual_loss": 90270667
+  },
+  "task8": {
+    "hp_quality_losses": 1474797,
+    "hp_pct_of_cv_losses": 36
+  },
+  "task9": {
+    "Bloomington, Illinois": {
+      "variance_hours": 16454,
+      "variance_dollars": 339775.1,
+      "productivity_index": 0.9
+    },
+    "Milwaukee, Wisconsin": {
+      "variance_hours": 12810,
+      "variance_dollars": 264526.5,
+      "productivity_index": 0.92
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 31.94,
+    "annual_productivity_loss": 105125000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Bloomington, Illinois": {
+        "new_unit_sales": 20278600,
+        "new_projected_sales": 61849730
+      },
+      "Milwaukee, Wisconsin": {
+        "new_unit_sales": 26452790,
+        "new_projected_sales": 78564786
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 6684535,
+        "new_projected_sales": 38569767
+      },
+      "Cleveland, Ohio": {
+        "new_unit_sales": 7089065,
+        "new_projected_sales": 47496736
+      },
+      "Detroit, Michigan": {
+        "new_unit_sales": 10071203,
+        "new_projected_sales": 57808705
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Bloomington, Illinois",
+    "highest_willingness_plant": "Milwaukee, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production/Manufacturing Operator",
+      2.3
+    ],
+    "highest_role_in_highest_plant": [
+      "Production/Manufacturing Operator",
+      3.87
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 33,
+        "total_cost": 7776
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 28,
+        "total_cost": 14560
+      }
+    }
+  },
+  "task13": {
+    "Bloomington, Illinois": 6,
+    "Milwaukee, Wisconsin": 6,
+    "Des Moines, Iowa": 6,
+    "Cleveland, Ohio": 7,
+    "Detroit, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 1551,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 42,
+      "Fair- some gaps or inconsistencies": 32,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

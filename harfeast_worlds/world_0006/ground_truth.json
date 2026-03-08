@@ -1,0 +1,192 @@
+{
+  "task1": {
+    "high_priority_count": 81,
+    "high_priority_pct": 1.7,
+    "hp_inefficient_hours": 1863.0,
+    "hp_inefficient_pct": 1.9,
+    "hp_frontline": 31,
+    "hp_backoffice": 30,
+    "hp_supervisor": 9,
+    "hp_management": 11
+  },
+  "task2": {
+    "Champaign, Illinois": 29881236700,
+    "Kenosha, Wisconsin": 29110942647,
+    "Iowa City, Iowa": 24936299450,
+    "Akron, Ohio": 29260147666,
+    "Kalamazoo, Michigan": 22061207548
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 90109
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 58943
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 65083
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8764
+    },
+    "Kenosha, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8554
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8556
+    },
+    "Akron, Ohio": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8698
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8667
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 894733,
+      "efficiency_gains": 137884,
+      "union_demand_increase": 17862
+    },
+    "Kenosha, Wisconsin": {
+      "total_labor_cost": 958152,
+      "efficiency_gains": 176913,
+      "union_demand_increase": 20940
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 662750,
+      "efficiency_gains": 63699,
+      "union_demand_increase": 24603
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.5,
+      "Kenosha, Wisconsin": 8.5,
+      "Iowa City, Iowa": 8.6,
+      "Akron, Ohio": 38.0,
+      "Kalamazoo, Michigan": 37.4
+    },
+    "most_efficient": [
+      "Champaign, Illinois",
+      "Kenosha, Wisconsin"
+    ],
+    "least_efficient": "Akron, Ohio",
+    "pct_difference": 347
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20937,
+      "Quality Control/Quality Assurance": 22474,
+      "Maintenance Technician": 28529,
+      "Production Supervisor/Team Lead": 31594,
+      "Supply Chain/Logistics Coordinator": 24486,
+      "Demand Planning/Forecasting": 30804,
+      "Administrative/Support Staff": 20986,
+      "Plant Management": 43987
+    },
+    "total_annual_loss": 136422125
+  },
+  "task8": {
+    "hp_quality_losses": 1678056,
+    "hp_pct_of_cv_losses": 38
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 11480,
+      "variance_dollars": 227074.4,
+      "productivity_index": 0.92
+    },
+    "Kenosha, Wisconsin": {
+      "variance_hours": 17201,
+      "variance_dollars": 340235.78,
+      "productivity_index": 0.88
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.6,
+    "annual_productivity_loss": 159478000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 20426059,
+        "new_projected_sales": 61482438
+      },
+      "Kenosha, Wisconsin": {
+        "new_unit_sales": 28956988,
+        "new_projected_sales": 86581394
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 6638248,
+        "new_projected_sales": 40028635
+      },
+      "Akron, Ohio": {
+        "new_unit_sales": 6562083,
+        "new_projected_sales": 43506610
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 9099971,
+        "new_projected_sales": 56328820
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Kenosha, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Administrative/Support Staff",
+      2.4
+    ],
+    "highest_role_in_highest_plant": [
+      "Supply Chain/Logistics Coordinator",
+      3.91
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 49,
+        "total_cost": 12288
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 52,
+        "total_cost": 12384
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Kenosha, Wisconsin": 6,
+    "Iowa City, Iowa": 6,
+    "Akron, Ohio": 6,
+    "Kalamazoo, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1717,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 17,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 32,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "task1": {
+    "high_priority_count": 83,
+    "high_priority_pct": 2.4,
+    "hp_inefficient_hours": 1832.0,
+    "hp_inefficient_pct": 2.7,
+    "hp_frontline": 39,
+    "hp_backoffice": 28,
+    "hp_supervisor": 5,
+    "hp_management": 11
+  },
+  "task2": {
+    "Peoria, Illinois": 25781370456,
+    "Kenosha, Wisconsin": 22103148001,
+    "Des Moines, Iowa": 24433268685,
+    "Toledo, Ohio": 24743482425,
+    "Grand Rapids, Michigan": 24908855922
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 49999
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 84620
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 43398
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Peoria, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8755
+    },
+    "Kenosha, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8608
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8572
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8529
+    },
+    "Grand Rapids, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8686
+    }
+  },
+  "task5": {
+    "Peoria, Illinois": {
+      "total_labor_cost": 996653,
+      "efficiency_gains": 199331,
+      "union_demand_increase": 33097
+    },
+    "Kenosha, Wisconsin": {
+      "total_labor_cost": 701480,
+      "efficiency_gains": 111358,
+      "union_demand_increase": 12366
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 736091,
+      "efficiency_gains": 66698,
+      "union_demand_increase": 17494
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Peoria, Illinois": 8.6,
+      "Kenosha, Wisconsin": 8.6,
+      "Des Moines, Iowa": 8.7,
+      "Toledo, Ohio": 37.5,
+      "Grand Rapids, Michigan": 37.1
+    },
+    "most_efficient": [
+      "Peoria, Illinois",
+      "Kenosha, Wisconsin"
+    ],
+    "least_efficient": "Toledo, Ohio",
+    "pct_difference": 336
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 18469,
+      "Quality Control/Quality Assurance": 21536,
+      "Maintenance Technician": 25638,
+      "Production Supervisor/Team Lead": 28196,
+      "Supply Chain/Logistics Coordinator": 25301,
+      "Demand Planning/Forecasting": 30005,
+      "Administrative/Support Staff": 20296,
+      "Plant Management": 42235
+    },
+    "total_annual_loss": 91699725
+  },
+  "task8": {
+    "hp_quality_losses": 1505154,
+    "hp_pct_of_cv_losses": 42
+  },
+  "task9": {
+    "Peoria, Illinois": {
+      "variance_hours": 14782,
+      "variance_dollars": 289283.74,
+      "productivity_index": 0.9
+    },
+    "Kenosha, Wisconsin": {
+      "variance_hours": 10848,
+      "variance_dollars": 212295.36,
+      "productivity_index": 0.92
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.27,
+    "annual_productivity_loss": 107256000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Peoria, Illinois": {
+        "new_unit_sales": 21222031,
+        "new_projected_sales": 64514974
+      },
+      "Kenosha, Wisconsin": {
+        "new_unit_sales": 30540267,
+        "new_projected_sales": 94980230
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 7193480,
+        "new_projected_sales": 43304750
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 5727473,
+        "new_projected_sales": 38545893
+      },
+      "Grand Rapids, Michigan": {
+        "new_unit_sales": 9681621,
+        "new_projected_sales": 59929234
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Peoria, Illinois",
+    "highest_willingness_plant": "Kenosha, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Supply Chain/Logistics Coordinator",
+      2.39
+    ],
+    "highest_role_in_highest_plant": [
+      "Production/Manufacturing Operator",
+      3.86
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 27,
+        "total_cost": 14400
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 30,
+        "total_cost": 2976
+      }
+    }
+  },
+  "task13": {
+    "Peoria, Illinois": 6,
+    "Kenosha, Wisconsin": 7,
+    "Des Moines, Iowa": 6,
+    "Toledo, Ohio": 6,
+    "Grand Rapids, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1706,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 18,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

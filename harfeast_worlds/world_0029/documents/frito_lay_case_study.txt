@@ -1,0 +1,24 @@
+Frito-Lay Digital Transformation Case Study
+=============================================
+
+Background: Frito-Lay North America, a division of PepsiCo, operates 
+over 30 manufacturing facilities producing snack foods including 
+Doritos, Cheetos, and Lay's potato chips.
+
+Initiative: In 2022, Frito-Lay deployed IoT-based predictive maintenance 
+sensors across their manufacturing network, focusing on high-throughput 
+production lines.
+
+Results: After 18 months of deployment, Frito-Lay achieved a 30% 
+reduction in unplanned downtime across all monitored production lines. 
+The improvement was consistent across facilities regardless of size 
+or product type.
+
+Key Success Factors:
+- Phased rollout starting with highest-volume lines
+- Integration with existing SCADA systems
+- Dedicated data analytics team for sensor data interpretation
+- Weekly review cadence with plant managers
+
+The 30% unplanned downtime reduction translated to approximately 
+$45M in annual cost savings across the network.

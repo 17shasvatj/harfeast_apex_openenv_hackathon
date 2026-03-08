@@ -1,0 +1,57 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-BLO-000,"Bloomington, Illinois",Production Supervisor,20.89,2080,Non-Union,production,East North Central
+LAB-BLO-001,"Bloomington, Illinois",Quality Inspector,19.61,2080,Non-Union,non-production,East North Central
+LAB-BLO-002,"Bloomington, Illinois",Quality Inspector,14.72,2080,Union,non-production,East North Central
+LAB-BLO-003,"Bloomington, Illinois",Maintenance Tech,18.96,2080,Union,non-production,East North Central
+LAB-BLO-004,"Bloomington, Illinois",Quality Inspector,16.01,2080,Union,non-production,East North Central
+LAB-BLO-005,"Bloomington, Illinois",Quality Inspector,14.8,2080,Non-Union,non-production,East North Central
+LAB-BLO-006,"Bloomington, Illinois",Packaging Operator,17.69,2080,Union,non-production,East North Central
+LAB-BLO-007,"Bloomington, Illinois",Production Supervisor,19.25,2080,Union,production,East North Central
+LAB-BLO-008,"Bloomington, Illinois",Quality Inspector,16.8,2080,Union,non-production,East North Central
+LAB-BLO-009,"Bloomington, Illinois",Production Supervisor,22.46,2080,Union,production,East North Central
+LAB-BLO-010,"Bloomington, Illinois",Maintenance Tech,21.4,2080,Union,non-production,East North Central
+LAB-BLO-011,"Bloomington, Illinois",Packaging Operator,15.93,2080,Union,non-production,East North Central
+LAB-BLO-012,"Bloomington, Illinois",Quality Inspector,17.99,2080,Non-Union,non-production,East North Central
+LAB-BLO-013,"Bloomington, Illinois",Maintenance Tech,16.43,2080,Union,non-production,East North Central
+LAB-BLO-014,"Bloomington, Illinois",Production Operator,15.32,2080,Non-Union,non-production,East North Central
+LAB-BLO-015,"Bloomington, Illinois",Maintenance Tech,17.86,2080,Union,non-production,East North Central
+LAB-BLO-016,"Bloomington, Illinois",Production Supervisor,23.44,2080,Union,production,East North Central
+LAB-BLO-017,"Bloomington, Illinois",Production Supervisor,19.27,2080,Union,production,East North Central
+LAB-BLO-018,"Bloomington, Illinois",Packaging Operator,15.7,2080,Non-Union,non-production,East North Central
+LAB-BLO-019,"Bloomington, Illinois",Production Supervisor,22.0,2080,Non-Union,production,East North Central
+LAB-BLO-020,"Bloomington, Illinois",Quality Inspector,16.45,2080,Union,non-production,East North Central
+LAB-MIL-021,"Milwaukee, Wisconsin",Line Lead,22.01,2080,Union,production,East North Central
+LAB-MIL-022,"Milwaukee, Wisconsin",Production Supervisor,28.38,2080,Non-Union,production,East North Central
+LAB-MIL-023,"Milwaukee, Wisconsin",Packaging Operator,16.65,2080,Non-Union,non-production,East North Central
+LAB-MIL-024,"Milwaukee, Wisconsin",Line Lead,22.94,2080,Non-Union,production,East North Central
+LAB-MIL-025,"Milwaukee, Wisconsin",Maintenance Tech,20.72,2080,Non-Union,non-production,East North Central
+LAB-MIL-026,"Milwaukee, Wisconsin",Quality Inspector,18.93,2080,Union,non-production,East North Central
+LAB-MIL-027,"Milwaukee, Wisconsin",Production Supervisor,20.52,2080,Union,production,East North Central
+LAB-MIL-028,"Milwaukee, Wisconsin",Production Supervisor,20.06,2080,Non-Union,production,East North Central
+LAB-MIL-029,"Milwaukee, Wisconsin",Packaging Operator,20.3,2080,Union,non-production,East North Central
+LAB-MIL-030,"Milwaukee, Wisconsin",Production Supervisor,19.26,2080,Non-Union,production,East North Central
+LAB-MIL-031,"Milwaukee, Wisconsin",Production Supervisor,21.92,2080,Non-Union,production,East North Central
+LAB-MIL-032,"Milwaukee, Wisconsin",Production Operator,19.73,2080,Union,non-production,East North Central
+LAB-MIL-033,"Milwaukee, Wisconsin",Production Supervisor,22.7,2080,Union,production,East North Central
+LAB-MIL-034,"Milwaukee, Wisconsin",Production Supervisor,21.81,2080,Non-Union,production,East North Central
+LAB-MIL-035,"Milwaukee, Wisconsin",Packaging Operator,17.52,2080,Non-Union,non-production,East North Central
+LAB-MIL-036,"Milwaukee, Wisconsin",Production Supervisor,22.69,2080,Non-Union,production,East North Central
+LAB-MIL-037,"Milwaukee, Wisconsin",Production Operator,16.55,2080,Non-Union,non-production,East North Central
+LAB-MIL-038,"Milwaukee, Wisconsin",Maintenance Tech,20.93,2080,Non-Union,non-production,East North Central
+LAB-DES-039,"Des Moines, Iowa",Line Lead,19.77,2080,Non-Union,production,West North Central
+LAB-DES-040,"Des Moines, Iowa",Production Operator,18.72,2080,Non-Union,non-production,West North Central
+LAB-DES-041,"Des Moines, Iowa",Production Operator,17.44,2080,Non-Union,non-production,West North Central
+LAB-DES-042,"Des Moines, Iowa",Quality Inspector,20.42,2080,Union,non-production,West North Central
+LAB-DES-043,"Des Moines, Iowa",Quality Inspector,20.52,2080,Union,non-production,West North Central
+LAB-DES-044,"Des Moines, Iowa",Line Lead,22.64,2080,Non-Union,production,West North Central
+LAB-DES-045,"Des Moines, Iowa",Production Operator,17.35,2080,Non-Union,non-production,West North Central
+LAB-DES-046,"Des Moines, Iowa",Maintenance Tech,18.97,2080,Union,non-production,West North Central
+LAB-DES-047,"Des Moines, Iowa",Production Supervisor,21.96,2080,Union,production,West North Central
+LAB-DES-048,"Des Moines, Iowa",Packaging Operator,18.38,2080,Non-Union,non-production,West North Central
+LAB-DES-049,"Des Moines, Iowa",Maintenance Tech,19.17,2080,Union,non-production,West North Central
+LAB-DES-050,"Des Moines, Iowa",Packaging Operator,19.73,2080,Non-Union,non-production,West North Central
+LAB-DES-051,"Des Moines, Iowa",Line Lead,20.95,2080,Non-Union,production,West North Central
+LAB-DES-052,"Des Moines, Iowa",Maintenance Tech,18.02,2080,Non-Union,non-production,West North Central
+LAB-DES-053,"Des Moines, Iowa",Line Lead,21.61,2080,Non-Union,production,West North Central
+LAB-DES-054,"Des Moines, Iowa",Maintenance Tech,16.95,2080,Union,non-production,West North Central
+LAB-DES-055,"Des Moines, Iowa",Line Lead,23.17,2080,Non-Union,production,West North Central

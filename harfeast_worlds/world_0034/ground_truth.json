@@ -1,0 +1,192 @@
+{
+  "task1": {
+    "high_priority_count": 88,
+    "high_priority_pct": 1.8,
+    "hp_inefficient_hours": 2100.0,
+    "hp_inefficient_pct": 2.1,
+    "hp_frontline": 42,
+    "hp_backoffice": 33,
+    "hp_supervisor": 5,
+    "hp_management": 8
+  },
+  "task2": {
+    "Rockford, Illinois": 23890270876,
+    "Green Bay, Wisconsin": 24448850596,
+    "Iowa City, Iowa": 23679757183,
+    "Toledo, Ohio": 21303861265,
+    "Lansing, Michigan": 21907226858
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 127022
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.6,
+      "units_avoided": 50671
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 62896
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8524
+    },
+    "Green Bay, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8649
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.852
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8535
+    },
+    "Lansing, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8662
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 958214,
+      "efficiency_gains": 149776,
+      "union_demand_increase": 15448
+    },
+    "Green Bay, Wisconsin": {
+      "total_labor_cost": 980138,
+      "efficiency_gains": 155589,
+      "union_demand_increase": 22275
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 739398,
+      "efficiency_gains": 66595,
+      "union_demand_increase": 18147
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.5,
+      "Green Bay, Wisconsin": 8.5,
+      "Iowa City, Iowa": 8.6,
+      "Toledo, Ohio": 37.6,
+      "Lansing, Michigan": 37.9
+    },
+    "most_efficient": [
+      "Rockford, Illinois",
+      "Green Bay, Wisconsin"
+    ],
+    "least_efficient": "Lansing, Michigan",
+    "pct_difference": 346
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19115,
+      "Quality Control/Quality Assurance": 23686,
+      "Maintenance Technician": 25944,
+      "Production Supervisor/Team Lead": 29867,
+      "Supply Chain/Logistics Coordinator": 25981,
+      "Demand Planning/Forecasting": 31993,
+      "Administrative/Support Staff": 20334,
+      "Plant Management": 44282
+    },
+    "total_annual_loss": 132266844
+  },
+  "task8": {
+    "hp_quality_losses": 1730358,
+    "hp_pct_of_cv_losses": 39
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 15796,
+      "variance_dollars": 308495.88,
+      "productivity_index": 0.89
+    },
+    "Green Bay, Wisconsin": {
+      "variance_hours": 14548,
+      "variance_dollars": 284122.44,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.21,
+    "annual_productivity_loss": 154100000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Rockford, Illinois": {
+        "new_unit_sales": 24245051,
+        "new_projected_sales": 73462505
+      },
+      "Green Bay, Wisconsin": {
+        "new_unit_sales": 28788378,
+        "new_projected_sales": 90683391
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 7102328,
+        "new_projected_sales": 41974758
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 6591201,
+        "new_projected_sales": 46863439
+      },
+      "Lansing, Michigan": {
+        "new_unit_sales": 9161231,
+        "new_projected_sales": 54509324
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Green Bay, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Plant Management",
+      2.39
+    ],
+    "highest_role_in_highest_plant": [
+      "Production/Manufacturing Operator",
+      3.87
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 44,
+        "total_cost": 18560
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 50,
+        "total_cost": 10848
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 6,
+    "Green Bay, Wisconsin": 6,
+    "Iowa City, Iowa": 6,
+    "Toledo, Ohio": 5,
+    "Lansing, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 1745,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 33,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

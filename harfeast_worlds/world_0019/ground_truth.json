@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 49,
+    "high_priority_pct": 2.2,
+    "hp_inefficient_hours": 1166.0,
+    "hp_inefficient_pct": 2.6,
+    "hp_frontline": 18,
+    "hp_backoffice": 20,
+    "hp_supervisor": 7,
+    "hp_management": 4
+  },
+  "task2": {
+    "Springfield, Illinois": 25345033977,
+    "Racine, Wisconsin": 27387696615,
+    "Cedar Rapids, Iowa": 25056660790,
+    "Toledo, Ohio": 24302831940,
+    "Grand Rapids, Michigan": 25790442671
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 112670
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 47294
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 71647
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Springfield, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8682
+    },
+    "Racine, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8574
+    },
+    "Cedar Rapids, Iowa": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8778
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8719
+    },
+    "Grand Rapids, Michigan": {
+      "first_year_exceeds": 2033,
+      "oee_at_that_year": 0.8672
+    }
+  },
+  "task5": {
+    "Springfield, Illinois": {
+      "total_labor_cost": 934669,
+      "efficiency_gains": 151200,
+      "union_demand_increase": 16362
+    },
+    "Racine, Wisconsin": {
+      "total_labor_cost": 920962,
+      "efficiency_gains": 137280,
+      "union_demand_increase": 16759
+    },
+    "Cedar Rapids, Iowa": {
+      "total_labor_cost": 837325,
+      "efficiency_gains": 79204,
+      "union_demand_increase": 22557
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Springfield, Illinois": 8.6,
+      "Racine, Wisconsin": 8.5,
+      "Cedar Rapids, Iowa": 8.8,
+      "Toledo, Ohio": 37.4,
+      "Grand Rapids, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Racine, Wisconsin"
+    ],
+    "least_efficient": "Grand Rapids, Michigan",
+    "pct_difference": 342
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 18995,
+      "Quality Control/Quality Assurance": 21786,
+      "Maintenance Technician": 27136,
+      "Production Supervisor/Team Lead": 28515,
+      "Supply Chain/Logistics Coordinator": 22713,
+      "Demand Planning/Forecasting": 33892,
+      "Administrative/Support Staff": 20815,
+      "Plant Management": 41012
+    },
+    "total_annual_loss": 59779296
+  },
+  "task8": {
+    "hp_quality_losses": 2092371,
+    "hp_pct_of_cv_losses": 39
+  },
+  "task9": {
+    "Springfield, Illinois": {
+      "variance_hours": 16536,
+      "variance_dollars": 316829.76,
+      "productivity_index": 0.89
+    },
+    "Racine, Wisconsin": {
+      "variance_hours": 16199,
+      "variance_dollars": 310372.84,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 29.64,
+    "annual_productivity_loss": 69513000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Springfield, Illinois": {
+        "new_unit_sales": 23766489,
+        "new_projected_sales": 75102105
+      },
+      "Racine, Wisconsin": {
+        "new_unit_sales": 31364340,
+        "new_projected_sales": 97856741
+      },
+      "Cedar Rapids, Iowa": {
+        "new_unit_sales": 7355637,
+        "new_projected_sales": 41927131
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 6250452,
+        "new_projected_sales": 43315632
+      },
+      "Grand Rapids, Michigan": {
+        "new_unit_sales": 7826565,
+        "new_projected_sales": 46176734
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Springfield, Illinois",
+    "highest_willingness_plant": "Racine, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Maintenance Technician",
+      2.35
+    ],
+    "highest_role_in_highest_plant": [
+      "Quality Control/Quality Assurance",
+      3.86
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 17,
+        "total_cost": 9440
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 14,
+        "total_cost": 8320
+      }
+    }
+  },
+  "task13": {
+    "Springfield, Illinois": 6,
+    "Racine, Wisconsin": 5,
+    "Cedar Rapids, Iowa": 6,
+    "Toledo, Ohio": 5,
+    "Grand Rapids, Michigan": 6
+  },
+  "task14": {
+    "trained_count": 996,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 42,
+      "Fair- some gaps or inconsistencies": 32,
+      "Poor - insufficient or unhelpful": 11
+    }
+  }
+}

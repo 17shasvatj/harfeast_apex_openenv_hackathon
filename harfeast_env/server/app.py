@@ -22,11 +22,13 @@ except ImportError:
 
 # World path - use env var or default to project harfeast_world
 WORLD_PATH = os.environ.get("HARFEAST_WORLD_PATH") or os.path.join(_project_root, "harfeast_world")
+# Augmented dataset - base dir with all_tasks.json (e.g. harfeast_worlds)
+WORLDS_BASE = os.environ.get("HARFEAST_WORLDS_BASE")
 
 
 def _env_factory():
     """Environment factory for create_app."""
-    return HarFeastEnvironment(world_path=WORLD_PATH)
+    return HarFeastEnvironment(world_path=WORLD_PATH, worlds_base=WORLDS_BASE)
 
 
 app = create_app(

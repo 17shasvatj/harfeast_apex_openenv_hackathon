@@ -1,0 +1,69 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-BLO-000,"Bloomington, Illinois",Packaging Operator,17.1,2080,Non-Union,non-production,East North Central
+LAB-BLO-001,"Bloomington, Illinois",Line Lead,21.79,2080,Non-Union,production,East North Central
+LAB-BLO-002,"Bloomington, Illinois",Maintenance Tech,15.16,2080,Union,non-production,East North Central
+LAB-BLO-003,"Bloomington, Illinois",Packaging Operator,16.1,2080,Non-Union,non-production,East North Central
+LAB-BLO-004,"Bloomington, Illinois",Maintenance Tech,18.88,2080,Non-Union,non-production,East North Central
+LAB-BLO-005,"Bloomington, Illinois",Quality Inspector,18.23,2080,Union,non-production,East North Central
+LAB-BLO-006,"Bloomington, Illinois",Quality Inspector,16.59,2080,Non-Union,non-production,East North Central
+LAB-BLO-007,"Bloomington, Illinois",Production Operator,19.37,2080,Non-Union,non-production,East North Central
+LAB-BLO-008,"Bloomington, Illinois",Packaging Operator,16.75,2080,Union,non-production,East North Central
+LAB-BLO-009,"Bloomington, Illinois",Quality Inspector,19.69,2080,Union,non-production,East North Central
+LAB-BLO-010,"Bloomington, Illinois",Maintenance Tech,15.91,2080,Non-Union,non-production,East North Central
+LAB-BLO-011,"Bloomington, Illinois",Line Lead,20.81,2080,Non-Union,production,East North Central
+LAB-BLO-012,"Bloomington, Illinois",Packaging Operator,18.76,2080,Non-Union,non-production,East North Central
+LAB-BLO-013,"Bloomington, Illinois",Production Operator,15.21,2080,Non-Union,non-production,East North Central
+LAB-BLO-014,"Bloomington, Illinois",Production Supervisor,21.59,2080,Union,production,East North Central
+LAB-BLO-015,"Bloomington, Illinois",Production Supervisor,18.93,2080,Non-Union,production,East North Central
+LAB-BLO-016,"Bloomington, Illinois",Packaging Operator,18.52,2080,Union,non-production,East North Central
+LAB-BLO-017,"Bloomington, Illinois",Line Lead,20.99,2080,Non-Union,production,East North Central
+LAB-BLO-018,"Bloomington, Illinois",Production Supervisor,21.91,2080,Non-Union,production,East North Central
+LAB-BLO-019,"Bloomington, Illinois",Production Supervisor,26.98,2080,Non-Union,production,East North Central
+LAB-BLO-020,"Bloomington, Illinois",Production Operator,17.87,2080,Non-Union,non-production,East North Central
+LAB-BLO-021,"Bloomington, Illinois",Production Supervisor,20.33,2080,Union,production,East North Central
+LAB-GRE-022,"Green Bay, Wisconsin",Quality Inspector,21.01,2080,Non-Union,non-production,East North Central
+LAB-GRE-023,"Green Bay, Wisconsin",Packaging Operator,18.16,2080,Union,non-production,East North Central
+LAB-GRE-024,"Green Bay, Wisconsin",Quality Inspector,17.57,2080,Union,non-production,East North Central
+LAB-GRE-025,"Green Bay, Wisconsin",Maintenance Tech,17.16,2080,Non-Union,non-production,East North Central
+LAB-GRE-026,"Green Bay, Wisconsin",Maintenance Tech,19.07,2080,Non-Union,non-production,East North Central
+LAB-GRE-027,"Green Bay, Wisconsin",Quality Inspector,21.26,2080,Non-Union,non-production,East North Central
+LAB-GRE-028,"Green Bay, Wisconsin",Packaging Operator,19.26,2080,Non-Union,non-production,East North Central
+LAB-GRE-029,"Green Bay, Wisconsin",Quality Inspector,17.06,2080,Union,non-production,East North Central
+LAB-GRE-030,"Green Bay, Wisconsin",Production Supervisor,18.19,2080,Non-Union,production,East North Central
+LAB-GRE-031,"Green Bay, Wisconsin",Packaging Operator,19.74,2080,Union,non-production,East North Central
+LAB-GRE-032,"Green Bay, Wisconsin",Maintenance Tech,17.03,2080,Non-Union,non-production,East North Central
+LAB-GRE-033,"Green Bay, Wisconsin",Production Supervisor,24.05,2080,Union,production,East North Central
+LAB-GRE-034,"Green Bay, Wisconsin",Packaging Operator,18.18,2080,Union,non-production,East North Central
+LAB-GRE-035,"Green Bay, Wisconsin",Packaging Operator,20.33,2080,Union,non-production,East North Central
+LAB-GRE-036,"Green Bay, Wisconsin",Production Operator,18.83,2080,Union,non-production,East North Central
+LAB-GRE-037,"Green Bay, Wisconsin",Maintenance Tech,16.95,2080,Union,non-production,East North Central
+LAB-GRE-038,"Green Bay, Wisconsin",Quality Inspector,17.11,2080,Non-Union,non-production,East North Central
+LAB-GRE-039,"Green Bay, Wisconsin",Maintenance Tech,16.22,2080,Non-Union,non-production,East North Central
+LAB-GRE-040,"Green Bay, Wisconsin",Maintenance Tech,17.08,2080,Union,non-production,East North Central
+LAB-GRE-041,"Green Bay, Wisconsin",Maintenance Tech,16.51,2080,Union,non-production,East North Central
+LAB-GRE-042,"Green Bay, Wisconsin",Maintenance Tech,17.89,2080,Non-Union,non-production,East North Central
+LAB-GRE-043,"Green Bay, Wisconsin",Production Supervisor,25.23,2080,Union,production,East North Central
+LAB-GRE-044,"Green Bay, Wisconsin",Production Supervisor,19.33,2080,Non-Union,production,East North Central
+LAB-GRE-045,"Green Bay, Wisconsin",Line Lead,20.01,2080,Non-Union,production,East North Central
+LAB-GRE-046,"Green Bay, Wisconsin",Maintenance Tech,21.76,2080,Non-Union,non-production,East North Central
+LAB-SIO-047,"Sioux City, Iowa",Production Supervisor,21.6,2080,Union,production,West North Central
+LAB-SIO-048,"Sioux City, Iowa",Line Lead,24.27,2080,Union,production,West North Central
+LAB-SIO-049,"Sioux City, Iowa",Maintenance Tech,17.75,2080,Non-Union,non-production,West North Central
+LAB-SIO-050,"Sioux City, Iowa",Maintenance Tech,16.85,2080,Union,non-production,West North Central
+LAB-SIO-051,"Sioux City, Iowa",Maintenance Tech,19.03,2080,Non-Union,non-production,West North Central
+LAB-SIO-052,"Sioux City, Iowa",Maintenance Tech,17.12,2080,Union,non-production,West North Central
+LAB-SIO-053,"Sioux City, Iowa",Line Lead,23.58,2080,Union,production,West North Central
+LAB-SIO-054,"Sioux City, Iowa",Quality Inspector,16.86,2080,Union,non-production,West North Central
+LAB-SIO-055,"Sioux City, Iowa",Maintenance Tech,17.92,2080,Non-Union,non-production,West North Central
+LAB-SIO-056,"Sioux City, Iowa",Maintenance Tech,16.41,2080,Union,non-production,West North Central
+LAB-SIO-057,"Sioux City, Iowa",Packaging Operator,24.79,2080,Union,non-production,West North Central
+LAB-SIO-058,"Sioux City, Iowa",Maintenance Tech,20.17,2080,Union,non-production,West North Central
+LAB-SIO-059,"Sioux City, Iowa",Quality Inspector,20.67,2080,Non-Union,non-production,West North Central
+LAB-SIO-060,"Sioux City, Iowa",Line Lead,22.85,2080,Non-Union,production,West North Central
+LAB-SIO-061,"Sioux City, Iowa",Packaging Operator,18.4,2080,Non-Union,non-production,West North Central
+LAB-SIO-062,"Sioux City, Iowa",Line Lead,24.97,2080,Union,production,West North Central
+LAB-SIO-063,"Sioux City, Iowa",Packaging Operator,18.15,2080,Union,non-production,West North Central
+LAB-SIO-064,"Sioux City, Iowa",Quality Inspector,20.42,2080,Non-Union,non-production,West North Central
+LAB-SIO-065,"Sioux City, Iowa",Production Supervisor,18.8,2080,Non-Union,production,West North Central
+LAB-SIO-066,"Sioux City, Iowa",Quality Inspector,19.2,2080,Non-Union,non-production,West North Central
+LAB-SIO-067,"Sioux City, Iowa",Quality Inspector,19.12,2080,Non-Union,non-production,West North Central

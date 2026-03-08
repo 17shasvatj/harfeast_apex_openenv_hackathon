@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 79,
+    "high_priority_pct": 2.4,
+    "hp_inefficient_hours": 1771.0,
+    "hp_inefficient_pct": 2.7,
+    "hp_frontline": 33,
+    "hp_backoffice": 21,
+    "hp_supervisor": 11,
+    "hp_management": 14
+  },
+  "task2": {
+    "Rockford, Illinois": 25028532281,
+    "Madison, Wisconsin": 25359921057,
+    "Des Moines, Iowa": 26943543816,
+    "Cleveland, Ohio": 19019854748,
+    "Flint, Michigan": 26315554896
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.5,
+      "units_avoided": 65740
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 5.9,
+      "units_avoided": 61354
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.2,
+      "units_avoided": 74663
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8549
+    },
+    "Madison, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8645
+    },
+    "Des Moines, Iowa": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8796
+    },
+    "Cleveland, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8651
+    },
+    "Flint, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8518
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 701418,
+      "efficiency_gains": 121816,
+      "union_demand_increase": 17456
+    },
+    "Madison, Wisconsin": {
+      "total_labor_cost": 1013792,
+      "efficiency_gains": 168126,
+      "union_demand_increase": 31610
+    },
+    "Des Moines, Iowa": {
+      "total_labor_cost": 681200,
+      "efficiency_gains": 63872,
+      "union_demand_increase": 18613
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.5,
+      "Madison, Wisconsin": 8.6,
+      "Des Moines, Iowa": 8.4,
+      "Cleveland, Ohio": 37.3,
+      "Flint, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Des Moines, Iowa"
+    ],
+    "least_efficient": "Flint, Michigan",
+    "pct_difference": 348
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 20733,
+      "Quality Control/Quality Assurance": 23860,
+      "Maintenance Technician": 27582,
+      "Production Supervisor/Team Lead": 30169,
+      "Supply Chain/Logistics Coordinator": 24308,
+      "Demand Planning/Forecasting": 29642,
+      "Administrative/Support Staff": 20911,
+      "Plant Management": 45281
+    },
+    "total_annual_loss": 90255386
+  },
+  "task8": {
+    "hp_quality_losses": 1458340,
+    "hp_pct_of_cv_losses": 40
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 16611,
+      "variance_dollars": 332552.22,
+      "productivity_index": 0.89
+    },
+    "Madison, Wisconsin": {
+      "variance_hours": 14088,
+      "variance_dollars": 282041.76,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.96,
+    "annual_productivity_loss": 104762000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Rockford, Illinois": {
+        "new_unit_sales": 20826220,
+        "new_projected_sales": 63103447
+      },
+      "Madison, Wisconsin": {
+        "new_unit_sales": 28397194,
+        "new_projected_sales": 90303077
+      },
+      "Des Moines, Iowa": {
+        "new_unit_sales": 6519113,
+        "new_projected_sales": 38136811
+      },
+      "Cleveland, Ohio": {
+        "new_unit_sales": 5785749,
+        "new_projected_sales": 41136675
+      },
+      "Flint, Michigan": {
+        "new_unit_sales": 8732248,
+        "new_projected_sales": 53441358
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Madison, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Maintenance Technician",
+      2.38
+    ],
+    "highest_role_in_highest_plant": [
+      "Administrative/Support Staff",
+      3.88
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "1-2 days",
+        "count_1_2_days": 35,
+        "total_cost": 8064
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 27,
+        "total_cost": 3264
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 7,
+    "Madison, Wisconsin": 6,
+    "Des Moines, Iowa": 6,
+    "Cleveland, Ohio": 6,
+    "Flint, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 1558,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 16,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}

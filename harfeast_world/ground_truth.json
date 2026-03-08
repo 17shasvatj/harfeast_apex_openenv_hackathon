@@ -1,121 +1,123 @@
 {
   "task1": {
-    "high_priority_count": 62,
+    "high_priority_count": 52,
     "high_priority_pct": 2.1,
-    "hp_inefficient_hours": 1211.0,
-    "hp_inefficient_pct": 2.0,
-    "hp_frontline": 20,
-    "hp_backoffice": 21,
-    "hp_supervisor": 9,
-    "hp_management": 12
+    "hp_inefficient_hours": 1068.0,
+    "hp_inefficient_pct": 2.2,
+    "hp_frontline": 19,
+    "hp_backoffice": 17,
+    "hp_supervisor": 8,
+    "hp_management": 8
   },
   "task2": {
-    "Rockford, Illinois": 21953848911,
-    "Madison, Wisconsin": 24458886590,
-    "Cedar Rapids, Iowa": 22802801503,
-    "Toledo, Ohio": 29409892855,
-    "Kalamazoo, Michigan": 24998918795
+    "Rockford, Illinois": 28559265184,
+    "Madison, Wisconsin": 25208027893,
+    "Davenport, Iowa": 23644183501,
+    "Columbus, Ohio": 25448856089,
+    "Lansing, Michigan": 21243014839
   },
   "task3": {
     "Canned Vegetables": {
-      "new_scrap_rate_pct": 6.3,
-      "units_avoided": 111266
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 68948
     },
     "Condiments": {
-      "new_scrap_rate_pct": 6.3,
-      "units_avoided": 54095
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 84913
     },
     "Sauces": {
-      "new_scrap_rate_pct": 6.4,
-      "units_avoided": 59592
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 69887
     }
   },
   "task4": {
     "digital_lever": "IoT Sensors for yield",
     "Rockford, Illinois": {
-      "first_year_exceeds": 2028,
-      "oee_at_that_year": 0.87
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8591
     },
     "Madison, Wisconsin": {
       "first_year_exceeds": 2029,
-      "oee_at_that_year": 0.872
+      "oee_at_that_year": 0.8661
     },
-    "Cedar Rapids, Iowa": {
+    "Davenport, Iowa": {
       "first_year_exceeds": 2027,
-      "oee_at_that_year": 0.864
+      "oee_at_that_year": 0.8768
     },
-    "Toledo, Ohio": {
-      "first_year_exceeds": 2031,
-      "oee_at_that_year": 0.855
-    },
-    "Kalamazoo, Michigan": {
+    "Columbus, Ohio": {
       "first_year_exceeds": 2032,
-      "oee_at_that_year": 0.854
+      "oee_at_that_year": 0.8641
+    },
+    "Lansing, Michigan": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8528
     }
   },
   "task5": {
     "Rockford, Illinois": {
-      "total_labor_cost": 638123,
-      "efficiency_gains": 107884,
-      "union_demand_increase": 9497
+      "total_labor_cost": 692058,
+      "efficiency_gains": 97277,
+      "union_demand_increase": 16631
     },
     "Madison, Wisconsin": {
-      "total_labor_cost": 829317,
-      "efficiency_gains": 145081,
-      "union_demand_increase": 16711
+      "total_labor_cost": 1032866,
+      "efficiency_gains": 156478,
+      "union_demand_increase": 19974
     },
-    "Cedar Rapids, Iowa": {
-      "total_labor_cost": 859290,
-      "efficiency_gains": 81275,
-      "union_demand_increase": 18263
+    "Davenport, Iowa": {
+      "total_labor_cost": 919381,
+      "efficiency_gains": 78062,
+      "union_demand_increase": 16771
     }
   },
   "task6": {
     "avg_by_plant": {
       "Rockford, Illinois": 8.7,
-      "Madison, Wisconsin": 8.5,
-      "Cedar Rapids, Iowa": 8.6,
-      "Toledo, Ohio": 37.1,
-      "Kalamazoo, Michigan": 37.5
+      "Madison, Wisconsin": 8.7,
+      "Davenport, Iowa": 8.7,
+      "Columbus, Ohio": 37.2,
+      "Lansing, Michigan": 37.4
     },
     "most_efficient": [
-      "Madison, Wisconsin"
+      "Rockford, Illinois",
+      "Madison, Wisconsin",
+      "Davenport, Iowa"
     ],
-    "least_efficient": "Kalamazoo, Michigan",
-    "pct_difference": 341
+    "least_efficient": "Lansing, Michigan",
+    "pct_difference": 330
   },
   "task7": {
     "avg_loss_by_role": {
-      "Production/Manufacturing Operator": 19593,
-      "Quality Control/Quality Assurance": 23110,
-      "Maintenance Technician": 26953,
-      "Production Supervisor/Team Lead": 29838,
-      "Supply Chain/Logistics Coordinator": 24288,
-      "Demand Planning/Forecasting": 31183,
-      "Administrative/Support Staff": 21378,
-      "Plant Management": 45610
+      "Production/Manufacturing Operator": 18964,
+      "Quality Control/Quality Assurance": 21948,
+      "Maintenance Technician": 25004,
+      "Production Supervisor/Team Lead": 28288,
+      "Supply Chain/Logistics Coordinator": 22701,
+      "Demand Planning/Forecasting": 28129,
+      "Administrative/Support Staff": 21637,
+      "Plant Management": 41416
     },
-    "total_annual_loss": 83189910
+    "total_annual_loss": 62914681
   },
   "task8": {
-    "hp_quality_losses": 1446225,
-    "hp_pct_of_cv_losses": 35
+    "hp_quality_losses": 1526123,
+    "hp_pct_of_cv_losses": 38
   },
   "task9": {
     "Rockford, Illinois": {
-      "variance_hours": 14519,
-      "variance_dollars": 286895.44,
-      "productivity_index": 0.91
+      "variance_hours": 18506,
+      "variance_dollars": 350503.64,
+      "productivity_index": 0.89
     },
     "Madison, Wisconsin": {
-      "variance_hours": 14175,
-      "variance_dollars": 280098.0,
-      "productivity_index": 0.91
+      "variance_hours": 13695,
+      "variance_dollars": 259383.3,
+      "productivity_index": 0.92
     }
   },
   "task10": {
-    "avg_hourly_wage": 30.56,
-    "annual_productivity_loss": 96668000
+    "avg_hourly_wage": 29.3,
+    "annual_productivity_loss": 73552000
   },
   "task11": {
     "top5_technologies": [
@@ -123,67 +125,67 @@
       "Predictive Maintenance",
       "Robotic Automation",
       "Advanced Analytics",
-      "Cloud ERP"
+      "AI Quality Control"
     ],
     "plant_results": {
-      "Cedar Rapids, Iowa": {
-        "new_unit_sales": 22593871,
-        "new_projected_sales": 69815061
-      },
       "Rockford, Illinois": {
-        "new_unit_sales": 28208106,
-        "new_projected_sales": 88009291
+        "new_unit_sales": 25575169,
+        "new_projected_sales": 75702500
       },
       "Madison, Wisconsin": {
-        "new_unit_sales": 6408444,
-        "new_projected_sales": 38322495
+        "new_unit_sales": 27711624,
+        "new_projected_sales": 89508546
       },
-      "Toledo, Ohio": {
-        "new_unit_sales": 6696002,
-        "new_projected_sales": 45934574
+      "Davenport, Iowa": {
+        "new_unit_sales": 6074125,
+        "new_projected_sales": 35715855
       },
-      "Kalamazoo, Michigan": {
-        "new_unit_sales": 8763683,
-        "new_projected_sales": 52757372
+      "Columbus, Ohio": {
+        "new_unit_sales": 6207493,
+        "new_projected_sales": 42459252
+      },
+      "Lansing, Michigan": {
+        "new_unit_sales": 8194640,
+        "new_projected_sales": 49003947
       }
     }
   },
   "task12": {
     "lowest_willingness_plant": "Rockford, Illinois",
-    "highest_willingness_plant": "Cedar Rapids, Iowa",
+    "highest_willingness_plant": "Madison, Wisconsin",
     "lowest_role_in_lowest_plant": [
-      "Supply Chain/Logistics Coordinator",
-      2.41
+      "Maintenance Technician",
+      2.47
     ],
     "highest_role_in_highest_plant": [
-      "Administrative/Support Staff",
-      3.92
+      "Quality Control/Quality Assurance",
+      3.95
     ],
     "training_details": {
       "lowest_plant_lowest_role": {
-        "preferred_length": "<1 day",
+        "preferred_length": ">2 days",
         "count_1_2_days": 19,
-        "total_cost": 2656
+        "total_cost": 9920
       },
       "highest_plant_highest_role": {
-        "preferred_length": ">2 days",
-        "count_1_2_days": 24,
-        "total_cost": 11520
+        "preferred_length": "<1 day",
+        "count_1_2_days": 21,
+        "total_cost": 2016
       }
     }
   },
   "task13": {
     "Rockford, Illinois": 5,
     "Madison, Wisconsin": 6,
-    "Cedar Rapids, Iowa": 6,
-    "Toledo, Ohio": 5,
-    "Kalamazoo, Michigan": 5
+    "Davenport, Iowa": 5,
+    "Columbus, Ohio": 5,
+    "Lansing, Michigan": 5
   },
   "task14": {
-    "trained_count": 1202,
+    "trained_count": 1099,
     "quality_pcts": {
       "Excellent- comprehensive and very helpful": 14,
-      "Good- adequate for most needs": 41,
+      "Good- adequate for most needs": 40,
       "Fair- some gaps or inconsistencies": 36,
       "Poor - insufficient or unhelpful": 9
     }

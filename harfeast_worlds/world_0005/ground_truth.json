@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 47,
+    "high_priority_pct": 2.0,
+    "hp_inefficient_hours": 1009.0,
+    "hp_inefficient_pct": 2.1,
+    "hp_frontline": 18,
+    "hp_backoffice": 21,
+    "hp_supervisor": 6,
+    "hp_management": 2
+  },
+  "task2": {
+    "Champaign, Illinois": 27177221629,
+    "Madison, Wisconsin": 26150261788,
+    "Davenport, Iowa": 25697739858,
+    "Akron, Ohio": 24035209098,
+    "Lansing, Michigan": 23046796830
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.1,
+      "units_avoided": 86818
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 58493
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 5.9,
+      "units_avoided": 69033
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8515
+    },
+    "Madison, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.8744
+    },
+    "Davenport, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8718
+    },
+    "Akron, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8698
+    },
+    "Lansing, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8741
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 785429,
+      "efficiency_gains": 142893,
+      "union_demand_increase": 23437
+    },
+    "Madison, Wisconsin": {
+      "total_labor_cost": 992430,
+      "efficiency_gains": 165648,
+      "union_demand_increase": 29915
+    },
+    "Davenport, Iowa": {
+      "total_labor_cost": 781706,
+      "efficiency_gains": 71562,
+      "union_demand_increase": 24690
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.5,
+      "Madison, Wisconsin": 8.6,
+      "Davenport, Iowa": 8.6,
+      "Akron, Ohio": 37.7,
+      "Lansing, Michigan": 37.6
+    },
+    "most_efficient": [
+      "Champaign, Illinois"
+    ],
+    "least_efficient": "Akron, Ohio",
+    "pct_difference": 344
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19373,
+      "Quality Control/Quality Assurance": 23284,
+      "Maintenance Technician": 26582,
+      "Production Supervisor/Team Lead": 29947,
+      "Supply Chain/Logistics Coordinator": 23444,
+      "Demand Planning/Forecasting": 32742,
+      "Administrative/Support Staff": 20792,
+      "Plant Management": 40003
+    },
+    "total_annual_loss": 62400417
+  },
+  "task8": {
+    "hp_quality_losses": 1544071,
+    "hp_pct_of_cv_losses": 40
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 11250,
+      "variance_dollars": 216000.0,
+      "productivity_index": 0.93
+    },
+    "Madison, Wisconsin": {
+      "variance_hours": 17750,
+      "variance_dollars": 340800.0,
+      "productivity_index": 0.89
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 29.7,
+    "annual_productivity_loss": 72835000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 22369691,
+        "new_projected_sales": 69569739
+      },
+      "Madison, Wisconsin": {
+        "new_unit_sales": 25569139,
+        "new_projected_sales": 75940343
+      },
+      "Davenport, Iowa": {
+        "new_unit_sales": 5592597,
+        "new_projected_sales": 32548915
+      },
+      "Akron, Ohio": {
+        "new_unit_sales": 7388178,
+        "new_projected_sales": 52086655
+      },
+      "Lansing, Michigan": {
+        "new_unit_sales": 7645736,
+        "new_projected_sales": 44804013
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Madison, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Production Supervisor/Team Lead",
+      2.32
+    ],
+    "highest_role_in_highest_plant": [
+      "Quality Control/Quality Assurance",
+      3.96
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 15,
+        "total_cost": 7520
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 18,
+        "total_cost": 8480
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Madison, Wisconsin": 5,
+    "Davenport, Iowa": 6,
+    "Akron, Ohio": 5,
+    "Lansing, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 927,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 18,
+      "Good- adequate for most needs": 40,
+      "Fair- some gaps or inconsistencies": 32,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}

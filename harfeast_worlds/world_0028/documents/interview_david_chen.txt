@@ -1,0 +1,13 @@
+Expert Interview Transcript - David Chen, Director of Manufacturing
+Date: November 16, 2024
+
+Q: What digital investment would have the fastest and largest impact 
+on HarFeast's profitability?
+
+A: "I've been looking at this from an operations standpoint. While 
+predictive maintenance is valuable long-term, the immediate winner 
+is IoT Sensors for yield optimization. The ability to monitor yield 
+in real-time across all product lines gives us immediate visibility 
+into where we're losing margin. Other levers like automated scheduling 
+help with throughput but don't directly attack gross margin the way 
+yield sensing does. IoT Sensors for yield is my top recommendation."

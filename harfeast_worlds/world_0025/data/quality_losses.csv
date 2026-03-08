@@ -1,0 +1,244 @@
+equipment_id,plant,product_family,scrap_cost,unplanned_failure_cost
+EQ-PEO-000,"Peoria, Illinois",Canned Vegetables,14299.73,16649.23
+EQ-PEO-001,"Peoria, Illinois",Condiments,17835.04,25311.78
+EQ-PEO-002,"Peoria, Illinois",Condiments,35440.86,15256.02
+EQ-PEO-003,"Peoria, Illinois",Condiments,17065.31,16450.94
+EQ-PEO-004,"Peoria, Illinois",Condiments,44664.67,3388.83
+EQ-PEO-005,"Peoria, Illinois",Condiments,11493.91,24111.3
+EQ-PEO-006,"Peoria, Illinois",Condiments,16002.61,6357.56
+EQ-PEO-007,"Peoria, Illinois",Sauces,37027.03,4982.58
+EQ-PEO-008,"Peoria, Illinois",Sauces,49391.73,8806.19
+EQ-PEO-009,"Peoria, Illinois",Condiments,50951.14,11670.51
+EQ-PEO-010,"Peoria, Illinois",Canned Vegetables,29434.68,26187.52
+EQ-PEO-011,"Peoria, Illinois",Canned Vegetables,46336.89,5616.71
+EQ-PEO-012,"Peoria, Illinois",Sauces,8987.13,21769.38
+EQ-PEO-013,"Peoria, Illinois",Canned Vegetables,24994.85,12398.18
+EQ-PEO-014,"Peoria, Illinois",Canned Vegetables,13827.47,12878.31
+EQ-PEO-015,"Peoria, Illinois",Sauces,24595.41,22135.07
+EQ-PEO-016,"Peoria, Illinois",Canned Vegetables,63055.63,22678.65
+EQ-PEO-017,"Peoria, Illinois",Canned Vegetables,60093.28,7353.47
+EQ-PEO-018,"Peoria, Illinois",Condiments,30572.5,13051.58
+EQ-PEO-019,"Peoria, Illinois",Canned Vegetables,22477.23,10992.86
+EQ-PEO-020,"Peoria, Illinois",Canned Vegetables,30403.2,26086.41
+EQ-PEO-021,"Peoria, Illinois",Canned Vegetables,27390.38,4868.96
+EQ-PEO-022,"Peoria, Illinois",Sauces,6345.59,15075.04
+EQ-PEO-023,"Peoria, Illinois",Canned Vegetables,15119.4,14260.37
+EQ-PEO-024,"Peoria, Illinois",Sauces,41707.32,10334.55
+EQ-PEO-025,"Peoria, Illinois",Condiments,36590.22,29605.73
+EQ-PEO-026,"Peoria, Illinois",Condiments,21787.1,7367.34
+EQ-PEO-027,"Peoria, Illinois",Condiments,12008.76,12442.72
+EQ-PEO-028,"Peoria, Illinois",Canned Vegetables,14493.26,23190.81
+EQ-PEO-029,"Peoria, Illinois",Sauces,74074.59,26288.34
+EQ-PEO-030,"Peoria, Illinois",Sauces,45643.52,23266.63
+EQ-PEO-031,"Peoria, Illinois",Sauces,19029.18,20735.49
+EQ-PEO-032,"Peoria, Illinois",Canned Vegetables,43831.07,18407.43
+EQ-PEO-033,"Peoria, Illinois",Canned Vegetables,44875.31,25015.24
+EQ-PEO-034,"Peoria, Illinois",Sauces,15999.94,21173.14
+EQ-PEO-035,"Peoria, Illinois",Canned Vegetables,14627.21,7172.57
+EQ-PEO-036,"Peoria, Illinois",Sauces,52187.33,16666.85
+EQ-PEO-037,"Peoria, Illinois",Canned Vegetables,17710.86,27826.49
+EQ-PEO-038,"Peoria, Illinois",Condiments,13090.99,18238.06
+EQ-PEO-039,"Peoria, Illinois",Condiments,35358.18,18023.22
+EQ-PEO-040,"Peoria, Illinois",Condiments,78605.78,21481.84
+EQ-PEO-041,"Peoria, Illinois",Condiments,16458.74,18572.62
+EQ-PEO-042,"Peoria, Illinois",Sauces,33168.17,6849.02
+EQ-PEO-043,"Peoria, Illinois",Sauces,39099.93,7964.86
+EQ-PEO-044,"Peoria, Illinois",Sauces,9010.98,28158.44
+EQ-PEO-045,"Peoria, Illinois",Canned Vegetables,50561.37,25382.2
+EQ-PEO-046,"Peoria, Illinois",Sauces,24428.78,6570.91
+EQ-PEO-047,"Peoria, Illinois",Sauces,47826.61,19458.16
+EQ-PEO-048,"Peoria, Illinois",Canned Vegetables,7265.77,25814.39
+EQ-PEO-049,"Peoria, Illinois",Sauces,16684.34,27507.02
+EQ-PEO-050,"Peoria, Illinois",Canned Vegetables,15542.49,18207.01
+EQ-KEN-051,"Kenosha, Wisconsin",Condiments,12884.32,13664.93
+EQ-KEN-052,"Kenosha, Wisconsin",Sauces,34921.61,16465.42
+EQ-KEN-053,"Kenosha, Wisconsin",Canned Vegetables,14645.71,9815.08
+EQ-KEN-054,"Kenosha, Wisconsin",Sauces,27922.0,29974.32
+EQ-KEN-055,"Kenosha, Wisconsin",Canned Vegetables,30674.91,5856.82
+EQ-KEN-056,"Kenosha, Wisconsin",Canned Vegetables,37122.37,17917.44
+EQ-KEN-057,"Kenosha, Wisconsin",Sauces,39956.58,2144.79
+EQ-KEN-058,"Kenosha, Wisconsin",Canned Vegetables,22554.94,19474.12
+EQ-KEN-059,"Kenosha, Wisconsin",Sauces,26070.89,28625.81
+EQ-KEN-060,"Kenosha, Wisconsin",Canned Vegetables,24945.75,12398.22
+EQ-KEN-061,"Kenosha, Wisconsin",Condiments,34819.67,9560.49
+EQ-KEN-062,"Kenosha, Wisconsin",Condiments,20418.49,28472.07
+EQ-KEN-063,"Kenosha, Wisconsin",Canned Vegetables,16963.9,10124.02
+EQ-KEN-064,"Kenosha, Wisconsin",Sauces,11565.13,3610.97
+EQ-KEN-065,"Kenosha, Wisconsin",Canned Vegetables,18518.6,29317.91
+EQ-KEN-066,"Kenosha, Wisconsin",Sauces,17998.32,8966.27
+EQ-KEN-067,"Kenosha, Wisconsin",Sauces,31002.16,19412.74
+EQ-KEN-068,"Kenosha, Wisconsin",Canned Vegetables,27412.44,14000.32
+EQ-KEN-069,"Kenosha, Wisconsin",Condiments,12244.09,18020.49
+EQ-KEN-070,"Kenosha, Wisconsin",Sauces,29130.98,6428.97
+EQ-KEN-071,"Kenosha, Wisconsin",Canned Vegetables,16001.54,12073.23
+EQ-KEN-072,"Kenosha, Wisconsin",Canned Vegetables,18863.04,16049.9
+EQ-KEN-073,"Kenosha, Wisconsin",Canned Vegetables,28810.71,11240.68
+EQ-KEN-074,"Kenosha, Wisconsin",Condiments,18244.52,9810.52
+EQ-KEN-075,"Kenosha, Wisconsin",Sauces,81340.57,22417.32
+EQ-KEN-076,"Kenosha, Wisconsin",Condiments,20637.72,28423.58
+EQ-KEN-077,"Kenosha, Wisconsin",Canned Vegetables,69075.04,6319.85
+EQ-KEN-078,"Kenosha, Wisconsin",Canned Vegetables,45507.46,22256.94
+EQ-KEN-079,"Kenosha, Wisconsin",Condiments,11408.03,6855.17
+EQ-KEN-080,"Kenosha, Wisconsin",Condiments,7600.59,22371.5
+EQ-KEN-081,"Kenosha, Wisconsin",Condiments,23759.06,17761.33
+EQ-KEN-082,"Kenosha, Wisconsin",Sauces,15542.83,22868.05
+EQ-KEN-083,"Kenosha, Wisconsin",Condiments,37540.38,14418.88
+EQ-KEN-084,"Kenosha, Wisconsin",Sauces,24158.44,19876.06
+EQ-KEN-085,"Kenosha, Wisconsin",Sauces,17786.41,24405.05
+EQ-KEN-086,"Kenosha, Wisconsin",Condiments,78296.38,21220.41
+EQ-KEN-087,"Kenosha, Wisconsin",Sauces,47481.28,28936.93
+EQ-KEN-088,"Kenosha, Wisconsin",Canned Vegetables,7347.55,2383.55
+EQ-KEN-089,"Kenosha, Wisconsin",Sauces,42381.64,12740.6
+EQ-KEN-090,"Kenosha, Wisconsin",Canned Vegetables,31659.13,15378.17
+EQ-KEN-091,"Kenosha, Wisconsin",Condiments,68061.43,23671.61
+EQ-KEN-092,"Kenosha, Wisconsin",Canned Vegetables,52836.42,14806.28
+EQ-KEN-093,"Kenosha, Wisconsin",Condiments,19051.77,22829.58
+EQ-KEN-094,"Kenosha, Wisconsin",Condiments,11737.52,2192.9
+EQ-KEN-095,"Kenosha, Wisconsin",Canned Vegetables,45797.33,3415.72
+EQ-KEN-096,"Kenosha, Wisconsin",Sauces,81783.78,9173.8
+EQ-KEN-097,"Kenosha, Wisconsin",Sauces,46488.85,6202.17
+EQ-KEN-098,"Kenosha, Wisconsin",Condiments,24535.77,6987.87
+EQ-KEN-099,"Kenosha, Wisconsin",Sauces,37732.59,7668.54
+EQ-KEN-100,"Kenosha, Wisconsin",Condiments,26923.68,15097.77
+EQ-KEN-101,"Kenosha, Wisconsin",Condiments,35886.47,16899.24
+EQ-KEN-102,"Kenosha, Wisconsin",Sauces,21525.96,16672.24
+EQ-KEN-103,"Kenosha, Wisconsin",Sauces,16907.86,13919.75
+EQ-SIO-104,"Sioux City, Iowa",Sauces,57109.63,9136.6
+EQ-SIO-105,"Sioux City, Iowa",Condiments,20941.32,21483.47
+EQ-SIO-106,"Sioux City, Iowa",Canned Vegetables,14099.34,20437.97
+EQ-SIO-107,"Sioux City, Iowa",Condiments,51457.73,22877.07
+EQ-SIO-108,"Sioux City, Iowa",Condiments,29154.41,25379.84
+EQ-SIO-109,"Sioux City, Iowa",Canned Vegetables,32543.72,21173.76
+EQ-SIO-110,"Sioux City, Iowa",Canned Vegetables,14014.14,24230.02
+EQ-SIO-111,"Sioux City, Iowa",Sauces,9609.76,19238.64
+EQ-SIO-112,"Sioux City, Iowa",Condiments,40027.81,23618.4
+EQ-SIO-113,"Sioux City, Iowa",Canned Vegetables,75975.49,24997.92
+EQ-SIO-114,"Sioux City, Iowa",Canned Vegetables,21301.69,17821.76
+EQ-SIO-115,"Sioux City, Iowa",Condiments,10199.63,28848.41
+EQ-SIO-116,"Sioux City, Iowa",Condiments,17533.01,22482.52
+EQ-SIO-117,"Sioux City, Iowa",Condiments,45212.85,13762.23
+EQ-SIO-118,"Sioux City, Iowa",Sauces,25674.39,11743.54
+EQ-SIO-119,"Sioux City, Iowa",Sauces,44523.19,18261.94
+EQ-SIO-120,"Sioux City, Iowa",Sauces,23448.05,13327.18
+EQ-SIO-121,"Sioux City, Iowa",Sauces,19882.38,16986.5
+EQ-SIO-122,"Sioux City, Iowa",Canned Vegetables,14880.82,18410.24
+EQ-SIO-123,"Sioux City, Iowa",Canned Vegetables,58496.09,19521.44
+EQ-SIO-124,"Sioux City, Iowa",Sauces,12191.77,10379.02
+EQ-SIO-125,"Sioux City, Iowa",Canned Vegetables,35099.06,27191.09
+EQ-SIO-126,"Sioux City, Iowa",Condiments,13502.43,11345.72
+EQ-SIO-127,"Sioux City, Iowa",Condiments,54283.9,3485.71
+EQ-SIO-128,"Sioux City, Iowa",Condiments,13119.36,11527.27
+EQ-SIO-129,"Sioux City, Iowa",Canned Vegetables,34887.55,25914.35
+EQ-SIO-130,"Sioux City, Iowa",Canned Vegetables,24178.18,11699.16
+EQ-SIO-131,"Sioux City, Iowa",Canned Vegetables,9459.32,16181.09
+EQ-SIO-132,"Sioux City, Iowa",Canned Vegetables,32788.95,27067.06
+EQ-SIO-133,"Sioux City, Iowa",Condiments,40368.56,17472.58
+EQ-SIO-134,"Sioux City, Iowa",Canned Vegetables,47477.92,6077.79
+EQ-SIO-135,"Sioux City, Iowa",Canned Vegetables,22462.05,24182.24
+EQ-SIO-136,"Sioux City, Iowa",Sauces,30024.21,18242.77
+EQ-SIO-137,"Sioux City, Iowa",Sauces,35906.51,6119.71
+EQ-SIO-138,"Sioux City, Iowa",Canned Vegetables,18266.97,11003.34
+EQ-SIO-139,"Sioux City, Iowa",Sauces,25640.81,3189.88
+EQ-SIO-140,"Sioux City, Iowa",Sauces,51402.51,18906.17
+EQ-SIO-141,"Sioux City, Iowa",Canned Vegetables,10271.45,7528.43
+EQ-SIO-142,"Sioux City, Iowa",Sauces,40410.46,17479.31
+EQ-SIO-143,"Sioux City, Iowa",Canned Vegetables,18517.48,18332.37
+EQ-SIO-144,"Sioux City, Iowa",Canned Vegetables,46630.17,10349.33
+EQ-SIO-145,"Sioux City, Iowa",Condiments,6731.9,19267.27
+EQ-SIO-146,"Sioux City, Iowa",Sauces,11856.12,14953.85
+EQ-SIO-147,"Sioux City, Iowa",Condiments,18881.91,22123.28
+EQ-SIO-148,"Sioux City, Iowa",Condiments,57612.46,7397.69
+EQ-SIO-149,"Sioux City, Iowa",Condiments,10928.24,27886.0
+EQ-SIO-150,"Sioux City, Iowa",Sauces,18441.35,9369.42
+EQ-SIO-151,"Sioux City, Iowa",Canned Vegetables,63246.62,24401.71
+EQ-AKR-152,"Akron, Ohio",Canned Vegetables,54257.34,5541.73
+EQ-AKR-153,"Akron, Ohio",Canned Vegetables,18291.43,10572.74
+EQ-AKR-154,"Akron, Ohio",Sauces,57484.27,8631.07
+EQ-AKR-155,"Akron, Ohio",Condiments,79634.93,25132.41
+EQ-AKR-156,"Akron, Ohio",Sauces,23983.55,29112.16
+EQ-AKR-157,"Akron, Ohio",Sauces,75183.79,2206.46
+EQ-AKR-158,"Akron, Ohio",Sauces,14187.32,11806.91
+EQ-AKR-159,"Akron, Ohio",Condiments,53720.61,23735.01
+EQ-AKR-160,"Akron, Ohio",Sauces,28654.1,16222.13
+EQ-AKR-161,"Akron, Ohio",Canned Vegetables,20726.22,19570.69
+EQ-AKR-162,"Akron, Ohio",Canned Vegetables,15915.37,10438.05
+EQ-AKR-163,"Akron, Ohio",Sauces,72160.11,27464.63
+EQ-AKR-164,"Akron, Ohio",Canned Vegetables,32640.45,9893.0
+EQ-AKR-165,"Akron, Ohio",Canned Vegetables,8112.62,25720.67
+EQ-AKR-166,"Akron, Ohio",Canned Vegetables,43903.37,17543.45
+EQ-AKR-167,"Akron, Ohio",Canned Vegetables,68446.69,17771.38
+EQ-AKR-168,"Akron, Ohio",Sauces,13087.58,16232.26
+EQ-AKR-169,"Akron, Ohio",Sauces,24974.53,17334.2
+EQ-AKR-170,"Akron, Ohio",Canned Vegetables,13122.64,20337.41
+EQ-AKR-171,"Akron, Ohio",Condiments,41079.4,12142.72
+EQ-AKR-172,"Akron, Ohio",Canned Vegetables,15980.83,26607.86
+EQ-AKR-173,"Akron, Ohio",Sauces,65774.15,21290.66
+EQ-AKR-174,"Akron, Ohio",Canned Vegetables,10324.38,3495.34
+EQ-AKR-175,"Akron, Ohio",Sauces,39927.0,13293.32
+EQ-AKR-176,"Akron, Ohio",Sauces,46251.83,19251.16
+EQ-AKR-177,"Akron, Ohio",Sauces,28824.15,10856.1
+EQ-AKR-178,"Akron, Ohio",Sauces,18988.28,5478.36
+EQ-AKR-179,"Akron, Ohio",Condiments,31250.29,3291.95
+EQ-AKR-180,"Akron, Ohio",Canned Vegetables,20138.0,16183.72
+EQ-AKR-181,"Akron, Ohio",Canned Vegetables,22171.89,26592.7
+EQ-AKR-182,"Akron, Ohio",Condiments,39000.38,21818.67
+EQ-AKR-183,"Akron, Ohio",Sauces,11790.14,3266.89
+EQ-AKR-184,"Akron, Ohio",Canned Vegetables,56097.29,16354.28
+EQ-AKR-185,"Akron, Ohio",Sauces,32131.9,5881.29
+EQ-AKR-186,"Akron, Ohio",Canned Vegetables,49241.11,19893.57
+EQ-AKR-187,"Akron, Ohio",Condiments,23418.83,22598.35
+EQ-AKR-188,"Akron, Ohio",Canned Vegetables,53384.59,28786.33
+EQ-AKR-189,"Akron, Ohio",Canned Vegetables,21551.84,16436.17
+EQ-AKR-190,"Akron, Ohio",Canned Vegetables,8838.56,20039.95
+EQ-AKR-191,"Akron, Ohio",Canned Vegetables,22329.84,17492.41
+EQ-AKR-192,"Akron, Ohio",Sauces,40477.25,21948.59
+EQ-AKR-193,"Akron, Ohio",Condiments,67682.36,14929.01
+EQ-AKR-194,"Akron, Ohio",Sauces,55706.14,18261.35
+EQ-AKR-195,"Akron, Ohio",Canned Vegetables,16405.03,12115.72
+EQ-AKR-196,"Akron, Ohio",Canned Vegetables,53077.13,12784.15
+EQ-KAL-197,"Kalamazoo, Michigan",Condiments,23715.82,7703.07
+EQ-KAL-198,"Kalamazoo, Michigan",Sauces,12907.13,21915.71
+EQ-KAL-199,"Kalamazoo, Michigan",Canned Vegetables,13748.83,9980.97
+EQ-KAL-200,"Kalamazoo, Michigan",Canned Vegetables,35998.0,21599.0
+EQ-KAL-201,"Kalamazoo, Michigan",Sauces,61140.1,18785.18
+EQ-KAL-202,"Kalamazoo, Michigan",Canned Vegetables,36028.36,23009.14
+EQ-KAL-203,"Kalamazoo, Michigan",Condiments,47532.74,15581.0
+EQ-KAL-204,"Kalamazoo, Michigan",Sauces,29944.53,19043.88
+EQ-KAL-205,"Kalamazoo, Michigan",Condiments,29158.66,3376.93
+EQ-KAL-206,"Kalamazoo, Michigan",Canned Vegetables,21499.75,19455.79
+EQ-KAL-207,"Kalamazoo, Michigan",Sauces,35887.11,29620.46
+EQ-KAL-208,"Kalamazoo, Michigan",Canned Vegetables,25599.07,20505.31
+EQ-KAL-209,"Kalamazoo, Michigan",Canned Vegetables,21112.51,10258.95
+EQ-KAL-210,"Kalamazoo, Michigan",Canned Vegetables,29897.42,29905.82
+EQ-KAL-211,"Kalamazoo, Michigan",Canned Vegetables,20202.13,7648.67
+EQ-KAL-212,"Kalamazoo, Michigan",Sauces,19878.84,19395.32
+EQ-KAL-213,"Kalamazoo, Michigan",Condiments,78210.49,17922.64
+EQ-KAL-214,"Kalamazoo, Michigan",Canned Vegetables,19229.1,22341.57
+EQ-KAL-215,"Kalamazoo, Michigan",Sauces,20028.33,28947.08
+EQ-KAL-216,"Kalamazoo, Michigan",Condiments,19581.55,17343.13
+EQ-KAL-217,"Kalamazoo, Michigan",Condiments,62379.03,28280.43
+EQ-KAL-218,"Kalamazoo, Michigan",Condiments,16412.7,20213.11
+EQ-KAL-219,"Kalamazoo, Michigan",Condiments,31109.0,11815.99
+EQ-KAL-220,"Kalamazoo, Michigan",Sauces,8875.21,13256.91
+EQ-KAL-221,"Kalamazoo, Michigan",Condiments,55628.39,17963.77
+EQ-KAL-222,"Kalamazoo, Michigan",Sauces,26759.65,13295.49
+EQ-KAL-223,"Kalamazoo, Michigan",Canned Vegetables,20816.22,8463.96
+EQ-KAL-224,"Kalamazoo, Michigan",Sauces,16890.57,8161.33
+EQ-KAL-225,"Kalamazoo, Michigan",Canned Vegetables,71334.77,3111.32
+EQ-KAL-226,"Kalamazoo, Michigan",Sauces,25944.74,26874.17
+EQ-KAL-227,"Kalamazoo, Michigan",Sauces,44817.64,20032.51
+EQ-KAL-228,"Kalamazoo, Michigan",Canned Vegetables,36130.76,11775.25
+EQ-KAL-229,"Kalamazoo, Michigan",Canned Vegetables,27132.58,23828.86
+EQ-KAL-230,"Kalamazoo, Michigan",Sauces,29432.25,20219.85
+EQ-KAL-231,"Kalamazoo, Michigan",Canned Vegetables,76424.52,23985.36
+EQ-KAL-232,"Kalamazoo, Michigan",Canned Vegetables,3317.86,17200.71
+EQ-KAL-233,"Kalamazoo, Michigan",Sauces,18625.89,15670.4
+EQ-KAL-234,"Kalamazoo, Michigan",Canned Vegetables,65732.94,13877.14
+EQ-KAL-235,"Kalamazoo, Michigan",Condiments,17690.32,17193.92
+EQ-KAL-236,"Kalamazoo, Michigan",Condiments,37464.2,4502.48
+EQ-KAL-237,"Kalamazoo, Michigan",Sauces,39900.77,15787.66
+EQ-KAL-238,"Kalamazoo, Michigan",Condiments,39451.4,29956.46
+EQ-KAL-239,"Kalamazoo, Michigan",Sauces,44048.03,14666.61
+EQ-KAL-240,"Kalamazoo, Michigan",Condiments,27333.19,22240.02
+EQ-KAL-241,"Kalamazoo, Michigan",Sauces,31808.87,11603.75
+EQ-KAL-242,"Kalamazoo, Michigan",Sauces,82406.97,28128.29

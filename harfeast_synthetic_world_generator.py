@@ -3,8 +3,11 @@ HarFeast Synthetic World Generator
 Generates all data sources, computes ground truth, and produces task prompts + rubrics
 for an APEX-style management consulting RL environment.
 
+Supports parameterized generation for 200-500+ distinct task instances (RL scalability).
+
 Usage:
-    python harfeast_world_generator.py [--seed 42] [--output-dir ./world]
+    python harfeast_synthetic_world_generator.py [--seed 42] [--output-dir ./world]
+    python harfeast_synthetic_world_generator.py --batch 40 --output-dir ./harfeast_worlds
 """
 
 import random
@@ -13,27 +16,71 @@ import json
 import os
 import math
 from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import Optional
 
 # =============================================================================
-# CONSTANTS
+# WORLD CONFIG - Parameterized variations
 # =============================================================================
 
-PLANTS = [
-    "Rockford, Illinois",
-    "Madison, Wisconsin",
-    "Cedar Rapids, Iowa",
-    "Toledo, Ohio",
-    "Kalamazoo, Michigan",
-]
+# Plant pool: (city, state) - one per state group. Order: IL, WI, IA, OH, MI.
+# Tasks 5/9 need plants[0]=IL, plants[1]=WI, plants[2]=IA
+PLANT_POOL_IL = ["Rockford", "Peoria", "Springfield", "Champaign", "Bloomington"]
+PLANT_POOL_WI = ["Madison", "Milwaukee", "Green Bay", "Kenosha", "Racine"]
+PLANT_POOL_IA = ["Cedar Rapids", "Des Moines", "Davenport", "Sioux City", "Iowa City"]
+PLANT_POOL_OH = ["Toledo", "Columbus", "Cleveland", "Cincinnati", "Akron"]
+PLANT_POOL_MI = ["Kalamazoo", "Lansing", "Detroit", "Grand Rapids", "Flint"]
 
-# Census divisions for labor efficiency calc (Task 5)
-PLANT_DIVISIONS = {
-    "Rockford, Illinois": "East North Central",
-    "Madison, Wisconsin": "East North Central",
-    "Cedar Rapids, Iowa": "West North Central",
-    "Toledo, Ohio": "East North Central",
-    "Kalamazoo, Michigan": "East North Central",
-}
+
+@dataclass
+class WorldConfig:
+    """Configuration for a single world variation."""
+    seed: int = 42
+    n_employees: int = 3000
+    plants: tuple = field(default_factory=lambda: (
+        "Rockford, Illinois", "Madison, Wisconsin", "Cedar Rapids, Iowa",
+        "Toledo, Ohio", "Kalamazoo, Michigan",
+    ))
+    target_scrap_pct: float = 4.0
+    scrap_range_max_pct: float = 7.0
+    training_received_weight: float = 0.4
+    frito_lay_reduction_pct: float = 30.0
+    wage_scale: float = 1.0
+    # Aptean report: add small noise to growth numbers
+    aptean_noise: float = 0.0
+
+
+def sample_world_config(rng: random.Random, seed: int) -> WorldConfig:
+    """Sample a random world configuration for variation."""
+    il = rng.choice(PLANT_POOL_IL) + ", Illinois"
+    wi = rng.choice(PLANT_POOL_WI) + ", Wisconsin"
+    ia = rng.choice(PLANT_POOL_IA) + ", Iowa"
+    oh = rng.choice(PLANT_POOL_OH) + ", Ohio"
+    mi = rng.choice(PLANT_POOL_MI) + ", Michigan"
+    plants = (il, wi, ia, oh, mi)
+
+    target = rng.choice([3.5, 4.0, 4.5])
+    range_max = target + rng.choice([2.5, 3.0, 3.5])
+
+    return WorldConfig(
+        seed=seed,
+        n_employees=rng.randint(2000, 5000),
+        plants=plants,
+        target_scrap_pct=target,
+        scrap_range_max_pct=range_max,
+        training_received_weight=rng.uniform(0.35, 0.5),
+        frito_lay_reduction_pct=rng.choice([28.0, 30.0, 32.0]),
+        wage_scale=rng.uniform(0.95, 1.05),
+        aptean_noise=rng.uniform(0, 0.5),
+    )
+
+
+def _plant_divisions(plants: tuple) -> dict:
+    """Build plant->census_division map. IA=West North Central, rest=East North Central."""
+    div = {}
+    for i, p in enumerate(plants):
+        div[p] = "West North Central" if i == 2 else "East North Central"
+    return div
 
 ROLES = [
     "Production/Manufacturing Operator",
@@ -82,17 +129,16 @@ BASE_WAGES = {
 # DATA GENERATORS
 # =============================================================================
 
-def generate_employee_survey(rng, n=3000):
+def generate_employee_survey(rng, cfg: WorldConfig):
     """Generate the main employee workforce survey dataset."""
     employees = []
-    
-    # Control distributions to create interesting patterns
-    # Toledo and Kalamazoo have higher inefficient hours (for Task 6)
-    high_inefficiency_plants = ["Toledo, Ohio", "Kalamazoo, Michigan"]
-    # Cedar Rapids and Rockford have highest/lowest willingness (for Task 12)
-    
+    n = cfg.n_employees
+    plants = list(cfg.plants)
+    high_inefficiency_plants = list(cfg.plants[3:5])
+    willing_high, willing_low = cfg.plants[1], cfg.plants[0]
+
     for i in range(n):
-        plant = rng.choice(PLANTS)
+        plant = rng.choice(plants)
         role = rng.choice(ROLES)
         role_type = ROLE_TYPES[role]
         
@@ -119,7 +165,10 @@ def generate_employee_survey(rng, n=3000):
         training_days = rng.choice(["<1 day", "1-2 days", ">2 days"])
         dedicated_time = rng.choice(["Yes", "No"])
         
-        training_received = rng.choices(["Yes", "No"], weights=[0.4, 0.6])[0]
+        training_received = rng.choices(
+            ["Yes", "No"],
+            weights=[cfg.training_received_weight, 1 - cfg.training_received_weight],
+        )[0]
         if training_received == "Yes":
             quality = rng.choices(
                 TRAINING_QUALITY_OPTIONS,
@@ -128,16 +177,17 @@ def generate_employee_survey(rng, n=3000):
         else:
             quality = ""
         
-        # Willingness to adopt - slightly higher in Cedar Rapids
-        if plant == "Cedar Rapids, Iowa":
+        # Willingness to adopt - varies by plant (highest/lowest for Task 12)
+        if plant == willing_high:
             willingness = round(rng.gauss(3.8, 0.8), 1)
-        elif plant == "Rockford, Illinois":
+        elif plant == willing_low:
             willingness = round(rng.gauss(2.5, 0.8), 1)
         else:
             willingness = round(rng.gauss(3.2, 0.9), 1)
         willingness = max(1, min(5, willingness))
         
-        hourly_wage = round(rng.gauss(BASE_WAGES[role], 3), 2)
+        base = BASE_WAGES[role] * cfg.wage_scale
+        hourly_wage = round(rng.gauss(base, 3), 2)
         hourly_wage = max(12, hourly_wage)
         
         union_status = rng.choice(["Union", "Non-Union"])
@@ -165,12 +215,15 @@ def generate_employee_survey(rng, n=3000):
     return employees
 
 
-def generate_equipment_data(rng):
-    """Generate plant equipment dataset. ~50 per plant = 250 total."""
+def generate_equipment_data(rng, cfg: WorldConfig):
+    """Generate plant equipment dataset. ~50 per plant."""
     equipment = []
     eq_id = 0
-    
-    for plant in PLANTS:
+    plants = cfg.plants
+    oee_base = {p: 0.78 - i * 0.02 + rng.uniform(-0.02, 0.02) for i, p in enumerate(plants)}
+    oee_base = {p: max(0.65, min(0.88, v)) for p, v in oee_base.items()}
+
+    for plant in plants:
         n_equip = rng.randint(45, 55)
         for j in range(n_equip):
             pf = rng.choice(PRODUCT_FAMILIES)
@@ -184,10 +237,6 @@ def generate_equipment_data(rng):
             # Scrap rates - most between 3-9%, some outliers
             scrap = round(rng.uniform(0.03, 0.10), 4)
             
-            # OEE - plant-dependent base
-            oee_base = {"Rockford, Illinois": 0.78, "Madison, Wisconsin": 0.76,
-                        "Cedar Rapids, Iowa": 0.80, "Toledo, Ohio": 0.73,
-                        "Kalamazoo, Michigan": 0.71}
             oee = round(rng.gauss(oee_base[plant], 0.06), 4)
             oee = max(0.45, min(0.95, oee))
             
@@ -233,17 +282,18 @@ def generate_quality_losses(rng, equipment):
     return losses
 
 
-def generate_plant_labor(rng):
+def generate_plant_labor(rng, cfg: WorldConfig):
     """Generate per-employee plant labor data for Tasks 5 and 9."""
     labor = []
     lab_id = 0
-    
+    plant_divs = _plant_divisions(cfg.plants)
+
     production_roles = [
         "Production Operator", "Quality Inspector", "Maintenance Tech",
         "Production Supervisor", "Line Lead", "Packaging Operator"
     ]
-    
-    for plant in PLANTS[:3]:  # Tasks 5 and 9 only use IL, WI, IA plants
+
+    for plant in cfg.plants[:3]:  # Tasks 5 and 9 only use IL, WI, IA plants
         n_workers = rng.randint(15, 25)
         for j in range(n_workers):
             role = rng.choice(production_roles)
@@ -259,74 +309,89 @@ def generate_plant_labor(rng):
                 "annual_hours": 2080,
                 "union_status": rng.choice(["Union", "Non-Union"]),
                 "supervisor_type": "production" if is_supervisor else "non-production",
-                "census_division": PLANT_DIVISIONS[plant],
+                "census_division": plant_divs[plant],
             })
             lab_id += 1
     
     return labor
 
 
-def generate_bls_wages():
+def generate_bls_wages(cfg: WorldConfig):
     """BLS wage benchmark data."""
+    s = cfg.wage_scale
     return [
-        {"occupation": "All Occupations", "industry": "Food Manufacturing", "median_hourly_wage": 19.76},
-        {"occupation": "Production Workers", "industry": "Food Manufacturing", "median_hourly_wage": 17.85},
-        {"occupation": "Supervisors", "industry": "Food Manufacturing", "median_hourly_wage": 28.50},
-        {"occupation": "Maintenance", "industry": "Food Manufacturing", "median_hourly_wage": 24.30},
-        {"occupation": "Quality Control", "industry": "Food Manufacturing", "median_hourly_wage": 21.15},
-        {"occupation": "Logistics", "industry": "Food Manufacturing", "median_hourly_wage": 22.80},
+        {"occupation": "All Occupations", "industry": "Food Manufacturing", "median_hourly_wage": round(19.76 * s, 2)},
+        {"occupation": "Production Workers", "industry": "Food Manufacturing", "median_hourly_wage": round(17.85 * s, 2)},
+        {"occupation": "Supervisors", "industry": "Food Manufacturing", "median_hourly_wage": round(28.50 * s, 2)},
+        {"occupation": "Maintenance", "industry": "Food Manufacturing", "median_hourly_wage": round(24.30 * s, 2)},
+        {"occupation": "Quality Control", "industry": "Food Manufacturing", "median_hourly_wage": round(21.15 * s, 2)},
+        {"occupation": "Logistics", "industry": "Food Manufacturing", "median_hourly_wage": round(22.80 * s, 2)},
     ]
 
 
-def generate_attached_wages():
+def generate_attached_wages(cfg: WorldConfig):
     """Client-provided updated wage data for Task 10."""
-    return [
-        {"role": "Production/Manufacturing Operator", "avg_hourly_salary": 21.50},
-        {"role": "Quality Control/Quality Assurance", "avg_hourly_salary": 25.80},
-        {"role": "Maintenance Technician", "avg_hourly_salary": 29.40},
-        {"role": "Production Supervisor/Team Lead", "avg_hourly_salary": 33.20},
-        {"role": "Supply Chain/Logistics Coordinator", "avg_hourly_salary": 27.60},
-        {"role": "Demand Planning/Forecasting", "avg_hourly_salary": 35.10},
-        {"role": "Administrative/Support Staff", "avg_hourly_salary": 23.40},
-        {"role": "Plant Management", "avg_hourly_salary": 48.50},
-    ]
+    s = cfg.wage_scale
+    bases = [21.50, 25.80, 29.40, 33.20, 27.60, 35.10, 23.40, 48.50]
+    roles = list(ROLES)
+    return [{"role": r, "avg_hourly_salary": round(b * s, 2)} for r, b in zip(roles, bases)]
 
 
-def generate_oee_assumptions():
+def generate_oee_assumptions(cfg: WorldConfig, rng: random.Random):
     """OEE improvement assumptions for Task 4."""
+    plants = cfg.plants
+    base_oee = [0.78, 0.76, 0.80, 0.73, 0.71]
+    improvements = [0.030, 0.028, 0.032, 0.025, 0.024]
+    start_years = [2025, 2025, 2025, 2026, 2026]
     return [
-        {"plant": "Rockford, Illinois", "current_annual_oee": 0.78, "annual_oee_improvement": 0.030, "investment_start_year": 2025, "world_class_oee_target": 0.85},
-        {"plant": "Madison, Wisconsin", "current_annual_oee": 0.76, "annual_oee_improvement": 0.028, "investment_start_year": 2025, "world_class_oee_target": 0.85},
-        {"plant": "Cedar Rapids, Iowa", "current_annual_oee": 0.80, "annual_oee_improvement": 0.032, "investment_start_year": 2025, "world_class_oee_target": 0.85},
-        {"plant": "Toledo, Ohio", "current_annual_oee": 0.73, "annual_oee_improvement": 0.025, "investment_start_year": 2026, "world_class_oee_target": 0.85},
-        {"plant": "Kalamazoo, Michigan", "current_annual_oee": 0.71, "annual_oee_improvement": 0.024, "investment_start_year": 2026, "world_class_oee_target": 0.85},
+        {
+            "plant": p,
+            "current_annual_oee": round(base_oee[i] + rng.uniform(-0.02, 0.02), 4),
+            "annual_oee_improvement": round(improvements[i] + rng.uniform(-0.002, 0.002), 4),
+            "investment_start_year": start_years[i],
+            "world_class_oee_target": 0.85,
+        }
+        for i, p in enumerate(plants)
     ]
 
 
-def generate_plant_sales():
+def generate_plant_sales(cfg: WorldConfig, rng: random.Random):
     """Plant unit sales data for Task 11."""
+    plants = list(cfg.plants)
+    bases = [(16500000, 3.09), (20600000, 3.12), (4680000, 5.98), (4890000, 6.86), (6400000, 6.02)]
     return [
-        {"plant": "Cedar Rapids, Iowa", "current_unit_sales": 16500000, "price_per_unit": 3.09},
-        {"plant": "Rockford, Illinois", "current_unit_sales": 20600000, "price_per_unit": 3.12},
-        {"plant": "Madison, Wisconsin", "current_unit_sales": 4680000, "price_per_unit": 5.98},
-        {"plant": "Toledo, Ohio", "current_unit_sales": 4890000, "price_per_unit": 6.86},
-        {"plant": "Kalamazoo, Michigan", "current_unit_sales": 6400000, "price_per_unit": 6.02},
+        {
+            "plant": p,
+            "current_unit_sales": int(b[0] * rng.uniform(0.85, 1.15)),
+            "price_per_unit": round(b[1] * rng.uniform(0.95, 1.05), 2),
+        }
+        for p, b in zip(plants, bases)
     ]
 
 
-def generate_aptean_report():
+def generate_aptean_report(cfg: WorldConfig, rng: random.Random):
     """Aptean industry report data for Task 11."""
+    base = [
+        ("IoT Sensors", 12.5, 4.2, "Top Investment to Date"),
+        ("Predictive Maintenance", 11.8, 3.9, "Top Planned 2024"),
+        ("Cloud ERP", 9.2, 5.1, "Top Investment to Date"),
+        ("Robotic Automation", 10.4, 3.5, "Top Planned 2024"),
+        ("AI Quality Control", 8.7, 4.8, "Top Investment to Date"),
+        ("Digital Twin", 7.3, 4.0, "Other"),
+        ("Supply Chain AI", 6.9, 3.2, "Other"),
+        ("Automated Scheduling", 8.1, 5.5, "Top Planned 2024"),
+        ("Warehouse Robotics", 7.8, 5.0, "Other"),
+        ("Advanced Analytics", 9.8, 4.5, "Top Investment to Date"),
+    ]
+    noise = cfg.aptean_noise
     return [
-        {"technology": "IoT Sensors", "users_growth": 12.5, "non_users_growth": 4.2, "category": "Top Investment to Date"},
-        {"technology": "Predictive Maintenance", "users_growth": 11.8, "non_users_growth": 3.9, "category": "Top Planned 2024"},
-        {"technology": "Cloud ERP", "users_growth": 9.2, "non_users_growth": 5.1, "category": "Top Investment to Date"},
-        {"technology": "Robotic Automation", "users_growth": 10.4, "non_users_growth": 3.5, "category": "Top Planned 2024"},
-        {"technology": "AI Quality Control", "users_growth": 8.7, "non_users_growth": 4.8, "category": "Top Investment to Date"},
-        {"technology": "Digital Twin", "users_growth": 7.3, "non_users_growth": 4.0, "category": "Other"},
-        {"technology": "Supply Chain AI", "users_growth": 6.9, "non_users_growth": 3.2, "category": "Other"},
-        {"technology": "Automated Scheduling", "users_growth": 8.1, "non_users_growth": 5.5, "category": "Top Planned 2024"},
-        {"technology": "Warehouse Robotics", "users_growth": 7.8, "non_users_growth": 5.0, "category": "Other"},
-        {"technology": "Advanced Analytics", "users_growth": 9.8, "non_users_growth": 4.5, "category": "Top Investment to Date"},
+        {
+            "technology": t,
+            "users_growth": round(u + rng.uniform(-noise, noise), 1),
+            "non_users_growth": round(n + rng.uniform(-noise, noise), 1),
+            "category": c,
+        }
+        for t, u, n, c in base
     ]
 
 
@@ -334,14 +399,16 @@ def generate_aptean_report():
 # TEXT DOCUMENT GENERATORS
 # =============================================================================
 
-def generate_scrap_report():
-    return """HarFeast Food Group - Quality Standards: Scrap Rate Report
+def generate_scrap_report(cfg: WorldConfig):
+    target = cfg.target_scrap_pct
+    rmax = cfg.scrap_range_max_pct
+    return f"""HarFeast Food Group - Quality Standards: Scrap Rate Report
 ==========================================================
 
-Acceptable scrap rate range: 4.0% - 7.0%
-Target scrap rate (minimum of acceptable range): 4.0%
+Acceptable scrap rate range: {target}% - {rmax}%
+Target scrap rate (minimum of acceptable range): {target}%
 
-Plants operating above 7.0% require immediate corrective action and 
+Plants operating above {rmax}% require immediate corrective action and 
 must submit a remediation plan within 30 days. Quarterly reviews will 
 assess progress toward the target rate.
 
@@ -401,8 +468,9 @@ we want the fastest and biggest boost to Gross Margin."
     return interviews
 
 
-def generate_frito_lay_case():
-    return """Frito-Lay Digital Transformation Case Study
+def generate_frito_lay_case(cfg: WorldConfig):
+    pct = int(cfg.frito_lay_reduction_pct)
+    return f"""Frito-Lay Digital Transformation Case Study
 =============================================
 
 Background: Frito-Lay North America, a division of PepsiCo, operates 
@@ -413,7 +481,7 @@ Initiative: In 2022, Frito-Lay deployed IoT-based predictive maintenance
 sensors across their manufacturing network, focusing on high-throughput 
 production lines.
 
-Results: After 18 months of deployment, Frito-Lay achieved a 30% 
+Results: After 18 months of deployment, Frito-Lay achieved a {pct}% 
 reduction in unplanned downtime across all monitored production lines. 
 The improvement was consistent across facilities regardless of size 
 or product type.
@@ -424,7 +492,7 @@ Key Success Factors:
 - Dedicated data analytics team for sensor data interpretation
 - Weekly review cadence with plant managers
 
-The 30% unplanned downtime reduction translated to approximately 
+The {pct}% unplanned downtime reduction translated to approximately 
 $45M in annual cost savings across the network.
 """
 
@@ -476,9 +544,12 @@ def percentile(values, p):
 
 def compute_ground_truth(employees, equipment, quality_losses, plant_labor,
                          bls_wages, attached_wages, oee_assumptions,
-                         plant_sales, aptean_data):
+                         plant_sales, aptean_data, cfg: WorldConfig):
     """Compute ground truth answers for all 14 tasks."""
     truth = {}
+    PLANTS = list(cfg.plants)
+    target_scrap = cfg.target_scrap_pct / 100
+    frito_lay_mult = 1 - cfg.frito_lay_reduction_pct / 100
     
     # =========================================================================
     # TASK 1: High-priority employees for digital training rollout
@@ -530,12 +601,6 @@ def compute_ground_truth(employees, equipment, quality_losses, plant_labor,
     # TASK 2: Adjusted Cost of Instability per plant
     # =========================================================================
     # Formula: Abnormal scrap cost / (Actual Scrap% - Target Scrap%)
-    # Target = 4.0% (minimum of acceptable range)
-    # Abnormal scrap cost per equipment = COGS_per_ton * units * (scrap_rate - target)
-    # Aggregate per plant
-    
-    target_scrap = 0.04
-    
     plant_instability = {}
     for plant in PLANTS:
         plant_equip = [e for e in equipment if e["plant"] == plant]
@@ -775,7 +840,7 @@ def compute_ground_truth(employees, equipment, quality_losses, plant_labor,
     bls_all_occ_wage = next(w["median_hourly_wage"] for w in bls_wages if w["occupation"] == "All Occupations")
     
     task9 = {}
-    for plant in ["Rockford, Illinois", "Madison, Wisconsin"]:
+    for plant in PLANTS[:2]:
         plant_equip = [eq for eq in equipment if eq["plant"] == plant]
         total_standard = sum(eq["standard_hours"] for eq in plant_equip)
         total_actual = sum(eq["actual_hours"] for eq in plant_equip)
@@ -916,7 +981,7 @@ def compute_ground_truth(employees, equipment, quality_losses, plant_labor,
         total_downtime = sum(eq["unplanned_downtime_hours"] for eq in plant_equip)
         
         current_ratio = total_downtime / total_scheduled if total_scheduled > 0 else 0
-        new_ratio = current_ratio * 0.70  # 30% reduction
+        new_ratio = current_ratio * frito_lay_mult
         task13[plant] = round(new_ratio * 100)  # nearest full percentage point
     
     truth["task13"] = task13
@@ -948,9 +1013,11 @@ def compute_ground_truth(employees, equipment, quality_losses, plant_labor,
 # TASK PROMPT GENERATION
 # =============================================================================
 
-def generate_task_prompts(truth):
+def generate_task_prompts(truth, cfg: WorldConfig):
     """Generate task prompts adapted to the synthetic world."""
     tasks = []
+    PLANTS = list(cfg.plants)
+    plants_il_wi_ia = ", ".join(PLANTS[:3])
     
     # TASK 1
     tasks.append({
@@ -1036,7 +1103,7 @@ Report OEE values to 2 decimal places as percentages.""",
     tasks.append({
         "task_id": "task_05",
         "task_name": "Labor Cost Analysis",
-        "prompt": """1. Give me the total labor cost for each plant location (Rockford IL, Madison WI, Cedar Rapids IA only).
+        "prompt": f"""1. Give me the total labor cost for each plant location ({plants_il_wi_ia} only).
 
 2. Give me the efficiency gains for each plant location. West North Central division plant locations only have a 10% annual efficiency gain from labor cost. For other locations, the efficiency gain is 20%. However, the efficiency gain is 5% for non-unionized production supervisors no matter where they are located.
 
@@ -1102,7 +1169,7 @@ Report losses rounded to the nearest dollar and percentage to the nearest whole 
     tasks.append({
         "task_id": "task_09",
         "task_name": "Labor Variance Analysis",
-        "prompt": """Calculate the total labor variance in hours (favorable should be positive) and dollars for the Illinois and Wisconsin plants. A positive variance means Total Actual Hours are less than Total Standard Hours. Use the median wage for All Occupations in the food manufacturing industry from the BLS wage benchmark file to convert from hours to dollars.
+        "prompt": f"""Calculate the total labor variance in hours (favorable should be positive) and dollars for the Illinois and Wisconsin plants ({PLANTS[0]} and {PLANTS[1]}). A positive variance means Total Actual Hours are less than Total Standard Hours. Use the median wage for All Occupations in the food manufacturing industry from the BLS wage benchmark file to convert from hours to dollars.
 
 Also give me the straight productivity index (Actual Hours / Standard Hours) for each plant.
 
@@ -1220,26 +1287,33 @@ def write_text(filepath, content):
 # MAIN
 # =============================================================================
 
-def generate_world(seed=42, output_dir="./harfeast_world"):
+def generate_world(
+    seed: int = 42,
+    output_dir: str = "./harfeast_world",
+    config: Optional[WorldConfig] = None,
+) -> tuple:
     """Generate the complete HarFeast synthetic world."""
     rng = random.Random(seed)
+    cfg = config or sample_world_config(rng, seed)
+    cfg.seed = seed
+
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, "data"), exist_ok=True)
     os.makedirs(os.path.join(output_dir, "documents"), exist_ok=True)
-    
-    print("Generating data...")
-    
+
+    print(f"Generating world (seed={seed}, n_employees={cfg.n_employees}, plants={cfg.plants[0][:15]}...)...")
+
     # Generate all datasets
-    employees = generate_employee_survey(rng)
-    equipment = generate_equipment_data(rng)
+    employees = generate_employee_survey(rng, cfg)
+    equipment = generate_equipment_data(rng, cfg)
     quality_losses = generate_quality_losses(rng, equipment)
-    plant_labor = generate_plant_labor(rng)
-    bls_wages = generate_bls_wages()
-    attached_wages = generate_attached_wages()
-    oee_assumptions = generate_oee_assumptions()
-    plant_sales = generate_plant_sales()
-    aptean_data = generate_aptean_report()
-    
+    plant_labor = generate_plant_labor(rng, cfg)
+    bls_wages = generate_bls_wages(cfg)
+    attached_wages = generate_attached_wages(cfg)
+    oee_assumptions = generate_oee_assumptions(cfg, rng)
+    plant_sales = generate_plant_sales(cfg, rng)
+    aptean_data = generate_aptean_report(cfg, rng)
+
     # Write CSV files
     write_csv(os.path.join(output_dir, "data", "employee_survey.csv"), employees)
     write_csv(os.path.join(output_dir, "data", "equipment_data.csv"), equipment)
@@ -1252,25 +1326,25 @@ def generate_world(seed=42, output_dir="./harfeast_world"):
     write_csv(os.path.join(output_dir, "data", "aptean_report_data.csv"), aptean_data)
     
     # Write text documents
-    write_text(os.path.join(output_dir, "documents", "scrap_rate_report.txt"), generate_scrap_report())
-    
+    write_text(os.path.join(output_dir, "documents", "scrap_rate_report.txt"), generate_scrap_report(cfg))
+
     interviews = generate_interviews()
     for name, text in interviews.items():
         write_text(os.path.join(output_dir, "documents", f"interview_{name}.txt"), text)
     
-    write_text(os.path.join(output_dir, "documents", "frito_lay_case_study.txt"), generate_frito_lay_case())
+    write_text(os.path.join(output_dir, "documents", "frito_lay_case_study.txt"), generate_frito_lay_case(cfg))
     write_text(os.path.join(output_dir, "documents", "aptean_report.txt"), generate_aptean_report_text(aptean_data))
     
     # Compute ground truth
     print("Computing ground truth...")
     truth = compute_ground_truth(
         employees, equipment, quality_losses, plant_labor,
-        bls_wages, attached_wages, oee_assumptions, plant_sales, aptean_data
+        bls_wages, attached_wages, oee_assumptions, plant_sales, aptean_data, cfg
     )
-    
+
     # Generate task prompts and rubrics
     print("Generating tasks...")
-    tasks = generate_task_prompts(truth)
+    tasks = generate_task_prompts(truth, cfg)
     
     # Write tasks and ground truth
     with open(os.path.join(output_dir, "tasks.json"), "w") as f:
@@ -1301,15 +1375,80 @@ def generate_world(seed=42, output_dir="./harfeast_world"):
     return employees, equipment, truth, tasks
 
 
+def generate_worlds_batch(
+    n_worlds: int,
+    output_base: str = "./harfeast_worlds",
+    base_seed: int = 0,
+) -> list[dict]:
+    """
+    Generate n_worlds distinct worlds for RL scalability.
+    Returns manifest of (world_id, path, task_count) for each world.
+    """
+    os.makedirs(output_base, exist_ok=True)
+    rng = random.Random(base_seed)
+    manifest = []
+
+    for i in range(n_worlds):
+        seed = base_seed + i * 10000 + rng.randint(0, 9999)
+        world_dir = os.path.join(output_base, f"world_{i:04d}")
+        try:
+            generate_world(seed=seed, output_dir=world_dir)
+            manifest.append({
+                "world_id": i,
+                "path": world_dir,
+                "seed": seed,
+                "task_count": 14,
+            })
+        except Exception as e:
+            print(f"Warning: world {i} failed: {e}")
+
+    manifest_path = os.path.join(output_base, "manifest.json")
+    with open(manifest_path, "w") as f:
+        json.dump(manifest, f, indent=2)
+
+    # Build all_tasks.json: flat list for sampling (world_path, task_id, prompt)
+    all_tasks = []
+    for m in manifest:
+        tasks_path = os.path.join(m["path"], "tasks.json")
+        with open(tasks_path) as f:
+            tasks = json.load(f)
+        for t in tasks:
+            all_tasks.append({
+                "world_path": m["path"],
+                "world_id": m["world_id"],
+                "task_id": t["task_id"],
+                "task_name": t["task_name"],
+                "prompt": t["prompt"],
+            })
+    with open(os.path.join(output_base, "all_tasks.json"), "w") as f:
+        json.dump(all_tasks, f, indent=2)
+
+    print(f"\nBatch complete: {len(manifest)} worlds, {len(all_tasks)} task instances")
+    return manifest
+
+
 if __name__ == "__main__":
     import sys
     seed = 42
     output_dir = "./harfeast_world"
-    
-    for i, arg in enumerate(sys.argv[1:]):
-        if arg == "--seed" and i + 2 < len(sys.argv):
-            seed = int(sys.argv[i + 2])
-        elif arg == "--output-dir" and i + 2 < len(sys.argv):
-            output_dir = sys.argv[i + 2]
-    
-    generate_world(seed=seed, output_dir=output_dir)
+    batch_n = 0
+
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == "--seed" and i + 1 < len(args):
+            seed = int(args[i + 1])
+            i += 2
+        elif args[i] == "--output-dir" and i + 1 < len(args):
+            output_dir = args[i + 1]
+            i += 2
+        elif args[i] == "--batch" and i + 1 < len(args):
+            batch_n = int(args[i + 1])
+            i += 2
+        else:
+            i += 1
+
+    if batch_n > 0:
+        generate_worlds_batch(n_worlds=batch_n, output_base=output_dir, base_seed=seed)
+    else:
+        generate_world(seed=seed, output_dir=output_dir)

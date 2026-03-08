@@ -1,0 +1,57 @@
+employee_id,plant,role,hourly_wage,annual_hours,union_status,supervisor_type,census_division
+LAB-ROC-000,"Rockford, Illinois",Quality Inspector,16.71,2080,Union,non-production,East North Central
+LAB-ROC-001,"Rockford, Illinois",Maintenance Tech,18.38,2080,Union,non-production,East North Central
+LAB-ROC-002,"Rockford, Illinois",Line Lead,22.04,2080,Union,production,East North Central
+LAB-ROC-003,"Rockford, Illinois",Production Operator,18.83,2080,Non-Union,non-production,East North Central
+LAB-ROC-004,"Rockford, Illinois",Maintenance Tech,19.1,2080,Non-Union,non-production,East North Central
+LAB-ROC-005,"Rockford, Illinois",Line Lead,20.68,2080,Union,production,East North Central
+LAB-ROC-006,"Rockford, Illinois",Production Supervisor,21.34,2080,Union,production,East North Central
+LAB-ROC-007,"Rockford, Illinois",Packaging Operator,21.11,2080,Union,non-production,East North Central
+LAB-ROC-008,"Rockford, Illinois",Production Operator,18.82,2080,Union,non-production,East North Central
+LAB-ROC-009,"Rockford, Illinois",Maintenance Tech,18.12,2080,Non-Union,non-production,East North Central
+LAB-ROC-010,"Rockford, Illinois",Production Supervisor,18.82,2080,Union,production,East North Central
+LAB-ROC-011,"Rockford, Illinois",Production Supervisor,26.64,2080,Non-Union,production,East North Central
+LAB-ROC-012,"Rockford, Illinois",Quality Inspector,20.23,2080,Union,non-production,East North Central
+LAB-ROC-013,"Rockford, Illinois",Packaging Operator,14.74,2080,Non-Union,non-production,East North Central
+LAB-ROC-014,"Rockford, Illinois",Maintenance Tech,18.34,2080,Non-Union,non-production,East North Central
+LAB-ROC-015,"Rockford, Illinois",Maintenance Tech,15.18,2080,Union,non-production,East North Central
+LAB-ROC-016,"Rockford, Illinois",Quality Inspector,14.97,2080,Non-Union,non-production,East North Central
+LAB-ROC-017,"Rockford, Illinois",Production Operator,15.57,2080,Non-Union,non-production,East North Central
+LAB-ROC-018,"Rockford, Illinois",Quality Inspector,19.32,2080,Non-Union,non-production,East North Central
+LAB-ROC-019,"Rockford, Illinois",Production Supervisor,20.27,2080,Union,production,East North Central
+LAB-GRE-020,"Green Bay, Wisconsin",Quality Inspector,17.57,2080,Non-Union,non-production,East North Central
+LAB-GRE-021,"Green Bay, Wisconsin",Line Lead,22.43,2080,Union,production,East North Central
+LAB-GRE-022,"Green Bay, Wisconsin",Production Operator,18.55,2080,Union,non-production,East North Central
+LAB-GRE-023,"Green Bay, Wisconsin",Production Operator,17.53,2080,Union,non-production,East North Central
+LAB-GRE-024,"Green Bay, Wisconsin",Production Operator,21.11,2080,Non-Union,non-production,East North Central
+LAB-GRE-025,"Green Bay, Wisconsin",Line Lead,26.38,2080,Union,production,East North Central
+LAB-GRE-026,"Green Bay, Wisconsin",Packaging Operator,17.56,2080,Union,non-production,East North Central
+LAB-GRE-027,"Green Bay, Wisconsin",Production Supervisor,20.9,2080,Non-Union,production,East North Central
+LAB-GRE-028,"Green Bay, Wisconsin",Maintenance Tech,19.26,2080,Union,non-production,East North Central
+LAB-GRE-029,"Green Bay, Wisconsin",Line Lead,22.46,2080,Union,production,East North Central
+LAB-GRE-030,"Green Bay, Wisconsin",Line Lead,20.76,2080,Union,production,East North Central
+LAB-GRE-031,"Green Bay, Wisconsin",Production Supervisor,19.79,2080,Non-Union,production,East North Central
+LAB-GRE-032,"Green Bay, Wisconsin",Line Lead,23.06,2080,Non-Union,production,East North Central
+LAB-GRE-033,"Green Bay, Wisconsin",Quality Inspector,18.61,2080,Non-Union,non-production,East North Central
+LAB-GRE-034,"Green Bay, Wisconsin",Production Supervisor,23.25,2080,Union,production,East North Central
+LAB-DAV-035,"Davenport, Iowa",Quality Inspector,19.51,2080,Union,non-production,West North Central
+LAB-DAV-036,"Davenport, Iowa",Line Lead,24.48,2080,Non-Union,production,West North Central
+LAB-DAV-037,"Davenport, Iowa",Packaging Operator,20.54,2080,Union,non-production,West North Central
+LAB-DAV-038,"Davenport, Iowa",Production Operator,20.46,2080,Non-Union,non-production,West North Central
+LAB-DAV-039,"Davenport, Iowa",Packaging Operator,16.35,2080,Union,non-production,West North Central
+LAB-DAV-040,"Davenport, Iowa",Quality Inspector,17.71,2080,Union,non-production,West North Central
+LAB-DAV-041,"Davenport, Iowa",Line Lead,17.85,2080,Union,production,West North Central
+LAB-DAV-042,"Davenport, Iowa",Line Lead,23.17,2080,Non-Union,production,West North Central
+LAB-DAV-043,"Davenport, Iowa",Line Lead,20.69,2080,Non-Union,production,West North Central
+LAB-DAV-044,"Davenport, Iowa",Quality Inspector,15.17,2080,Union,non-production,West North Central
+LAB-DAV-045,"Davenport, Iowa",Production Supervisor,21.19,2080,Non-Union,production,West North Central
+LAB-DAV-046,"Davenport, Iowa",Production Supervisor,21.92,2080,Union,production,West North Central
+LAB-DAV-047,"Davenport, Iowa",Maintenance Tech,16.19,2080,Non-Union,non-production,West North Central
+LAB-DAV-048,"Davenport, Iowa",Production Supervisor,22.03,2080,Union,production,West North Central
+LAB-DAV-049,"Davenport, Iowa",Line Lead,19.53,2080,Non-Union,production,West North Central
+LAB-DAV-050,"Davenport, Iowa",Quality Inspector,17.81,2080,Union,non-production,West North Central
+LAB-DAV-051,"Davenport, Iowa",Packaging Operator,19.01,2080,Non-Union,non-production,West North Central
+LAB-DAV-052,"Davenport, Iowa",Quality Inspector,20.22,2080,Union,non-production,West North Central
+LAB-DAV-053,"Davenport, Iowa",Quality Inspector,21.09,2080,Union,non-production,West North Central
+LAB-DAV-054,"Davenport, Iowa",Packaging Operator,19.94,2080,Union,non-production,West North Central
+LAB-DAV-055,"Davenport, Iowa",Maintenance Tech,20.59,2080,Non-Union,non-production,West North Central

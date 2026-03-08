@@ -1,0 +1,12 @@
+HarFeast Food Group - Quality Standards: Scrap Rate Report
+==========================================================
+
+Acceptable scrap rate range: 3.5% - 6.0%
+Target scrap rate (minimum of acceptable range): 3.5%
+
+Plants operating above 6.0% require immediate corrective action and 
+must submit a remediation plan within 30 days. Quarterly reviews will 
+assess progress toward the target rate.
+
+The target scrap rate represents the minimum of the acceptable range 
+and should be used as the baseline for all cost-of-quality calculations.

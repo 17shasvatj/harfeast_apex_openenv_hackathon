@@ -14,12 +14,26 @@ class HarFeastOpenEnv:
     Phase 1-3: files, spreadsheet, data actions, submit with rubric scoring.
     """
 
-    def __init__(self, world_path: str | None = None):
+    def __init__(self, world_path: str | None = None, worlds_base: str | None = None):
+        """
+        Args:
+            world_path: Single world directory (harfeast_world or world_XXXX).
+            worlds_base: Base dir with manifest.json + all_tasks.json for augmented dataset.
+                        When set, reset() samples from all task instances.
+        """
+        self._worlds_base = os.path.abspath(worlds_base) if worlds_base else None
+        self._all_tasks: list[dict] = []
+        if self._worlds_base:
+            at_path = os.path.join(self._worlds_base, "all_tasks.json")
+            if os.path.isfile(at_path):
+                with open(at_path) as f:
+                    self._all_tasks = json.load(f)
+
         self.world_path = world_path or os.path.join(
             os.path.dirname(__file__), "..", "harfeast_world"
         )
         self.world_path = os.path.abspath(self.world_path)
-        
+
         self._task: dict | None = None
         self._tasks: list = []
         self._prompt: str = ""
@@ -60,23 +74,37 @@ class HarFeastOpenEnv:
         self._rubric_score = None
         self._filtered_datasets = {}
         self._rng = random.Random(seed) if seed is not None else random.Random()
-        
-        # Load tasks
-        tasks_path = os.path.join(self.world_path, "tasks.json")
-        if not os.path.isfile(tasks_path):
-            raise FileNotFoundError(f"Tasks not found: {tasks_path}. Run world generator first.")
-        
-        with open(tasks_path, "r", encoding="utf-8") as f:
-            self._tasks = json.load(f)
-        
-        # Select task
-        if task_id:
-            matches = [t for t in self._tasks if t["task_id"] == task_id]
-            if not matches:
-                raise ValueError(f"Task not found: {task_id}")
-            self._task = matches[0]
+
+        # Augmented dataset: sample from all_tasks or use specific task_index
+        task_index = kwargs.get("task_index")
+        if self._all_tasks:
+            if task_index is not None and 0 <= task_index < len(self._all_tasks):
+                entry = self._all_tasks[task_index]
+            else:
+                entry = self._rng.choice(self._all_tasks)
+            wp = entry["world_path"]
+            if not os.path.isabs(wp):
+                # e.g. "./harfeast_worlds/world_0000" -> world_0000
+                wp = os.path.join(self._worlds_base, os.path.basename(wp.rstrip("/")))
+            self.world_path = os.path.abspath(wp)
+            tasks_path = os.path.join(self.world_path, "tasks.json")
+            with open(tasks_path) as f:
+                self._tasks = json.load(f)
+            self._task = next(t for t in self._tasks if t["task_id"] == entry["task_id"])
         else:
-            self._task = self._rng.choice(self._tasks)
+            # Single world
+            tasks_path = os.path.join(self.world_path, "tasks.json")
+            if not os.path.isfile(tasks_path):
+                raise FileNotFoundError(f"Tasks not found: {tasks_path}. Run world generator first.")
+            with open(tasks_path, "r", encoding="utf-8") as f:
+                self._tasks = json.load(f)
+            if task_id:
+                matches = [t for t in self._tasks if t["task_id"] == task_id]
+                if not matches:
+                    raise ValueError(f"Task not found: {task_id}")
+                self._task = matches[0]
+            else:
+                self._task = self._rng.choice(self._tasks)
         
         self._prompt = self._task["prompt"]
         

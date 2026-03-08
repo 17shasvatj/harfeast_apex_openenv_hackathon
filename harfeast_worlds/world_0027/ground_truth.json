@@ -1,0 +1,192 @@
+{
+  "task1": {
+    "high_priority_count": 73,
+    "high_priority_pct": 2.6,
+    "hp_inefficient_hours": 1368.0,
+    "hp_inefficient_pct": 2.4,
+    "hp_frontline": 25,
+    "hp_backoffice": 26,
+    "hp_supervisor": 7,
+    "hp_management": 15
+  },
+  "task2": {
+    "Champaign, Illinois": 27169014472,
+    "Milwaukee, Wisconsin": 27139775898,
+    "Iowa City, Iowa": 27798352552,
+    "Cincinnati, Ohio": 24879148959,
+    "Flint, Michigan": 22608613955
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.0,
+      "units_avoided": 105577
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.7,
+      "units_avoided": 63386
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 66615
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Champaign, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8526
+    },
+    "Milwaukee, Wisconsin": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.8619
+    },
+    "Iowa City, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.8793
+    },
+    "Cincinnati, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.8756
+    },
+    "Flint, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.8683
+    }
+  },
+  "task5": {
+    "Champaign, Illinois": {
+      "total_labor_cost": 861120,
+      "efficiency_gains": 158630,
+      "union_demand_increase": 28566
+    },
+    "Milwaukee, Wisconsin": {
+      "total_labor_cost": 824221,
+      "efficiency_gains": 145045,
+      "union_demand_increase": 27184
+    },
+    "Iowa City, Iowa": {
+      "total_labor_cost": 1040499,
+      "efficiency_gains": 83710,
+      "union_demand_increase": 20313
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Champaign, Illinois": 8.4,
+      "Milwaukee, Wisconsin": 8.4,
+      "Iowa City, Iowa": 8.5,
+      "Cincinnati, Ohio": 37.4,
+      "Flint, Michigan": 37.5
+    },
+    "most_efficient": [
+      "Champaign, Illinois",
+      "Milwaukee, Wisconsin"
+    ],
+    "least_efficient": "Flint, Michigan",
+    "pct_difference": 346
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19759,
+      "Quality Control/Quality Assurance": 22613,
+      "Maintenance Technician": 26089,
+      "Production Supervisor/Team Lead": 28989,
+      "Supply Chain/Logistics Coordinator": 24360,
+      "Demand Planning/Forecasting": 30552,
+      "Administrative/Support Staff": 18572,
+      "Plant Management": 44468
+    },
+    "total_annual_loss": 77407654
+  },
+  "task8": {
+    "hp_quality_losses": 1686602,
+    "hp_pct_of_cv_losses": 36
+  },
+  "task9": {
+    "Champaign, Illinois": {
+      "variance_hours": 19423,
+      "variance_dollars": 381661.95,
+      "productivity_index": 0.89
+    },
+    "Milwaukee, Wisconsin": {
+      "variance_hours": 16365,
+      "variance_dollars": 321572.25,
+      "productivity_index": 0.9
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.39,
+    "annual_productivity_loss": 89378000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Champaign, Illinois": {
+        "new_unit_sales": 21541527,
+        "new_projected_sales": 68932886
+      },
+      "Milwaukee, Wisconsin": {
+        "new_unit_sales": 26211510,
+        "new_projected_sales": 79682990
+      },
+      "Iowa City, Iowa": {
+        "new_unit_sales": 7328218,
+        "new_projected_sales": 43676179
+      },
+      "Cincinnati, Ohio": {
+        "new_unit_sales": 6109270,
+        "new_projected_sales": 43314724
+      },
+      "Flint, Michigan": {
+        "new_unit_sales": 7696358,
+        "new_projected_sales": 45716367
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Champaign, Illinois",
+    "highest_willingness_plant": "Milwaukee, Wisconsin",
+    "lowest_role_in_lowest_plant": [
+      "Supply Chain/Logistics Coordinator",
+      2.44
+    ],
+    "highest_role_in_highest_plant": [
+      "Production/Manufacturing Operator",
+      3.94
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 16,
+        "total_cost": 2112
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 23,
+        "total_cost": 12160
+      }
+    }
+  },
+  "task13": {
+    "Champaign, Illinois": 6,
+    "Milwaukee, Wisconsin": 6,
+    "Iowa City, Iowa": 7,
+    "Cincinnati, Ohio": 7,
+    "Flint, Michigan": 7
+  },
+  "task14": {
+    "trained_count": 1094,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 15,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 34,
+      "Poor - insufficient or unhelpful": 10
+    }
+  }
+}
