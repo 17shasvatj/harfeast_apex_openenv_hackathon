@@ -150,11 +150,11 @@ harfeast_apex_openenv_hackathon/
 - [x] Return reward and `done=True` on submit.
 - [x] Validate end-to-end: agent-style trajectory → submit → score.
 
-### Phase 4: OpenEnv Compatibility
-- [ ] Align with OpenEnv `Environment` base class if provided by hackathon.
-- [ ] Expose HTTP/Docker API if required.
-- [ ] Add `state()` property, `observation_space`, `action_space` descriptors.
-- [ ] Documentation and example agent loop.
+### Phase 4: OpenEnv Compatibility ✅
+- [x] Align with OpenEnv `Environment` base class (OpenEnv 0.2.1).
+- [x] Expose HTTP/Docker API (FastAPI server, Dockerfile for HF Spaces).
+- [x] Add `state` property, `HarFeastObservation` with step_count, etc.
+- [x] Documentation (README, HF_SPACES_DEPLOY.md) and training script (train_harfeast.py).
 
 ---
 

@@ -1,1 +1,6 @@
-# No external dependencies - uses stdlib only
+# No external dependencies for harfeast_openenv - uses stdlib only
+
+# For OpenEnv deployment and training:
+# openenv-core>=0.2.1
+# trl  # For GRPO training
+# datasets  # For Dataset
