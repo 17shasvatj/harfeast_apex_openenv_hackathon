@@ -10,7 +10,6 @@ from statistics import median as stat_median
 
 from .schemas import ActionResult
 
-from .schemas import ActionResult
 
 # ── Observation size limits ──────────────────────────────────────
 MAX_TABLE_ROWS = 20
