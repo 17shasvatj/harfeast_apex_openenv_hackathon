@@ -1,0 +1,191 @@
+{
+  "task1": {
+    "high_priority_count": 62,
+    "high_priority_pct": 2.1,
+    "hp_inefficient_hours": 1211.0,
+    "hp_inefficient_pct": 2.0,
+    "hp_frontline": 20,
+    "hp_backoffice": 21,
+    "hp_supervisor": 9,
+    "hp_management": 12
+  },
+  "task2": {
+    "Rockford, Illinois": 21953848911,
+    "Madison, Wisconsin": 24458886590,
+    "Cedar Rapids, Iowa": 22802801503,
+    "Toledo, Ohio": 29409892855,
+    "Kalamazoo, Michigan": 24998918795
+  },
+  "task3": {
+    "Canned Vegetables": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 111266
+    },
+    "Condiments": {
+      "new_scrap_rate_pct": 6.3,
+      "units_avoided": 54095
+    },
+    "Sauces": {
+      "new_scrap_rate_pct": 6.4,
+      "units_avoided": 59592
+    }
+  },
+  "task4": {
+    "digital_lever": "IoT Sensors for yield",
+    "Rockford, Illinois": {
+      "first_year_exceeds": 2028,
+      "oee_at_that_year": 0.87
+    },
+    "Madison, Wisconsin": {
+      "first_year_exceeds": 2029,
+      "oee_at_that_year": 0.872
+    },
+    "Cedar Rapids, Iowa": {
+      "first_year_exceeds": 2027,
+      "oee_at_that_year": 0.864
+    },
+    "Toledo, Ohio": {
+      "first_year_exceeds": 2031,
+      "oee_at_that_year": 0.855
+    },
+    "Kalamazoo, Michigan": {
+      "first_year_exceeds": 2032,
+      "oee_at_that_year": 0.854
+    }
+  },
+  "task5": {
+    "Rockford, Illinois": {
+      "total_labor_cost": 638123,
+      "efficiency_gains": 107884,
+      "union_demand_increase": 9497
+    },
+    "Madison, Wisconsin": {
+      "total_labor_cost": 829317,
+      "efficiency_gains": 145081,
+      "union_demand_increase": 16711
+    },
+    "Cedar Rapids, Iowa": {
+      "total_labor_cost": 859290,
+      "efficiency_gains": 81275,
+      "union_demand_increase": 18263
+    }
+  },
+  "task6": {
+    "avg_by_plant": {
+      "Rockford, Illinois": 8.7,
+      "Madison, Wisconsin": 8.5,
+      "Cedar Rapids, Iowa": 8.6,
+      "Toledo, Ohio": 37.1,
+      "Kalamazoo, Michigan": 37.5
+    },
+    "most_efficient": [
+      "Madison, Wisconsin"
+    ],
+    "least_efficient": "Kalamazoo, Michigan",
+    "pct_difference": 341
+  },
+  "task7": {
+    "avg_loss_by_role": {
+      "Production/Manufacturing Operator": 19593,
+      "Quality Control/Quality Assurance": 23110,
+      "Maintenance Technician": 26953,
+      "Production Supervisor/Team Lead": 29838,
+      "Supply Chain/Logistics Coordinator": 24288,
+      "Demand Planning/Forecasting": 31183,
+      "Administrative/Support Staff": 21378,
+      "Plant Management": 45610
+    },
+    "total_annual_loss": 83189910
+  },
+  "task8": {
+    "hp_quality_losses": 1446225,
+    "hp_pct_of_cv_losses": 35
+  },
+  "task9": {
+    "Rockford, Illinois": {
+      "variance_hours": 14519,
+      "variance_dollars": 286895.44,
+      "productivity_index": 0.91
+    },
+    "Madison, Wisconsin": {
+      "variance_hours": 14175,
+      "variance_dollars": 280098.0,
+      "productivity_index": 0.91
+    }
+  },
+  "task10": {
+    "avg_hourly_wage": 30.56,
+    "annual_productivity_loss": 96668000
+  },
+  "task11": {
+    "top5_technologies": [
+      "IoT Sensors",
+      "Predictive Maintenance",
+      "Robotic Automation",
+      "Advanced Analytics",
+      "Cloud ERP"
+    ],
+    "plant_results": {
+      "Cedar Rapids, Iowa": {
+        "new_unit_sales": 22593871,
+        "new_projected_sales": 69815061
+      },
+      "Rockford, Illinois": {
+        "new_unit_sales": 28208106,
+        "new_projected_sales": 88009291
+      },
+      "Madison, Wisconsin": {
+        "new_unit_sales": 6408444,
+        "new_projected_sales": 38322495
+      },
+      "Toledo, Ohio": {
+        "new_unit_sales": 6696002,
+        "new_projected_sales": 45934574
+      },
+      "Kalamazoo, Michigan": {
+        "new_unit_sales": 8763683,
+        "new_projected_sales": 52757372
+      }
+    }
+  },
+  "task12": {
+    "lowest_willingness_plant": "Rockford, Illinois",
+    "highest_willingness_plant": "Cedar Rapids, Iowa",
+    "lowest_role_in_lowest_plant": [
+      "Supply Chain/Logistics Coordinator",
+      2.41
+    ],
+    "highest_role_in_highest_plant": [
+      "Administrative/Support Staff",
+      3.92
+    ],
+    "training_details": {
+      "lowest_plant_lowest_role": {
+        "preferred_length": "<1 day",
+        "count_1_2_days": 19,
+        "total_cost": 2656
+      },
+      "highest_plant_highest_role": {
+        "preferred_length": ">2 days",
+        "count_1_2_days": 24,
+        "total_cost": 11520
+      }
+    }
+  },
+  "task13": {
+    "Rockford, Illinois": 5,
+    "Madison, Wisconsin": 6,
+    "Cedar Rapids, Iowa": 6,
+    "Toledo, Ohio": 5,
+    "Kalamazoo, Michigan": 5
+  },
+  "task14": {
+    "trained_count": 1202,
+    "quality_pcts": {
+      "Excellent- comprehensive and very helpful": 14,
+      "Good- adequate for most needs": 41,
+      "Fair- some gaps or inconsistencies": 36,
+      "Poor - insufficient or unhelpful": 9
+    }
+  }
+}
