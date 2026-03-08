@@ -1,5 +1,9 @@
 # HarFeast: Teaching LLMs to Think Like Management Consultants
 
+<p align="center">
+  <img src="Mercor-logo.png" alt="Mercor" height="80">
+</p>
+
 **OpenEnv Hackathon 2026 | Mercor Sub-Theme (Statement 2) + Scaler AI Labs (Statement 3.1)**
 
 > *Can a 4B-parameter model learn to navigate an enterprise data landscape, chain analytical tools, and produce verifiable consulting deliverables — from reward signal alone?*
