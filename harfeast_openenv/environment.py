@@ -273,23 +273,61 @@ class HarFeastOpenEnv:
             error=f"Unknown action: {name}",
         )
 
-    def _make_step_result(
-        self,
-        observation: str,
-        action_taken: str,
-        success: bool = True,
-        last_error: str | None = None,
-    ) -> StepResult:
-        """Build StepResult from action outcome."""
-        return StepResult(
-            observation=observation,
-            prompt=self._prompt,
-            step_count=self._step_count,
-            done=self._done,
-            reward=self._rubric_score if self._done else 0.0,
-            info={
-                "action_taken": action_taken,
-                "datasets_available": list(self._filtered_datasets.keys()),
-                "last_error": last_error,
-            },
-        )
+    CONTEXT_WINDOW_STEPS = 5
+
+    def _build_context_summary(self) -> str:
+        """Compact summary of the episode so far, prepended to every observation."""
+        if not self._history:
+            return ""
+
+        lines = [f"=== Task: {self._task['task_name']} ==="]
+        prompt_short = self._prompt[:200] + "..." if len(self._prompt) > 200 else self._prompt
+        lines.append(prompt_short)
+
+        total = len(self._history)
+
+        if total > CONTEXT_WINDOW_STEPS:
+            older = total - CONTEXT_WINDOW_STEPS
+            lines.append(f"=== Context ({older} earlier steps omitted) ===")
+            recent = self._history[-CONTEXT_WINDOW_STEPS:]
+        else:
+            lines.append(f"=== Context (steps 1-{total}) ===")
+            recent = self._history
+
+        for entry in recent:
+            action = entry["action"]
+            action_name = action.get("action", "?")
+            obs = entry["observation"]
+            if len(obs) > 120:
+                obs_short = obs[:120] + "..."
+            else:
+                obs_short = obs
+            obs_short = " ".join(obs_short.split())
+            lines.append(f"  Step {entry['step']}: {action_name} → {obs_short}")
+
+        ds = list(self._filtered_datasets.keys())
+        if ds:
+            lines.append(f"  Available datasets: {', '.join(ds)}")
+
+        lines.append("=== Current ===")
+        return "\n".join(lines) + "\n"
+
+
+def _make_step_result(self, observation, action_taken, success=True, last_error=None):
+    """Build StepResult from action outcome."""
+    # Prepend history context so the agent always has full episode context
+    context = self._build_context_summary()
+    full_observation = context + observation
+
+    return StepResult(
+        observation=full_observation,
+        prompt=self._prompt,
+        step_count=self._step_count,
+        done=self._done,
+        reward=self._rubric_score if self._done else 0.0,
+        info={
+            "action_taken": action_taken,
+            "datasets_available": list(self._filtered_datasets.keys()),
+            "last_error": last_error,
+        },
+    )
