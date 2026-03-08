@@ -45,6 +45,9 @@ class HarFeastOpenEnv:
         self._rng: random.Random | None = None
         self._history: list[dict] = []
 
+        self.CONTEXT_WINDOW_STEPS = 5
+        self.MAX_STEPS = 20
+
     @property
     def state(self) -> dict:
         """Current environment state."""
@@ -133,6 +136,13 @@ class HarFeastOpenEnv:
                 reward=self._rubric_score or 0.0,
                 info={"action_taken": "none", "last_error": "Episode already ended"},
             )
+        if self._step_count >= self.MAX_STEPS:
+            self._done = True
+            return self._make_step_result(
+                observation=f"Episode terminated: reached {self.MAX_STEPS} step limit without submitting.",
+                action_taken="timeout"
+            )
+
         
         try:
             name, params = parse_action(action)
@@ -273,7 +283,6 @@ class HarFeastOpenEnv:
             error=f"Unknown action: {name}",
         )
 
-    CONTEXT_WINDOW_STEPS = 5
 
     def _build_context_summary(self) -> str:
         """Compact summary of the episode so far, prepended to every observation."""
@@ -286,8 +295,8 @@ class HarFeastOpenEnv:
 
         total = len(self._history)
 
-        if total > CONTEXT_WINDOW_STEPS:
-            older = total - CONTEXT_WINDOW_STEPS
+        if total > self.CONTEXT_WINDOW_STEPS:
+            older = total - self.CONTEXT_WINDOW_STEPS
             lines.append(f"=== Context ({older} earlier steps omitted) ===")
             recent = self._history[-CONTEXT_WINDOW_STEPS:]
         else:
@@ -313,21 +322,21 @@ class HarFeastOpenEnv:
         return "\n".join(lines) + "\n"
 
 
-def _make_step_result(self, observation, action_taken, success=True, last_error=None):
-    """Build StepResult from action outcome."""
-    # Prepend history context so the agent always has full episode context
-    context = self._build_context_summary()
-    full_observation = context + observation
+    def _make_step_result(self, observation, action_taken, success=True, last_error=None):
+        """Build StepResult from action outcome."""
+        # Prepend history context so the agent always has full episode context
+        context = self._build_context_summary()
+        full_observation = context + observation
 
-    return StepResult(
-        observation=full_observation,
-        prompt=self._prompt,
-        step_count=self._step_count,
-        done=self._done,
-        reward=self._rubric_score if self._done else 0.0,
-        info={
-            "action_taken": action_taken,
-            "datasets_available": list(self._filtered_datasets.keys()),
-            "last_error": last_error,
-        },
-    )
+        return StepResult(
+            observation=full_observation,
+            prompt=self._prompt,
+            step_count=self._step_count,
+            done=self._done,
+            reward=self._rubric_score if self._done else 0.0,
+            info={
+                "action_taken": action_taken,
+                "datasets_available": list(self._filtered_datasets.keys()),
+                "last_error": last_error,
+            },
+        )
