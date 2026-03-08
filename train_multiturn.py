@@ -79,11 +79,15 @@ def extract_json_action(text):
     return None
 
 
+THINK_SKIP = "<think>\n</think>\n"
+
+
 def batched_rollout(model, tokenizer, world_path, task_id, K=8,
-                    max_turns=10, temperature=0.8):
+                    max_turns=10, temperature=0.8, max_new_tokens=512):
     """
     Run K trajectories in PARALLEL using batched model.generate().
     Each trajectory gets its own environment instance.
+    Thinking mode is disabled for Qwen3 by injecting closing think tags.
     Returns: (list_of_messages, list_of_rewards, list_of_turns)
     """
     import torch
@@ -115,6 +119,7 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
             p = tokenizer.apply_chat_template(
                 all_messages[i], tokenize=False, add_generation_prompt=True
             )
+            p += THINK_SKIP
             prompts.append(p)
 
         inputs = tokenizer(
@@ -125,7 +130,7 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
-                max_new_tokens=150,
+                max_new_tokens=max_new_tokens,
                 temperature=temperature,
                 do_sample=True,
                 top_p=0.9,
@@ -293,7 +298,7 @@ def main():
     parser.add_argument("--model", default="unsloth/Qwen3-4B")
     parser.add_argument("--world", default="./harfeast_world")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--num-generations", type=int, default=8,
+    parser.add_argument("--num-generations", type=int, default=16,
                         help="Trajectories per task (batched)")
     parser.add_argument("--max-turns", type=int, default=10)
     parser.add_argument("--lr", type=float, default=5e-6)
