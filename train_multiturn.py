@@ -83,7 +83,8 @@ THINK_SKIP = "<think>\n</think>\n"
 
 
 def batched_rollout(model, tokenizer, world_path, task_id, K=8,
-                    max_turns=10, temperature=0.8, max_new_tokens=512):
+                    max_turns=10, temperature=0.8, max_new_tokens=512,
+                    max_length=6144, force_submit=True):
     """
     Run K trajectories in PARALLEL using batched model.generate().
     Each trajectory gets its own environment instance.
@@ -124,7 +125,7 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
 
         inputs = tokenizer(
             prompts, return_tensors="pt", truncation=True,
-            max_length=8192, padding=True,
+            max_length=max_length, padding=True,
         ).to(model.device)
 
         with torch.no_grad():
@@ -162,11 +163,26 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
                 all_rewards[i] = step_result.reward / 100.0
                 all_done[i] = True
 
+    if force_submit:
+        for i in range(K):
+            if not all_done[i]:
+                last_content = ""
+                for msg in reversed(all_messages[i]):
+                    if msg["role"] == "user" and msg["content"] != "Invalid action. Output a single JSON object with an 'action' key.":
+                        last_content = msg["content"][:500]
+                        break
+                submit_action = {"action": "submit", "answer": last_content}
+                step_result = envs[i].step(submit_action)
+                all_messages[i].append({"role": "assistant", "content": json.dumps(submit_action)})
+                all_messages[i].append({"role": "user", "content": step_result.observation})
+                all_rewards[i] = step_result.reward / 100.0
+                all_done[i] = True
+
     tokenizer.padding_side = orig_pad_side
     return all_messages, all_rewards, all_turns
 
 
-def compute_turn_loss(model, tokenizer, messages, turn_index):
+def compute_turn_loss(model, tokenizer, messages, turn_index, max_length=6144):
     """Cross-entropy for one assistant turn."""
     import torch
 
@@ -180,7 +196,7 @@ def compute_turn_loss(model, tokenizer, messages, turn_index):
 
     prompt_ids = tokenizer(prompt_text, return_tensors="pt").input_ids
     full_ids = tokenizer(
-        full_text, return_tensors="pt", truncation=True, max_length=8192
+        full_text, return_tensors="pt", truncation=True, max_length=max_length
     ).input_ids.to(model.device)
 
     if full_ids.shape[1] <= prompt_ids.shape[1]:
@@ -195,7 +211,7 @@ def compute_turn_loss(model, tokenizer, messages, turn_index):
     return outputs.loss
 
 
-def compute_trajectory_loss(model, tokenizer, messages, advantage):
+def compute_trajectory_loss(model, tokenizer, messages, advantage, max_length=6144):
     """GRPO loss = advantage * mean(CE over assistant turns)."""
     import torch
 
@@ -205,7 +221,7 @@ def compute_trajectory_loss(model, tokenizer, messages, advantage):
     for i, msg in enumerate(messages):
         if msg["role"] != "assistant":
             continue
-        loss = compute_turn_loss(model, tokenizer, messages, i)
+        loss = compute_turn_loss(model, tokenizer, messages, i, max_length=max_length)
         if loss is not None:
             total_loss = total_loss + loss
             n += 1
@@ -216,7 +232,7 @@ def compute_trajectory_loss(model, tokenizer, messages, advantage):
     return advantage * (total_loss / n)
 
 
-def run_eval(model, tokenizer, world_path, tasks, label="Eval"):
+def run_eval(model, tokenizer, world_path, tasks, label="Eval", max_length=6144, max_new_tokens=512):
     """Evaluate with multi-turn interaction on all unique tasks."""
     import torch
     from harfeast_openenv.rubric import score_answer
@@ -240,6 +256,7 @@ def run_eval(model, tokenizer, world_path, tasks, label="Eval"):
         msgs_list, rewards, turns_list = batched_rollout(
             model, tokenizer, world_path, t["task_id"],
             K=1, max_turns=12, temperature=0.3,
+            max_length=max_length, max_new_tokens=max_new_tokens,
         )
 
         env_check = HarFeastOpenEnv(world_path=world_path)
@@ -298,9 +315,13 @@ def main():
     parser.add_argument("--model", default="unsloth/Qwen3-4B")
     parser.add_argument("--world", default="./harfeast_world")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--num-generations", type=int, default=16,
+    parser.add_argument("--num-generations", type=int, default=2,
                         help="Trajectories per task (batched)")
     parser.add_argument("--max-turns", type=int, default=10)
+    parser.add_argument("--max-length", type=int, default=6144,
+                        help="Max sequence length (context window)")
+    parser.add_argument("--max-new-tokens", type=int, default=512,
+                        help="Max new tokens per generation")
     parser.add_argument("--lr", type=float, default=5e-6)
     parser.add_argument("--temperature", type=float, default=0.8)
     parser.add_argument("--eval-before", action="store_true", default=True)
@@ -356,7 +377,8 @@ def main():
     before_score, before_results = None, None
     if args.eval_before:
         before_score, before_results = run_eval(
-            model, tokenizer, world_path, tasks, "BEFORE training (multi-turn)"
+            model, tokenizer, world_path, tasks, "BEFORE training (multi-turn)",
+            max_length=args.max_length, max_new_tokens=args.max_new_tokens,
         )
         if use_wandb:
             wandb.log({"eval/before_score": before_score})
@@ -371,6 +393,8 @@ def main():
     print(f"  Epochs:       {args.epochs}")
     print(f"  Generations:  {K} per task (batched generation)")
     print(f"  Max turns:    {args.max_turns}")
+    print(f"  Max length:   {args.max_length}")
+    print(f"  Max new tok:  {args.max_new_tokens}")
     print(f"  LR:           {args.lr}")
     print(f"  Temperature:  {args.temperature}")
     print(f"{'='*60}\n")
@@ -397,6 +421,8 @@ def main():
                 model, tokenizer, world_path, task["task_id"],
                 K=K, max_turns=args.max_turns, temperature=args.temperature,
             )
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
 
             epoch_rewards.extend(rewards)
 
@@ -417,22 +443,22 @@ def main():
 
             steps_with_signal += 1
 
-            # ── Train on trajectories ──
+            # ── Train on trajectories (gradient accumulation to avoid OOM) ──
             model.train()
             optimizer.zero_grad()
 
-            batch_loss = torch.tensor(0.0, device=model.device, requires_grad=True)
             n_valid = 0
-
+            loss_sum = 0.0
             for traj, adv in zip(trajectories, advantages):
-                loss = compute_trajectory_loss(model, tokenizer, traj, adv)
+                loss = compute_trajectory_loss(model, tokenizer, traj, adv, max_length=args.max_length)
                 if loss.requires_grad:
-                    batch_loss = batch_loss + loss
+                    (loss / len(trajectories)).backward()
                     n_valid += 1
+                    loss_sum += loss.item()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
 
             if n_valid > 0:
-                batch_loss = batch_loss / n_valid
-                batch_loss.backward()
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 optimizer.step()
                 global_step += 1
@@ -442,7 +468,7 @@ def main():
                 torch.cuda.empty_cache()
 
             task_time = time.time() - task_start
-            loss_val = batch_loss.item()
+            loss_val = loss_sum / n_valid if n_valid > 0 else 0.0
             print(
                 f"  [{t_idx+1}/{len(tasks)}] {task['task_id']}  "
                 f"r=[{', '.join(f'{r:.2f}' for r in rewards)}]  "
@@ -503,7 +529,8 @@ def main():
 
     # ── After-training eval ──
     after_score, after_results = run_eval(
-        model, tokenizer, world_path, tasks, "AFTER training (multi-turn)"
+        model, tokenizer, world_path, tasks, "AFTER training (multi-turn)",
+        max_length=args.max_length, max_new_tokens=args.max_new_tokens,
     )
 
     if use_wandb:
@@ -542,6 +569,8 @@ def main():
         "epochs": args.epochs,
         "num_generations": args.num_generations,
         "max_turns": args.max_turns,
+        "max_length": args.max_length,
+        "max_new_tokens": args.max_new_tokens,
         "learning_rate": args.lr,
         "temperature": args.temperature,
         "before_score": before_score,
