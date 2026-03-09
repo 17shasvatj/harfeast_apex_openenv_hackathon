@@ -569,9 +569,11 @@ def main():
     print(f"{'='*60}")
 
     if before_results and after_results:
+        after_by_id = {r["task_id"]: r for r in after_results}
         print(f"\n{'Task':<10} {'Before':>10} {'After':>10} {'Delta':>10}")
         print("-" * 44)
-        for rb, ra in zip(before_results, after_results):
+        for rb in before_results:
+            ra = after_by_id.get(rb["task_id"], rb)
             d = ra["score"] - rb["score"]
             sign = "+" if d >= 0 else ""
             print(
