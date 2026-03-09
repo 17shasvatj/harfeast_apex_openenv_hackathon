@@ -406,6 +406,7 @@ def main():
 
     global_step = 0
     train_history = []
+    os.makedirs(args.output_dir, exist_ok=True)
     log_path = os.path.join(args.output_dir, "train_log.jsonl")
 
     for epoch in range(args.epochs):
