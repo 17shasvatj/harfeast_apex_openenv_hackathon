@@ -405,6 +405,8 @@ def main():
         model.gradient_checkpointing_enable()
 
     global_step = 0
+    train_history = []
+    log_path = os.path.join(args.output_dir, "train_log.jsonl")
 
     for epoch in range(args.epochs):
         print(f"\n--- Epoch {epoch + 1}/{args.epochs} ---")
@@ -434,6 +436,12 @@ def main():
 
             if var_r < 1e-10:
                 task_time = time.time() - task_start
+                entry = {"epoch": epoch+1, "task": task["task_id"], "step": global_step,
+                         "mean_reward": mean_r, "rewards": rewards, "loss": 0.0,
+                         "variance": 0.0, "signal": False, "time_s": round(task_time, 1)}
+                train_history.append(entry)
+                with open(log_path, "a") as lf:
+                    lf.write(json.dumps(entry) + "\n")
                 print(
                     f"  [{t_idx+1}/{len(tasks)}] {task['task_id']}  "
                     f"r={mean_r:.3f} turns={[t for t in turns_list]}  "
@@ -475,6 +483,13 @@ def main():
                 f"adv_range=[{min(advantages):+.2f},{max(advantages):+.2f}]  "
                 f"loss={loss_val:.4f}  step={global_step}  ({task_time:.0f}s)"
             )
+
+            entry = {"epoch": epoch+1, "task": task["task_id"], "step": global_step,
+                     "mean_reward": mean_r, "rewards": rewards, "loss": round(loss_val, 6),
+                     "variance": round(var_r, 6), "signal": True, "time_s": round(task_time, 1)}
+            train_history.append(entry)
+            with open(log_path, "a") as lf:
+                lf.write(json.dumps(entry) + "\n")
 
             if use_wandb:
                 wandb.log({

@@ -4,9 +4,9 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --time=8:00:00
 #SBATCH --job-name=harfeast_mt
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:v100-sxm2:1
+#SBATCH --gres=gpu:a100:1
 #SBATCH --output=logs/harfeast_%j.out
 #SBATCH --error=logs/harfeast_%j.err
 
@@ -39,11 +39,11 @@ if [ ! -f harfeast_world/tasks.json ]; then
 fi
 echo "Data ready"
 
-# ── Multi-Turn GRPO Training (smaller GPU, 8h) ─────────────────────
+# ── Multi-Turn GRPO Training (A100 80GB) ────────────────────────
 echo ""
 echo "=== Starting Multi-Turn GRPO training ==="
 echo "Model:      unsloth/Qwen3-4B"
-echo "Training:   K=2, max_length=6144, max_new_tokens=512"
+echo "Training:   K=8, max_length=6144, max_new_tokens=512"
 echo "Epochs:     6"
 echo "Max turns:  10"
 echo ""
@@ -52,7 +52,7 @@ python train_multiturn.py \
     --model unsloth/Qwen3-4B \
     --world ./harfeast_world \
     --epochs 6 \
-    --num-generations 2 \
+    --num-generations 8 \
     --max-turns 10 \
     --max-length 6144 \
     --max-new-tokens 512 \
