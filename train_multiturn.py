@@ -80,6 +80,7 @@ def extract_json_action(text):
 
 
 THINK_SKIP = "<think>\n</think>\n"
+DISABLE_THINK = False
 
 
 def batched_rollout(model, tokenizer, world_path, task_id, K=8,
@@ -117,10 +118,12 @@ def batched_rollout(model, tokenizer, world_path, task_id, K=8,
 
         prompts = []
         for i in active:
-            p = tokenizer.apply_chat_template(
-                all_messages[i], tokenize=False, add_generation_prompt=True
-            )
-            p += THINK_SKIP
+            tpl_kwargs = dict(tokenize=False, add_generation_prompt=True)
+            if DISABLE_THINK:
+                tpl_kwargs["enable_thinking"] = False
+            p = tokenizer.apply_chat_template(all_messages[i], **tpl_kwargs)
+            if not DISABLE_THINK and "qwen3" in getattr(tokenizer, "name_or_path", "").lower():
+                p += THINK_SKIP
             prompts.append(p)
 
         inputs = tokenizer(
@@ -189,10 +192,13 @@ def compute_turn_loss(model, tokenizer, messages, turn_index, max_length=6144):
     prefix_msgs = messages[:turn_index]
     full_msgs = messages[:turn_index + 1]
 
+    tpl_kwargs = dict(tokenize=False)
+    if DISABLE_THINK:
+        tpl_kwargs["enable_thinking"] = False
     prompt_text = tokenizer.apply_chat_template(
-        prefix_msgs, tokenize=False, add_generation_prompt=True
+        prefix_msgs, add_generation_prompt=True, **tpl_kwargs
     )
-    full_text = tokenizer.apply_chat_template(full_msgs, tokenize=False)
+    full_text = tokenizer.apply_chat_template(full_msgs, **tpl_kwargs)
 
     prompt_ids = tokenizer(prompt_text, return_tensors="pt").input_ids
     full_ids = tokenizer(
@@ -327,7 +333,14 @@ def main():
     parser.add_argument("--eval-before", action="store_true", default=True)
     parser.add_argument("--no-eval-before", dest="eval_before", action="store_false")
     parser.add_argument("--output-dir", default="./checkpoints_multiturn")
+    parser.add_argument("--no-think", action="store_true",
+                        help="Disable Qwen3 thinking mode (or use for non-thinking models)")
     args = parser.parse_args()
+
+    global DISABLE_THINK
+    if args.no_think:
+        DISABLE_THINK = True
+        print("Thinking mode DISABLED")
 
     start_time = time.time()
     world_path = os.path.abspath(args.world)
