@@ -1,0 +1,270 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "training_type": "multi-turn GRPO (batched)",
+  "epochs": 10,
+  "num_generations": 16,
+  "max_turns": 15,
+  "max_length": 8192,
+  "max_new_tokens": 768,
+  "learning_rate": 5e-06,
+  "temperature": 0.7,
+  "before_score": 9.8,
+  "after_score": 20.7,
+  "before_results": [
+    {
+      "task_id": "task_01",
+      "task_name": "High-Priority Digital Training Employees",
+      "passed": 0,
+      "total": 8,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_02",
+      "task_name": "Adjusted Cost of Instability",
+      "passed": 0,
+      "total": 5,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_03",
+      "task_name": "Predictive Maintenance Scrap Impact",
+      "passed": 1,
+      "total": 6,
+      "score": 16.7,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_04",
+      "task_name": "Digital Lever Agreement and OEE Projections",
+      "passed": 0,
+      "total": 11,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_05",
+      "task_name": "Labor Cost Analysis",
+      "passed": 0,
+      "total": 9,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_06",
+      "task_name": "Operational Efficiency Analysis",
+      "passed": 0,
+      "total": 10,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_07",
+      "task_name": "Productivity Loss Quantification",
+      "passed": 0,
+      "total": 9,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_08",
+      "task_name": "High-Priority Equipment Quality Losses",
+      "passed": 0,
+      "total": 2,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_09",
+      "task_name": "Labor Variance Analysis",
+      "passed": 0,
+      "total": 6,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_10",
+      "task_name": "Updated Productivity Loss with New Wages",
+      "passed": 1,
+      "total": 2,
+      "score": 50.0,
+      "turns": 8,
+      "submitted": true
+    },
+    {
+      "task_id": "task_11",
+      "task_name": "Technology Investment Impact",
+      "passed": 0,
+      "total": 10,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_12",
+      "task_name": "Digital Adoption Willingness Analysis",
+      "passed": 2,
+      "total": 4,
+      "score": 50.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_13",
+      "task_name": "Frito-Lay Downtime Reduction Application",
+      "passed": 5,
+      "total": 5,
+      "score": 100.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_14",
+      "task_name": "Training Quality Assessment",
+      "passed": 0,
+      "total": 5,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    }
+  ],
+  "after_results": [
+    {
+      "task_id": "task_06",
+      "task_name": "Operational Efficiency Analysis",
+      "passed": 4,
+      "total": 10,
+      "score": 40.0,
+      "turns": 9,
+      "submitted": true
+    },
+    {
+      "task_id": "task_13",
+      "task_name": "Frito-Lay Downtime Reduction Application",
+      "passed": 5,
+      "total": 5,
+      "score": 100.0,
+      "turns": 8,
+      "submitted": true
+    },
+    {
+      "task_id": "task_08",
+      "task_name": "High-Priority Equipment Quality Losses",
+      "passed": 0,
+      "total": 2,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_04",
+      "task_name": "Digital Lever Agreement and OEE Projections",
+      "passed": 1,
+      "total": 11,
+      "score": 9.1,
+      "turns": 6,
+      "submitted": true
+    },
+    {
+      "task_id": "task_12",
+      "task_name": "Digital Adoption Willingness Analysis",
+      "passed": 2,
+      "total": 4,
+      "score": 50.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_02",
+      "task_name": "Adjusted Cost of Instability",
+      "passed": 0,
+      "total": 5,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_05",
+      "task_name": "Labor Cost Analysis",
+      "passed": 0,
+      "total": 9,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_14",
+      "task_name": "Training Quality Assessment",
+      "passed": 3,
+      "total": 5,
+      "score": 60.0,
+      "turns": 10,
+      "submitted": true
+    },
+    {
+      "task_id": "task_01",
+      "task_name": "High-Priority Digital Training Employees",
+      "passed": 2,
+      "total": 8,
+      "score": 25.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_10",
+      "task_name": "Updated Productivity Loss with New Wages",
+      "passed": 1,
+      "total": 2,
+      "score": 50.0,
+      "turns": 8,
+      "submitted": true
+    },
+    {
+      "task_id": "task_11",
+      "task_name": "Technology Investment Impact",
+      "passed": 0,
+      "total": 10,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_03",
+      "task_name": "Predictive Maintenance Scrap Impact",
+      "passed": 1,
+      "total": 6,
+      "score": 16.7,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_09",
+      "task_name": "Labor Variance Analysis",
+      "passed": 0,
+      "total": 6,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    },
+    {
+      "task_id": "task_07",
+      "task_name": "Productivity Loss Quantification",
+      "passed": 0,
+      "total": 9,
+      "score": 0.0,
+      "turns": 12,
+      "submitted": true
+    }
+  ],
+  "total_time_s": 19248.4
+}
